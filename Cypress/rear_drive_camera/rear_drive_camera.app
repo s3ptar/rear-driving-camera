@@ -1,0 +1,6 @@
+<PSOC_DB>
+  <PSOC_PROJECT_LIST>
+    <PSOC_PROJECT PATH="\rear_drive_camera.cmx" IS_ACTIVE="TRUE" />
+    <PSOC_PROJECT PATH="\PDProject1\PDProject1.cmx" IS_ACTIVE="FALSE" />
+  </PSOC_PROJECT_LIST>
+</PSOC_DB>
