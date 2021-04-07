@@ -1,0 +1,2053 @@
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccilzRKI.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"ISR_HC_SR04_1.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.ISR_HC_SR04_1_SetVector,"ax",%progbits
+  20              		.align	2
+  21              		.global	ISR_HC_SR04_1_SetVector
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	ISR_HC_SR04_1_SetVector, %function
+  25              	ISR_HC_SR04_1_SetVector:
+  26              	.LFB4:
+  27              		.file 1 "Generated_Source\\PSoC5\\ISR_HC_SR04_1.c"
+   1:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** /*******************************************************************************
+   2:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** * File Name: ISR_HC_SR04_1.c  
+   3:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** * Version 1.71
+   4:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *
+   5:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *  Description:
+   6:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *   API for controlling the state of an interrupt.
+   7:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *
+   8:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *
+   9:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *  Note:
+  10:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *
+  11:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** ********************************************************************************
+  12:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** * Copyright 2008-2015, Cypress Semiconductor Corporation.  All rights reserved.
+  13:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** * You may use this file only in accordance with the license, terms, conditions, 
+  14:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** * disclaimers, and limitations in the end user license agreement accompanying 
+  15:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** * the software package with which this file was provided.
+  16:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *******************************************************************************/
+  17:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** 
+  18:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** 
+  19:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** #include <cydevice_trm.h>
+  20:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** #include <CyLib.h>
+  21:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** #include <ISR_HC_SR04_1.h>
+  22:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** #include "cyapicallbacks.h"
+  23:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** 
+  24:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** #if !defined(ISR_HC_SR04_1__REMOVED) /* Check for removal by optimization */
+  25:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** 
+  26:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** /*******************************************************************************
+  27:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *  Place your includes, defines and code here 
+  28:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** ********************************************************************************/
+  29:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** #include "HC_SR04_1_REG.h"
+  30:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** #include "User_LED.h"
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccilzRKI.s 			page 2
+
+
+  31:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** /* `#START ISR_HC_SR04_1_intc` */
+  32:Generated_Source\PSoC5/ISR_HC_SR04_1.c ****     
+  33:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** 
+  34:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** /* `#END` */
+  35:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** 
+  36:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** #ifndef CYINT_IRQ_BASE
+  37:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** #define CYINT_IRQ_BASE      16
+  38:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** #endif /* CYINT_IRQ_BASE */
+  39:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** #ifndef CYINT_VECT_TABLE
+  40:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** #define CYINT_VECT_TABLE    ((cyisraddress **) CYREG_NVIC_VECT_OFFSET)
+  41:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** #endif /* CYINT_VECT_TABLE */
+  42:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** 
+  43:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** /* Declared in startup, used to set unused interrupts to. */
+  44:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** CY_ISR_PROTO(IntDefaultHandler);
+  45:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** 
+  46:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** 
+  47:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** /*******************************************************************************
+  48:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** * Function Name: ISR_HC_SR04_1_Start
+  49:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** ********************************************************************************
+  50:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *
+  51:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** * Summary:
+  52:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *  Set up the interrupt and enable it. This function disables the interrupt, 
+  53:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *  sets the default interrupt vector, sets the priority from the value in the
+  54:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *  Design Wide Resources Interrupt Editor, then enables the interrupt to the 
+  55:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *  interrupt controller.
+  56:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *
+  57:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** * Parameters:  
+  58:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *   None
+  59:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *
+  60:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** * Return:
+  61:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *   None
+  62:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *
+  63:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *******************************************************************************/
+  64:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** void ISR_HC_SR04_1_Start(void)
+  65:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** {
+  66:Generated_Source\PSoC5/ISR_HC_SR04_1.c ****     /* For all we know the interrupt is active. */
+  67:Generated_Source\PSoC5/ISR_HC_SR04_1.c ****     ISR_HC_SR04_1_Disable();
+  68:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** 
+  69:Generated_Source\PSoC5/ISR_HC_SR04_1.c ****     /* Set the ISR to point to the ISR_HC_SR04_1 Interrupt. */
+  70:Generated_Source\PSoC5/ISR_HC_SR04_1.c ****     ISR_HC_SR04_1_SetVector(&ISR_HC_SR04_1_Interrupt);
+  71:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** 
+  72:Generated_Source\PSoC5/ISR_HC_SR04_1.c ****     /* Set the priority. */
+  73:Generated_Source\PSoC5/ISR_HC_SR04_1.c ****     ISR_HC_SR04_1_SetPriority((uint8)ISR_HC_SR04_1_INTC_PRIOR_NUMBER);
+  74:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** 
+  75:Generated_Source\PSoC5/ISR_HC_SR04_1.c ****     /* Enable it. */
+  76:Generated_Source\PSoC5/ISR_HC_SR04_1.c ****     ISR_HC_SR04_1_Enable();
+  77:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** }
+  78:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** 
+  79:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** 
+  80:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** /*******************************************************************************
+  81:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** * Function Name: ISR_HC_SR04_1_StartEx
+  82:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** ********************************************************************************
+  83:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *
+  84:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** * Summary:
+  85:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *  Sets up the interrupt and enables it. This function disables the interrupt,
+  86:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *  sets the interrupt vector based on the address passed in, sets the priority 
+  87:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *  from the value in the Design Wide Resources Interrupt Editor, then enables 
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccilzRKI.s 			page 3
+
+
+  88:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *  the interrupt to the interrupt controller.
+  89:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *  
+  90:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *  When defining ISR functions, the CY_ISR and CY_ISR_PROTO macros should be 
+  91:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *  used to provide consistent definition across compilers:
+  92:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *  
+  93:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *  Function definition example:
+  94:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *   CY_ISR(MyISR)
+  95:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *   {
+  96:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *   }
+  97:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *   Function prototype example:
+  98:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *   CY_ISR_PROTO(MyISR);
+  99:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *
+ 100:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** * Parameters:  
+ 101:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *   address: Address of the ISR to set in the interrupt vector table.
+ 102:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *
+ 103:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** * Return:
+ 104:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *   None
+ 105:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *
+ 106:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *******************************************************************************/
+ 107:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** void ISR_HC_SR04_1_StartEx(cyisraddress address)
+ 108:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** {
+ 109:Generated_Source\PSoC5/ISR_HC_SR04_1.c ****     /* For all we know the interrupt is active. */
+ 110:Generated_Source\PSoC5/ISR_HC_SR04_1.c ****     ISR_HC_SR04_1_Disable();
+ 111:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** 
+ 112:Generated_Source\PSoC5/ISR_HC_SR04_1.c ****     /* Set the ISR to point to the ISR_HC_SR04_1 Interrupt. */
+ 113:Generated_Source\PSoC5/ISR_HC_SR04_1.c ****     ISR_HC_SR04_1_SetVector(address);
+ 114:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** 
+ 115:Generated_Source\PSoC5/ISR_HC_SR04_1.c ****     /* Set the priority. */
+ 116:Generated_Source\PSoC5/ISR_HC_SR04_1.c ****     ISR_HC_SR04_1_SetPriority((uint8)ISR_HC_SR04_1_INTC_PRIOR_NUMBER);
+ 117:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** 
+ 118:Generated_Source\PSoC5/ISR_HC_SR04_1.c ****     /* Enable it. */
+ 119:Generated_Source\PSoC5/ISR_HC_SR04_1.c ****     ISR_HC_SR04_1_Enable();
+ 120:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** }
+ 121:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** 
+ 122:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** 
+ 123:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** /*******************************************************************************
+ 124:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** * Function Name: ISR_HC_SR04_1_Stop
+ 125:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** ********************************************************************************
+ 126:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *
+ 127:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** * Summary:
+ 128:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *   Disables and removes the interrupt.
+ 129:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *
+ 130:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** * Parameters:  
+ 131:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *   None
+ 132:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *
+ 133:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** * Return:
+ 134:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *   None
+ 135:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *
+ 136:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *******************************************************************************/
+ 137:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** void ISR_HC_SR04_1_Stop(void)
+ 138:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** {
+ 139:Generated_Source\PSoC5/ISR_HC_SR04_1.c ****     /* Disable this interrupt. */
+ 140:Generated_Source\PSoC5/ISR_HC_SR04_1.c ****     ISR_HC_SR04_1_Disable();
+ 141:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** 
+ 142:Generated_Source\PSoC5/ISR_HC_SR04_1.c ****     /* Set the ISR to point to the passive one. */
+ 143:Generated_Source\PSoC5/ISR_HC_SR04_1.c ****     ISR_HC_SR04_1_SetVector(&IntDefaultHandler);
+ 144:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** }
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccilzRKI.s 			page 4
+
+
+ 145:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** 
+ 146:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** 
+ 147:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** /*******************************************************************************
+ 148:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** * Function Name: ISR_HC_SR04_1_Interrupt
+ 149:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** ********************************************************************************
+ 150:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *
+ 151:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** * Summary:
+ 152:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *   The default Interrupt Service Routine for ISR_HC_SR04_1.
+ 153:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *
+ 154:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *   Add custom code between the coments to keep the next version of this file
+ 155:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *   from over writting your code.
+ 156:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *
+ 157:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** * Parameters:  
+ 158:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *
+ 159:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** * Return:
+ 160:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *   None
+ 161:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *
+ 162:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *******************************************************************************/
+ 163:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** CY_ISR(ISR_HC_SR04_1_Interrupt)
+ 164:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** {
+ 165:Generated_Source\PSoC5/ISR_HC_SR04_1.c ****     #ifdef ISR_HC_SR04_1_INTERRUPT_INTERRUPT_CALLBACK
+ 166:Generated_Source\PSoC5/ISR_HC_SR04_1.c ****         ISR_HC_SR04_1_Interrupt_InterruptCallback();
+ 167:Generated_Source\PSoC5/ISR_HC_SR04_1.c ****     #endif /* ISR_HC_SR04_1_INTERRUPT_INTERRUPT_CALLBACK */ 
+ 168:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** 
+ 169:Generated_Source\PSoC5/ISR_HC_SR04_1.c ****     /*  Place your Interrupt code here. */
+ 170:Generated_Source\PSoC5/ISR_HC_SR04_1.c ****     extern uint8_t HC_SR01_Distance;
+ 171:Generated_Source\PSoC5/ISR_HC_SR04_1.c ****     HC_SR01_Distance = HC_SR04_1_REG_Read();
+ 172:Generated_Source\PSoC5/ISR_HC_SR04_1.c ****     ISR_HC_SR04_1_ClearPending();
+ 173:Generated_Source\PSoC5/ISR_HC_SR04_1.c ****     User_LED_Write(!User_LED_Read());
+ 174:Generated_Source\PSoC5/ISR_HC_SR04_1.c ****     /* `#START ISR_HC_SR04_1_Interrupt` */
+ 175:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** 
+ 176:Generated_Source\PSoC5/ISR_HC_SR04_1.c ****     /* `#END` */
+ 177:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** }
+ 178:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** 
+ 179:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** 
+ 180:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** /*******************************************************************************
+ 181:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** * Function Name: ISR_HC_SR04_1_SetVector
+ 182:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** ********************************************************************************
+ 183:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *
+ 184:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** * Summary:
+ 185:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *   Change the ISR vector for the Interrupt. Note calling ISR_HC_SR04_1_Start
+ 186:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *   will override any effect this method would have had. To set the vector 
+ 187:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *   before the component has been started use ISR_HC_SR04_1_StartEx instead.
+ 188:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** * 
+ 189:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *   When defining ISR functions, the CY_ISR and CY_ISR_PROTO macros should be 
+ 190:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *   used to provide consistent definition across compilers:
+ 191:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *
+ 192:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *   Function definition example:
+ 193:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *   CY_ISR(MyISR)
+ 194:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *   {
+ 195:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *   }
+ 196:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *
+ 197:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *   Function prototype example:
+ 198:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *     CY_ISR_PROTO(MyISR);
+ 199:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *
+ 200:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** * Parameters:
+ 201:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *   address: Address of the ISR to set in the interrupt vector table.
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccilzRKI.s 			page 5
+
+
+ 202:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *
+ 203:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** * Return:
+ 204:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *   None
+ 205:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *
+ 206:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *******************************************************************************/
+ 207:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** void ISR_HC_SR04_1_SetVector(cyisraddress address)
+ 208:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** {
+  28              		.loc 1 208 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+  33              	.LVL0:
+ 209:Generated_Source\PSoC5/ISR_HC_SR04_1.c ****     cyisraddress * ramVectorTable;
+ 210:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** 
+ 211:Generated_Source\PSoC5/ISR_HC_SR04_1.c ****     ramVectorTable = (cyisraddress *) *CYINT_VECT_TABLE;
+  34              		.loc 1 211 0
+  35 0000 014B     		ldr	r3, .L2
+  36 0002 1B68     		ldr	r3, [r3]
+  37              	.LVL1:
+ 212:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** 
+ 213:Generated_Source\PSoC5/ISR_HC_SR04_1.c ****     ramVectorTable[CYINT_IRQ_BASE + (uint32)ISR_HC_SR04_1__INTC_NUMBER] = address;
+  38              		.loc 1 213 0
+  39 0004 1867     		str	r0, [r3, #112]
+  40 0006 7047     		bx	lr
+  41              	.L3:
+  42              		.align	2
+  43              	.L2:
+  44 0008 08ED00E0 		.word	-536810232
+  45              		.cfi_endproc
+  46              	.LFE4:
+  47              		.size	ISR_HC_SR04_1_SetVector, .-ISR_HC_SR04_1_SetVector
+  48              		.section	.text.ISR_HC_SR04_1_GetVector,"ax",%progbits
+  49              		.align	2
+  50              		.global	ISR_HC_SR04_1_GetVector
+  51              		.thumb
+  52              		.thumb_func
+  53              		.type	ISR_HC_SR04_1_GetVector, %function
+  54              	ISR_HC_SR04_1_GetVector:
+  55              	.LFB5:
+ 214:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** }
+ 215:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** 
+ 216:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** 
+ 217:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** /*******************************************************************************
+ 218:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** * Function Name: ISR_HC_SR04_1_GetVector
+ 219:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** ********************************************************************************
+ 220:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *
+ 221:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** * Summary:
+ 222:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *   Gets the "address" of the current ISR vector for the Interrupt.
+ 223:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *
+ 224:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** * Parameters:
+ 225:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *   None
+ 226:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *
+ 227:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** * Return:
+ 228:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *   Address of the ISR in the interrupt vector table.
+ 229:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *
+ 230:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *******************************************************************************/
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccilzRKI.s 			page 6
+
+
+ 231:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** cyisraddress ISR_HC_SR04_1_GetVector(void)
+ 232:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** {
+  56              		.loc 1 232 0
+  57              		.cfi_startproc
+  58              		@ args = 0, pretend = 0, frame = 0
+  59              		@ frame_needed = 0, uses_anonymous_args = 0
+  60              		@ link register save eliminated.
+ 233:Generated_Source\PSoC5/ISR_HC_SR04_1.c ****     cyisraddress * ramVectorTable;
+ 234:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** 
+ 235:Generated_Source\PSoC5/ISR_HC_SR04_1.c ****     ramVectorTable = (cyisraddress *) *CYINT_VECT_TABLE;
+  61              		.loc 1 235 0
+  62 0000 014B     		ldr	r3, .L5
+  63 0002 1B68     		ldr	r3, [r3]
+  64              	.LVL2:
+ 236:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** 
+ 237:Generated_Source\PSoC5/ISR_HC_SR04_1.c ****     return ramVectorTable[CYINT_IRQ_BASE + (uint32)ISR_HC_SR04_1__INTC_NUMBER];
+ 238:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** }
+  65              		.loc 1 238 0
+  66 0004 186F     		ldr	r0, [r3, #112]
+  67 0006 7047     		bx	lr
+  68              	.L6:
+  69              		.align	2
+  70              	.L5:
+  71 0008 08ED00E0 		.word	-536810232
+  72              		.cfi_endproc
+  73              	.LFE5:
+  74              		.size	ISR_HC_SR04_1_GetVector, .-ISR_HC_SR04_1_GetVector
+  75              		.section	.text.ISR_HC_SR04_1_SetPriority,"ax",%progbits
+  76              		.align	2
+  77              		.global	ISR_HC_SR04_1_SetPriority
+  78              		.thumb
+  79              		.thumb_func
+  80              		.type	ISR_HC_SR04_1_SetPriority, %function
+  81              	ISR_HC_SR04_1_SetPriority:
+  82              	.LFB6:
+ 239:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** 
+ 240:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** 
+ 241:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** /*******************************************************************************
+ 242:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** * Function Name: ISR_HC_SR04_1_SetPriority
+ 243:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** ********************************************************************************
+ 244:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *
+ 245:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** * Summary:
+ 246:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *   Sets the Priority of the Interrupt. 
+ 247:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *
+ 248:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *   Note calling ISR_HC_SR04_1_Start or ISR_HC_SR04_1_StartEx will 
+ 249:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *   override any effect this API would have had. This API should only be called
+ 250:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *   after ISR_HC_SR04_1_Start or ISR_HC_SR04_1_StartEx has been called. 
+ 251:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *   To set the initial priority for the component, use the Design-Wide Resources
+ 252:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *   Interrupt Editor.
+ 253:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *
+ 254:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *   Note This API has no effect on Non-maskable interrupt NMI).
+ 255:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *
+ 256:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** * Parameters:
+ 257:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *   priority: Priority of the interrupt, 0 being the highest priority
+ 258:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *             PSoC 3 and PSoC 5LP: Priority is from 0 to 7.
+ 259:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *             PSoC 4: Priority is from 0 to 3.
+ 260:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccilzRKI.s 			page 7
+
+
+ 261:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** * Return:
+ 262:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *   None
+ 263:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *
+ 264:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *******************************************************************************/
+ 265:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** void ISR_HC_SR04_1_SetPriority(uint8 priority)
+ 266:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** {
+  83              		.loc 1 266 0
+  84              		.cfi_startproc
+  85              		@ args = 0, pretend = 0, frame = 0
+  86              		@ frame_needed = 0, uses_anonymous_args = 0
+  87              		@ link register save eliminated.
+  88              	.LVL3:
+ 267:Generated_Source\PSoC5/ISR_HC_SR04_1.c ****     *ISR_HC_SR04_1_INTC_PRIOR = priority << 5;
+  89              		.loc 1 267 0
+  90 0000 4001     		lsls	r0, r0, #5
+  91              	.LVL4:
+  92 0002 C0B2     		uxtb	r0, r0
+  93 0004 014B     		ldr	r3, .L8
+  94 0006 1870     		strb	r0, [r3]
+  95 0008 7047     		bx	lr
+  96              	.L9:
+  97 000a 00BF     		.align	2
+  98              	.L8:
+  99 000c 0CE400E0 		.word	-536812532
+ 100              		.cfi_endproc
+ 101              	.LFE6:
+ 102              		.size	ISR_HC_SR04_1_SetPriority, .-ISR_HC_SR04_1_SetPriority
+ 103              		.section	.text.ISR_HC_SR04_1_GetPriority,"ax",%progbits
+ 104              		.align	2
+ 105              		.global	ISR_HC_SR04_1_GetPriority
+ 106              		.thumb
+ 107              		.thumb_func
+ 108              		.type	ISR_HC_SR04_1_GetPriority, %function
+ 109              	ISR_HC_SR04_1_GetPriority:
+ 110              	.LFB7:
+ 268:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** }
+ 269:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** 
+ 270:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** 
+ 271:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** /*******************************************************************************
+ 272:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** * Function Name: ISR_HC_SR04_1_GetPriority
+ 273:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** ********************************************************************************
+ 274:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *
+ 275:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** * Summary:
+ 276:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *   Gets the Priority of the Interrupt.
+ 277:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *
+ 278:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** * Parameters:
+ 279:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *   None
+ 280:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *
+ 281:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** * Return:
+ 282:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *   Priority of the interrupt, 0 being the highest priority
+ 283:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *    PSoC 3 and PSoC 5LP: Priority is from 0 to 7.
+ 284:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *    PSoC 4: Priority is from 0 to 3.
+ 285:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *
+ 286:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *******************************************************************************/
+ 287:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** uint8 ISR_HC_SR04_1_GetPriority(void)
+ 288:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** {
+ 111              		.loc 1 288 0
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccilzRKI.s 			page 8
+
+
+ 112              		.cfi_startproc
+ 113              		@ args = 0, pretend = 0, frame = 0
+ 114              		@ frame_needed = 0, uses_anonymous_args = 0
+ 115              		@ link register save eliminated.
+ 289:Generated_Source\PSoC5/ISR_HC_SR04_1.c ****     uint8 priority;
+ 290:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** 
+ 291:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** 
+ 292:Generated_Source\PSoC5/ISR_HC_SR04_1.c ****     priority = *ISR_HC_SR04_1_INTC_PRIOR >> 5;
+ 116              		.loc 1 292 0
+ 117 0000 014B     		ldr	r3, .L11
+ 118 0002 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+ 119              	.LVL5:
+ 293:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** 
+ 294:Generated_Source\PSoC5/ISR_HC_SR04_1.c ****     return priority;
+ 295:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** }
+ 120              		.loc 1 295 0
+ 121 0004 4009     		lsrs	r0, r0, #5
+ 122              	.LVL6:
+ 123 0006 7047     		bx	lr
+ 124              	.L12:
+ 125              		.align	2
+ 126              	.L11:
+ 127 0008 0CE400E0 		.word	-536812532
+ 128              		.cfi_endproc
+ 129              	.LFE7:
+ 130              		.size	ISR_HC_SR04_1_GetPriority, .-ISR_HC_SR04_1_GetPriority
+ 131              		.section	.text.ISR_HC_SR04_1_Enable,"ax",%progbits
+ 132              		.align	2
+ 133              		.global	ISR_HC_SR04_1_Enable
+ 134              		.thumb
+ 135              		.thumb_func
+ 136              		.type	ISR_HC_SR04_1_Enable, %function
+ 137              	ISR_HC_SR04_1_Enable:
+ 138              	.LFB8:
+ 296:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** 
+ 297:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** 
+ 298:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** /*******************************************************************************
+ 299:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** * Function Name: ISR_HC_SR04_1_Enable
+ 300:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** ********************************************************************************
+ 301:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *
+ 302:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** * Summary:
+ 303:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *   Enables the interrupt to the interrupt controller. Do not call this function
+ 304:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *   unless ISR_Start() has been called or the functionality of the ISR_Start() 
+ 305:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *   function, which sets the vector and the priority, has been called.
+ 306:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *
+ 307:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** * Parameters:
+ 308:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *   None
+ 309:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *
+ 310:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** * Return:
+ 311:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *   None
+ 312:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *
+ 313:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *******************************************************************************/
+ 314:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** void ISR_HC_SR04_1_Enable(void)
+ 315:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** {
+ 139              		.loc 1 315 0
+ 140              		.cfi_startproc
+ 141              		@ args = 0, pretend = 0, frame = 0
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccilzRKI.s 			page 9
+
+
+ 142              		@ frame_needed = 0, uses_anonymous_args = 0
+ 143              		@ link register save eliminated.
+ 316:Generated_Source\PSoC5/ISR_HC_SR04_1.c ****     /* Enable the general interrupt. */
+ 317:Generated_Source\PSoC5/ISR_HC_SR04_1.c ****     *ISR_HC_SR04_1_INTC_SET_EN = ISR_HC_SR04_1__INTC_MASK;
+ 144              		.loc 1 317 0
+ 145 0000 4FF48052 		mov	r2, #4096
+ 146 0004 014B     		ldr	r3, .L14
+ 147 0006 1A60     		str	r2, [r3]
+ 148 0008 7047     		bx	lr
+ 149              	.L15:
+ 150 000a 00BF     		.align	2
+ 151              	.L14:
+ 152 000c 00E100E0 		.word	-536813312
+ 153              		.cfi_endproc
+ 154              	.LFE8:
+ 155              		.size	ISR_HC_SR04_1_Enable, .-ISR_HC_SR04_1_Enable
+ 156              		.section	.text.ISR_HC_SR04_1_GetState,"ax",%progbits
+ 157              		.align	2
+ 158              		.global	ISR_HC_SR04_1_GetState
+ 159              		.thumb
+ 160              		.thumb_func
+ 161              		.type	ISR_HC_SR04_1_GetState, %function
+ 162              	ISR_HC_SR04_1_GetState:
+ 163              	.LFB9:
+ 318:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** }
+ 319:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** 
+ 320:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** 
+ 321:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** /*******************************************************************************
+ 322:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** * Function Name: ISR_HC_SR04_1_GetState
+ 323:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** ********************************************************************************
+ 324:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *
+ 325:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** * Summary:
+ 326:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *   Gets the state (enabled, disabled) of the Interrupt.
+ 327:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *
+ 328:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** * Parameters:
+ 329:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *   None
+ 330:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *
+ 331:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** * Return:
+ 332:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *   1 if enabled, 0 if disabled.
+ 333:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *
+ 334:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *******************************************************************************/
+ 335:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** uint8 ISR_HC_SR04_1_GetState(void)
+ 336:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** {
+ 164              		.loc 1 336 0
+ 165              		.cfi_startproc
+ 166              		@ args = 0, pretend = 0, frame = 0
+ 167              		@ frame_needed = 0, uses_anonymous_args = 0
+ 168              		@ link register save eliminated.
+ 337:Generated_Source\PSoC5/ISR_HC_SR04_1.c ****     /* Get the state of the general interrupt. */
+ 338:Generated_Source\PSoC5/ISR_HC_SR04_1.c ****     return ((*ISR_HC_SR04_1_INTC_SET_EN & (uint32)ISR_HC_SR04_1__INTC_MASK) != 0u) ? 1u:0u;
+ 169              		.loc 1 338 0
+ 170 0000 044B     		ldr	r3, .L19
+ 171 0002 1B68     		ldr	r3, [r3]
+ 172 0004 13F4805F 		tst	r3, #4096
+ 173 0008 01D0     		beq	.L18
+ 174 000a 0120     		movs	r0, #1
+ 175 000c 7047     		bx	lr
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccilzRKI.s 			page 10
+
+
+ 176              	.L18:
+ 177 000e 0020     		movs	r0, #0
+ 339:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** }
+ 178              		.loc 1 339 0
+ 179 0010 7047     		bx	lr
+ 180              	.L20:
+ 181 0012 00BF     		.align	2
+ 182              	.L19:
+ 183 0014 00E100E0 		.word	-536813312
+ 184              		.cfi_endproc
+ 185              	.LFE9:
+ 186              		.size	ISR_HC_SR04_1_GetState, .-ISR_HC_SR04_1_GetState
+ 187              		.section	.text.ISR_HC_SR04_1_Disable,"ax",%progbits
+ 188              		.align	2
+ 189              		.global	ISR_HC_SR04_1_Disable
+ 190              		.thumb
+ 191              		.thumb_func
+ 192              		.type	ISR_HC_SR04_1_Disable, %function
+ 193              	ISR_HC_SR04_1_Disable:
+ 194              	.LFB10:
+ 340:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** 
+ 341:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** 
+ 342:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** /*******************************************************************************
+ 343:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** * Function Name: ISR_HC_SR04_1_Disable
+ 344:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** ********************************************************************************
+ 345:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *
+ 346:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** * Summary:
+ 347:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *   Disables the Interrupt in the interrupt controller.
+ 348:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *
+ 349:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** * Parameters:
+ 350:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *   None
+ 351:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *
+ 352:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** * Return:
+ 353:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *   None
+ 354:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *
+ 355:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *******************************************************************************/
+ 356:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** void ISR_HC_SR04_1_Disable(void)
+ 357:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** {
+ 195              		.loc 1 357 0
+ 196              		.cfi_startproc
+ 197              		@ args = 0, pretend = 0, frame = 0
+ 198              		@ frame_needed = 0, uses_anonymous_args = 0
+ 199              		@ link register save eliminated.
+ 358:Generated_Source\PSoC5/ISR_HC_SR04_1.c ****     /* Disable the general interrupt. */
+ 359:Generated_Source\PSoC5/ISR_HC_SR04_1.c ****     *ISR_HC_SR04_1_INTC_CLR_EN = ISR_HC_SR04_1__INTC_MASK;
+ 200              		.loc 1 359 0
+ 201 0000 4FF48052 		mov	r2, #4096
+ 202 0004 014B     		ldr	r3, .L22
+ 203 0006 1A60     		str	r2, [r3]
+ 204 0008 7047     		bx	lr
+ 205              	.L23:
+ 206 000a 00BF     		.align	2
+ 207              	.L22:
+ 208 000c 80E100E0 		.word	-536813184
+ 209              		.cfi_endproc
+ 210              	.LFE10:
+ 211              		.size	ISR_HC_SR04_1_Disable, .-ISR_HC_SR04_1_Disable
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccilzRKI.s 			page 11
+
+
+ 212              		.section	.text.ISR_HC_SR04_1_Start,"ax",%progbits
+ 213              		.align	2
+ 214              		.global	ISR_HC_SR04_1_Start
+ 215              		.thumb
+ 216              		.thumb_func
+ 217              		.type	ISR_HC_SR04_1_Start, %function
+ 218              	ISR_HC_SR04_1_Start:
+ 219              	.LFB0:
+  65:Generated_Source\PSoC5/ISR_HC_SR04_1.c ****     /* For all we know the interrupt is active. */
+ 220              		.loc 1 65 0
+ 221              		.cfi_startproc
+ 222              		@ args = 0, pretend = 0, frame = 0
+ 223              		@ frame_needed = 0, uses_anonymous_args = 0
+ 224 0000 08B5     		push	{r3, lr}
+ 225              		.cfi_def_cfa_offset 8
+ 226              		.cfi_offset 3, -8
+ 227              		.cfi_offset 14, -4
+  67:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** 
+ 228              		.loc 1 67 0
+ 229 0002 FFF7FEFF 		bl	ISR_HC_SR04_1_Disable
+ 230              	.LVL7:
+  70:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** 
+ 231              		.loc 1 70 0
+ 232 0006 0448     		ldr	r0, .L26
+ 233 0008 FFF7FEFF 		bl	ISR_HC_SR04_1_SetVector
+ 234              	.LVL8:
+  73:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** 
+ 235              		.loc 1 73 0
+ 236 000c 0720     		movs	r0, #7
+ 237 000e FFF7FEFF 		bl	ISR_HC_SR04_1_SetPriority
+ 238              	.LVL9:
+  76:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** }
+ 239              		.loc 1 76 0
+ 240 0012 FFF7FEFF 		bl	ISR_HC_SR04_1_Enable
+ 241              	.LVL10:
+ 242 0016 08BD     		pop	{r3, pc}
+ 243              	.L27:
+ 244              		.align	2
+ 245              	.L26:
+ 246 0018 00000000 		.word	ISR_HC_SR04_1_Interrupt
+ 247              		.cfi_endproc
+ 248              	.LFE0:
+ 249              		.size	ISR_HC_SR04_1_Start, .-ISR_HC_SR04_1_Start
+ 250              		.section	.text.ISR_HC_SR04_1_StartEx,"ax",%progbits
+ 251              		.align	2
+ 252              		.global	ISR_HC_SR04_1_StartEx
+ 253              		.thumb
+ 254              		.thumb_func
+ 255              		.type	ISR_HC_SR04_1_StartEx, %function
+ 256              	ISR_HC_SR04_1_StartEx:
+ 257              	.LFB1:
+ 108:Generated_Source\PSoC5/ISR_HC_SR04_1.c ****     /* For all we know the interrupt is active. */
+ 258              		.loc 1 108 0
+ 259              		.cfi_startproc
+ 260              		@ args = 0, pretend = 0, frame = 0
+ 261              		@ frame_needed = 0, uses_anonymous_args = 0
+ 262              	.LVL11:
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccilzRKI.s 			page 12
+
+
+ 263 0000 10B5     		push	{r4, lr}
+ 264              		.cfi_def_cfa_offset 8
+ 265              		.cfi_offset 4, -8
+ 266              		.cfi_offset 14, -4
+ 267 0002 0446     		mov	r4, r0
+ 110:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** 
+ 268              		.loc 1 110 0
+ 269 0004 FFF7FEFF 		bl	ISR_HC_SR04_1_Disable
+ 270              	.LVL12:
+ 113:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** 
+ 271              		.loc 1 113 0
+ 272 0008 2046     		mov	r0, r4
+ 273 000a FFF7FEFF 		bl	ISR_HC_SR04_1_SetVector
+ 274              	.LVL13:
+ 116:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** 
+ 275              		.loc 1 116 0
+ 276 000e 0720     		movs	r0, #7
+ 277 0010 FFF7FEFF 		bl	ISR_HC_SR04_1_SetPriority
+ 278              	.LVL14:
+ 119:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** }
+ 279              		.loc 1 119 0
+ 280 0014 FFF7FEFF 		bl	ISR_HC_SR04_1_Enable
+ 281              	.LVL15:
+ 282 0018 10BD     		pop	{r4, pc}
+ 283              		.cfi_endproc
+ 284              	.LFE1:
+ 285              		.size	ISR_HC_SR04_1_StartEx, .-ISR_HC_SR04_1_StartEx
+ 286 001a 00BF     		.section	.text.ISR_HC_SR04_1_Stop,"ax",%progbits
+ 287              		.align	2
+ 288              		.global	ISR_HC_SR04_1_Stop
+ 289              		.thumb
+ 290              		.thumb_func
+ 291              		.type	ISR_HC_SR04_1_Stop, %function
+ 292              	ISR_HC_SR04_1_Stop:
+ 293              	.LFB2:
+ 138:Generated_Source\PSoC5/ISR_HC_SR04_1.c ****     /* Disable this interrupt. */
+ 294              		.loc 1 138 0
+ 295              		.cfi_startproc
+ 296              		@ args = 0, pretend = 0, frame = 0
+ 297              		@ frame_needed = 0, uses_anonymous_args = 0
+ 298 0000 08B5     		push	{r3, lr}
+ 299              		.cfi_def_cfa_offset 8
+ 300              		.cfi_offset 3, -8
+ 301              		.cfi_offset 14, -4
+ 140:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** 
+ 302              		.loc 1 140 0
+ 303 0002 FFF7FEFF 		bl	ISR_HC_SR04_1_Disable
+ 304              	.LVL16:
+ 143:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** }
+ 305              		.loc 1 143 0
+ 306 0006 0248     		ldr	r0, .L32
+ 307 0008 FFF7FEFF 		bl	ISR_HC_SR04_1_SetVector
+ 308              	.LVL17:
+ 309 000c 08BD     		pop	{r3, pc}
+ 310              	.L33:
+ 311 000e 00BF     		.align	2
+ 312              	.L32:
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccilzRKI.s 			page 13
+
+
+ 313 0010 00000000 		.word	IntDefaultHandler
+ 314              		.cfi_endproc
+ 315              	.LFE2:
+ 316              		.size	ISR_HC_SR04_1_Stop, .-ISR_HC_SR04_1_Stop
+ 317              		.section	.text.ISR_HC_SR04_1_SetPending,"ax",%progbits
+ 318              		.align	2
+ 319              		.global	ISR_HC_SR04_1_SetPending
+ 320              		.thumb
+ 321              		.thumb_func
+ 322              		.type	ISR_HC_SR04_1_SetPending, %function
+ 323              	ISR_HC_SR04_1_SetPending:
+ 324              	.LFB11:
+ 360:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** }
+ 361:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** 
+ 362:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** 
+ 363:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** /*******************************************************************************
+ 364:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** * Function Name: ISR_HC_SR04_1_SetPending
+ 365:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** ********************************************************************************
+ 366:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *
+ 367:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** * Summary:
+ 368:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *   Causes the Interrupt to enter the pending state, a software method of
+ 369:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *   generating the interrupt.
+ 370:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *
+ 371:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** * Parameters:
+ 372:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *   None
+ 373:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *
+ 374:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** * Return:
+ 375:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *   None
+ 376:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *
+ 377:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** * Side Effects:
+ 378:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *   If interrupts are enabled and the interrupt is set up properly, the ISR is
+ 379:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *   entered (depending on the priority of this interrupt and other pending 
+ 380:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *   interrupts).
+ 381:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *
+ 382:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *******************************************************************************/
+ 383:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** void ISR_HC_SR04_1_SetPending(void)
+ 384:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** {
+ 325              		.loc 1 384 0
+ 326              		.cfi_startproc
+ 327              		@ args = 0, pretend = 0, frame = 0
+ 328              		@ frame_needed = 0, uses_anonymous_args = 0
+ 329              		@ link register save eliminated.
+ 385:Generated_Source\PSoC5/ISR_HC_SR04_1.c ****     *ISR_HC_SR04_1_INTC_SET_PD = ISR_HC_SR04_1__INTC_MASK;
+ 330              		.loc 1 385 0
+ 331 0000 4FF48052 		mov	r2, #4096
+ 332 0004 014B     		ldr	r3, .L35
+ 333 0006 1A60     		str	r2, [r3]
+ 334 0008 7047     		bx	lr
+ 335              	.L36:
+ 336 000a 00BF     		.align	2
+ 337              	.L35:
+ 338 000c 00E200E0 		.word	-536813056
+ 339              		.cfi_endproc
+ 340              	.LFE11:
+ 341              		.size	ISR_HC_SR04_1_SetPending, .-ISR_HC_SR04_1_SetPending
+ 342              		.section	.text.ISR_HC_SR04_1_ClearPending,"ax",%progbits
+ 343              		.align	2
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccilzRKI.s 			page 14
+
+
+ 344              		.global	ISR_HC_SR04_1_ClearPending
+ 345              		.thumb
+ 346              		.thumb_func
+ 347              		.type	ISR_HC_SR04_1_ClearPending, %function
+ 348              	ISR_HC_SR04_1_ClearPending:
+ 349              	.LFB12:
+ 386:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** }
+ 387:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** 
+ 388:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** 
+ 389:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** /*******************************************************************************
+ 390:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** * Function Name: ISR_HC_SR04_1_ClearPending
+ 391:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** ********************************************************************************
+ 392:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *
+ 393:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** * Summary:
+ 394:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *   Clears a pending interrupt in the interrupt controller.
+ 395:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *
+ 396:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *   Note Some interrupt sources are clear-on-read and require the block 
+ 397:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *   interrupt/status register to be read/cleared with the appropriate block API 
+ 398:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *   (GPIO, UART, and so on). Otherwise the ISR will continue to remain in 
+ 399:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *   pending state even though the interrupt itself is cleared using this API.
+ 400:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *
+ 401:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** * Parameters:
+ 402:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *   None
+ 403:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *
+ 404:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** * Return:
+ 405:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *   None
+ 406:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *
+ 407:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** *******************************************************************************/
+ 408:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** void ISR_HC_SR04_1_ClearPending(void)
+ 409:Generated_Source\PSoC5/ISR_HC_SR04_1.c **** {
+ 350              		.loc 1 409 0
+ 351              		.cfi_startproc
+ 352              		@ args = 0, pretend = 0, frame = 0
+ 353              		@ frame_needed = 0, uses_anonymous_args = 0
+ 354              		@ link register save eliminated.
+ 410:Generated_Source\PSoC5/ISR_HC_SR04_1.c ****     *ISR_HC_SR04_1_INTC_CLR_PD = ISR_HC_SR04_1__INTC_MASK;
+ 355              		.loc 1 410 0
+ 356 0000 4FF48052 		mov	r2, #4096
+ 357 0004 014B     		ldr	r3, .L38
+ 358 0006 1A60     		str	r2, [r3]
+ 359 0008 7047     		bx	lr
+ 360              	.L39:
+ 361 000a 00BF     		.align	2
+ 362              	.L38:
+ 363 000c 80E200E0 		.word	-536812928
+ 364              		.cfi_endproc
+ 365              	.LFE12:
+ 366              		.size	ISR_HC_SR04_1_ClearPending, .-ISR_HC_SR04_1_ClearPending
+ 367              		.section	.text.ISR_HC_SR04_1_Interrupt,"ax",%progbits
+ 368              		.align	2
+ 369              		.global	ISR_HC_SR04_1_Interrupt
+ 370              		.thumb
+ 371              		.thumb_func
+ 372              		.type	ISR_HC_SR04_1_Interrupt, %function
+ 373              	ISR_HC_SR04_1_Interrupt:
+ 374              	.LFB3:
+ 164:Generated_Source\PSoC5/ISR_HC_SR04_1.c ****     #ifdef ISR_HC_SR04_1_INTERRUPT_INTERRUPT_CALLBACK
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccilzRKI.s 			page 15
+
+
+ 375              		.loc 1 164 0
+ 376              		.cfi_startproc
+ 377              		@ args = 0, pretend = 0, frame = 0
+ 378              		@ frame_needed = 0, uses_anonymous_args = 0
+ 379 0000 08B5     		push	{r3, lr}
+ 380              		.cfi_def_cfa_offset 8
+ 381              		.cfi_offset 3, -8
+ 382              		.cfi_offset 14, -4
+ 171:Generated_Source\PSoC5/ISR_HC_SR04_1.c ****     ISR_HC_SR04_1_ClearPending();
+ 383              		.loc 1 171 0
+ 384 0002 FFF7FEFF 		bl	HC_SR04_1_REG_Read
+ 385              	.LVL18:
+ 386 0006 064B     		ldr	r3, .L42
+ 387 0008 1870     		strb	r0, [r3]
+ 172:Generated_Source\PSoC5/ISR_HC_SR04_1.c ****     User_LED_Write(!User_LED_Read());
+ 388              		.loc 1 172 0
+ 389 000a FFF7FEFF 		bl	ISR_HC_SR04_1_ClearPending
+ 390              	.LVL19:
+ 173:Generated_Source\PSoC5/ISR_HC_SR04_1.c ****     /* `#START ISR_HC_SR04_1_Interrupt` */
+ 391              		.loc 1 173 0
+ 392 000e FFF7FEFF 		bl	User_LED_Read
+ 393              	.LVL20:
+ 394 0012 B0FA80F0 		clz	r0, r0
+ 395 0016 4009     		lsrs	r0, r0, #5
+ 396 0018 FFF7FEFF 		bl	User_LED_Write
+ 397              	.LVL21:
+ 398 001c 08BD     		pop	{r3, pc}
+ 399              	.L43:
+ 400 001e 00BF     		.align	2
+ 401              	.L42:
+ 402 0020 00000000 		.word	HC_SR01_Distance
+ 403              		.cfi_endproc
+ 404              	.LFE3:
+ 405              		.size	ISR_HC_SR04_1_Interrupt, .-ISR_HC_SR04_1_Interrupt
+ 406              		.text
+ 407              	.Letext0:
+ 408              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+ 409              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+ 410              		.file 4 "Generated_Source\\PSoC5/cytypes.h"
+ 411              		.file 5 "Generated_Source\\PSoC5\\HC_SR04_1_REG.h"
+ 412              		.file 6 "Generated_Source\\PSoC5\\User_LED.h"
+ 413              		.section	.debug_info,"",%progbits
+ 414              	.Ldebug_info0:
+ 415 0000 44030000 		.4byte	0x344
+ 416 0004 0400     		.2byte	0x4
+ 417 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 418 000a 04       		.byte	0x4
+ 419 000b 01       		.uleb128 0x1
+ 420 000c A4000000 		.4byte	.LASF40
+ 421 0010 0C       		.byte	0xc
+ 422 0011 95020000 		.4byte	.LASF41
+ 423 0015 D1020000 		.4byte	.LASF42
+ 424 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 425 001d 00000000 		.4byte	0
+ 426 0021 00000000 		.4byte	.Ldebug_line0
+ 427 0025 02       		.uleb128 0x2
+ 428 0026 04       		.byte	0x4
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccilzRKI.s 			page 16
+
+
+ 429 0027 05       		.byte	0x5
+ 430 0028 696E7400 		.ascii	"int\000"
+ 431 002c 03       		.uleb128 0x3
+ 432 002d 04       		.byte	0x4
+ 433 002e 07       		.byte	0x7
+ 434 002f 8F010000 		.4byte	.LASF0
+ 435 0033 03       		.uleb128 0x3
+ 436 0034 08       		.byte	0x8
+ 437 0035 05       		.byte	0x5
+ 438 0036 2C020000 		.4byte	.LASF1
+ 439 003a 03       		.uleb128 0x3
+ 440 003b 08       		.byte	0x8
+ 441 003c 04       		.byte	0x4
+ 442 003d C5020000 		.4byte	.LASF2
+ 443 0041 03       		.uleb128 0x3
+ 444 0042 01       		.byte	0x1
+ 445 0043 06       		.byte	0x6
+ 446 0044 3B030000 		.4byte	.LASF3
+ 447 0048 04       		.uleb128 0x4
+ 448 0049 06000000 		.4byte	.LASF12
+ 449 004d 02       		.byte	0x2
+ 450 004e 1D       		.byte	0x1d
+ 451 004f 53000000 		.4byte	0x53
+ 452 0053 03       		.uleb128 0x3
+ 453 0054 01       		.byte	0x1
+ 454 0055 08       		.byte	0x8
+ 455 0056 96000000 		.4byte	.LASF4
+ 456 005a 03       		.uleb128 0x3
+ 457 005b 02       		.byte	0x2
+ 458 005c 05       		.byte	0x5
+ 459 005d 68020000 		.4byte	.LASF5
+ 460 0061 03       		.uleb128 0x3
+ 461 0062 02       		.byte	0x2
+ 462 0063 07       		.byte	0x7
+ 463 0064 24000000 		.4byte	.LASF6
+ 464 0068 03       		.uleb128 0x3
+ 465 0069 04       		.byte	0x4
+ 466 006a 05       		.byte	0x5
+ 467 006b BC020000 		.4byte	.LASF7
+ 468 006f 03       		.uleb128 0x3
+ 469 0070 04       		.byte	0x4
+ 470 0071 07       		.byte	0x7
+ 471 0072 46010000 		.4byte	.LASF8
+ 472 0076 03       		.uleb128 0x3
+ 473 0077 08       		.byte	0x8
+ 474 0078 07       		.byte	0x7
+ 475 0079 BB010000 		.4byte	.LASF9
+ 476 007d 03       		.uleb128 0x3
+ 477 007e 04       		.byte	0x4
+ 478 007f 07       		.byte	0x7
+ 479 0080 23020000 		.4byte	.LASF10
+ 480 0084 03       		.uleb128 0x3
+ 481 0085 01       		.byte	0x1
+ 482 0086 08       		.byte	0x8
+ 483 0087 3A020000 		.4byte	.LASF11
+ 484 008b 05       		.uleb128 0x5
+ 485 008c 04       		.byte	0x4
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccilzRKI.s 			page 17
+
+
+ 486 008d 91000000 		.4byte	0x91
+ 487 0091 06       		.uleb128 0x6
+ 488 0092 04       		.uleb128 0x4
+ 489 0093 D2010000 		.4byte	.LASF13
+ 490 0097 03       		.byte	0x3
+ 491 0098 18       		.byte	0x18
+ 492 0099 48000000 		.4byte	0x48
+ 493 009d 07       		.uleb128 0x7
+ 494 009e 58010000 		.4byte	.LASF14
+ 495 00a2 04       		.byte	0x4
+ 496 00a3 E801     		.2byte	0x1e8
+ 497 00a5 53000000 		.4byte	0x53
+ 498 00a9 07       		.uleb128 0x7
+ 499 00aa 88010000 		.4byte	.LASF15
+ 500 00ae 04       		.byte	0x4
+ 501 00af EA01     		.2byte	0x1ea
+ 502 00b1 6F000000 		.4byte	0x6f
+ 503 00b5 03       		.uleb128 0x3
+ 504 00b6 04       		.byte	0x4
+ 505 00b7 04       		.byte	0x4
+ 506 00b8 7D000000 		.4byte	.LASF16
+ 507 00bc 03       		.uleb128 0x3
+ 508 00bd 08       		.byte	0x8
+ 509 00be 04       		.byte	0x4
+ 510 00bf 67010000 		.4byte	.LASF17
+ 511 00c3 07       		.uleb128 0x7
+ 512 00c4 32010000 		.4byte	.LASF18
+ 513 00c8 04       		.byte	0x4
+ 514 00c9 9202     		.2byte	0x292
+ 515 00cb CF000000 		.4byte	0xcf
+ 516 00cf 08       		.uleb128 0x8
+ 517 00d0 9D000000 		.4byte	0x9d
+ 518 00d4 07       		.uleb128 0x7
+ 519 00d5 00000000 		.4byte	.LASF19
+ 520 00d9 04       		.byte	0x4
+ 521 00da 9402     		.2byte	0x294
+ 522 00dc E0000000 		.4byte	0xe0
+ 523 00e0 08       		.uleb128 0x8
+ 524 00e1 A9000000 		.4byte	0xa9
+ 525 00e5 07       		.uleb128 0x7
+ 526 00e6 F2010000 		.4byte	.LASF20
+ 527 00ea 04       		.byte	0x4
+ 528 00eb A402     		.2byte	0x2a4
+ 529 00ed 8B000000 		.4byte	0x8b
+ 530 00f1 09       		.uleb128 0x9
+ 531 00f2 4F000000 		.4byte	.LASF22
+ 532 00f6 01       		.byte	0x1
+ 533 00f7 CF       		.byte	0xcf
+ 534 00f8 00000000 		.4byte	.LFB4
+ 535 00fc 0C000000 		.4byte	.LFE4-.LFB4
+ 536 0100 01       		.uleb128 0x1
+ 537 0101 9C       		.byte	0x9c
+ 538 0102 21010000 		.4byte	0x121
+ 539 0106 0A       		.uleb128 0xa
+ 540 0107 B3010000 		.4byte	.LASF24
+ 541 010b 01       		.byte	0x1
+ 542 010c CF       		.byte	0xcf
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccilzRKI.s 			page 18
+
+
+ 543 010d E5000000 		.4byte	0xe5
+ 544 0111 01       		.uleb128 0x1
+ 545 0112 50       		.byte	0x50
+ 546 0113 0B       		.uleb128 0xb
+ 547 0114 3F020000 		.4byte	.LASF21
+ 548 0118 01       		.byte	0x1
+ 549 0119 D1       		.byte	0xd1
+ 550 011a 21010000 		.4byte	0x121
+ 551 011e 01       		.uleb128 0x1
+ 552 011f 53       		.byte	0x53
+ 553 0120 00       		.byte	0
+ 554 0121 05       		.uleb128 0x5
+ 555 0122 04       		.byte	0x4
+ 556 0123 E5000000 		.4byte	0xe5
+ 557 0127 0C       		.uleb128 0xc
+ 558 0128 37000000 		.4byte	.LASF26
+ 559 012c 01       		.byte	0x1
+ 560 012d E7       		.byte	0xe7
+ 561 012e E5000000 		.4byte	0xe5
+ 562 0132 00000000 		.4byte	.LFB5
+ 563 0136 0C000000 		.4byte	.LFE5-.LFB5
+ 564 013a 01       		.uleb128 0x1
+ 565 013b 9C       		.byte	0x9c
+ 566 013c 4E010000 		.4byte	0x14e
+ 567 0140 0B       		.uleb128 0xb
+ 568 0141 3F020000 		.4byte	.LASF21
+ 569 0145 01       		.byte	0x1
+ 570 0146 E9       		.byte	0xe9
+ 571 0147 21010000 		.4byte	0x121
+ 572 014b 01       		.uleb128 0x1
+ 573 014c 53       		.byte	0x53
+ 574 014d 00       		.byte	0
+ 575 014e 0D       		.uleb128 0xd
+ 576 014f 4E020000 		.4byte	.LASF23
+ 577 0153 01       		.byte	0x1
+ 578 0154 0901     		.2byte	0x109
+ 579 0156 00000000 		.4byte	.LFB6
+ 580 015a 10000000 		.4byte	.LFE6-.LFB6
+ 581 015e 01       		.uleb128 0x1
+ 582 015f 9C       		.byte	0x9c
+ 583 0160 75010000 		.4byte	0x175
+ 584 0164 0E       		.uleb128 0xe
+ 585 0165 5E010000 		.4byte	.LASF25
+ 586 0169 01       		.byte	0x1
+ 587 016a 0901     		.2byte	0x109
+ 588 016c 9D000000 		.4byte	0x9d
+ 589 0170 00000000 		.4byte	.LLST0
+ 590 0174 00       		.byte	0
+ 591 0175 0F       		.uleb128 0xf
+ 592 0176 6E010000 		.4byte	.LASF27
+ 593 017a 01       		.byte	0x1
+ 594 017b 1F01     		.2byte	0x11f
+ 595 017d 9D000000 		.4byte	0x9d
+ 596 0181 00000000 		.4byte	.LFB7
+ 597 0185 0C000000 		.4byte	.LFE7-.LFB7
+ 598 0189 01       		.uleb128 0x1
+ 599 018a 9C       		.byte	0x9c
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccilzRKI.s 			page 19
+
+
+ 600 018b A0010000 		.4byte	0x1a0
+ 601 018f 10       		.uleb128 0x10
+ 602 0190 5E010000 		.4byte	.LASF25
+ 603 0194 01       		.byte	0x1
+ 604 0195 2101     		.2byte	0x121
+ 605 0197 9D000000 		.4byte	0x9d
+ 606 019b 21000000 		.4byte	.LLST1
+ 607 019f 00       		.byte	0
+ 608 01a0 11       		.uleb128 0x11
+ 609 01a1 80020000 		.4byte	.LASF28
+ 610 01a5 01       		.byte	0x1
+ 611 01a6 3A01     		.2byte	0x13a
+ 612 01a8 00000000 		.4byte	.LFB8
+ 613 01ac 10000000 		.4byte	.LFE8-.LFB8
+ 614 01b0 01       		.uleb128 0x1
+ 615 01b1 9C       		.byte	0x9c
+ 616 01b2 12       		.uleb128 0x12
+ 617 01b3 9C010000 		.4byte	.LASF43
+ 618 01b7 01       		.byte	0x1
+ 619 01b8 4F01     		.2byte	0x14f
+ 620 01ba 9D000000 		.4byte	0x9d
+ 621 01be 00000000 		.4byte	.LFB9
+ 622 01c2 18000000 		.4byte	.LFE9-.LFB9
+ 623 01c6 01       		.uleb128 0x1
+ 624 01c7 9C       		.byte	0x9c
+ 625 01c8 11       		.uleb128 0x11
+ 626 01c9 67000000 		.4byte	.LASF29
+ 627 01cd 01       		.byte	0x1
+ 628 01ce 6401     		.2byte	0x164
+ 629 01d0 00000000 		.4byte	.LFB10
+ 630 01d4 10000000 		.4byte	.LFE10-.LFB10
+ 631 01d8 01       		.uleb128 0x1
+ 632 01d9 9C       		.byte	0x9c
+ 633 01da 09       		.uleb128 0x9
+ 634 01db 10000000 		.4byte	.LASF30
+ 635 01df 01       		.byte	0x1
+ 636 01e0 40       		.byte	0x40
+ 637 01e1 00000000 		.4byte	.LFB0
+ 638 01e5 1C000000 		.4byte	.LFE0-.LFB0
+ 639 01e9 01       		.uleb128 0x1
+ 640 01ea 9C       		.byte	0x9c
+ 641 01eb 2C020000 		.4byte	0x22c
+ 642 01ef 13       		.uleb128 0x13
+ 643 01f0 06000000 		.4byte	.LVL7
+ 644 01f4 C8010000 		.4byte	0x1c8
+ 645 01f8 14       		.uleb128 0x14
+ 646 01f9 0C000000 		.4byte	.LVL8
+ 647 01fd F1000000 		.4byte	0xf1
+ 648 0201 0F020000 		.4byte	0x20f
+ 649 0205 15       		.uleb128 0x15
+ 650 0206 01       		.uleb128 0x1
+ 651 0207 50       		.byte	0x50
+ 652 0208 05       		.uleb128 0x5
+ 653 0209 03       		.byte	0x3
+ 654 020a 00000000 		.4byte	ISR_HC_SR04_1_Interrupt
+ 655 020e 00       		.byte	0
+ 656 020f 14       		.uleb128 0x14
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccilzRKI.s 			page 20
+
+
+ 657 0210 12000000 		.4byte	.LVL9
+ 658 0214 4E010000 		.4byte	0x14e
+ 659 0218 22020000 		.4byte	0x222
+ 660 021c 15       		.uleb128 0x15
+ 661 021d 01       		.uleb128 0x1
+ 662 021e 50       		.byte	0x50
+ 663 021f 01       		.uleb128 0x1
+ 664 0220 37       		.byte	0x37
+ 665 0221 00       		.byte	0
+ 666 0222 13       		.uleb128 0x13
+ 667 0223 16000000 		.4byte	.LVL10
+ 668 0227 A0010000 		.4byte	0x1a0
+ 669 022b 00       		.byte	0
+ 670 022c 09       		.uleb128 0x9
+ 671 022d 62030000 		.4byte	.LASF31
+ 672 0231 01       		.byte	0x1
+ 673 0232 6B       		.byte	0x6b
+ 674 0233 00000000 		.4byte	.LFB1
+ 675 0237 1A000000 		.4byte	.LFE1-.LFB1
+ 676 023b 01       		.uleb128 0x1
+ 677 023c 9C       		.byte	0x9c
+ 678 023d 8A020000 		.4byte	0x28a
+ 679 0241 16       		.uleb128 0x16
+ 680 0242 B3010000 		.4byte	.LASF24
+ 681 0246 01       		.byte	0x1
+ 682 0247 6B       		.byte	0x6b
+ 683 0248 E5000000 		.4byte	0xe5
+ 684 024c 38000000 		.4byte	.LLST2
+ 685 0250 13       		.uleb128 0x13
+ 686 0251 08000000 		.4byte	.LVL12
+ 687 0255 C8010000 		.4byte	0x1c8
+ 688 0259 14       		.uleb128 0x14
+ 689 025a 0E000000 		.4byte	.LVL13
+ 690 025e F1000000 		.4byte	0xf1
+ 691 0262 6D020000 		.4byte	0x26d
+ 692 0266 15       		.uleb128 0x15
+ 693 0267 01       		.uleb128 0x1
+ 694 0268 50       		.byte	0x50
+ 695 0269 02       		.uleb128 0x2
+ 696 026a 74       		.byte	0x74
+ 697 026b 00       		.sleb128 0
+ 698 026c 00       		.byte	0
+ 699 026d 14       		.uleb128 0x14
+ 700 026e 14000000 		.4byte	.LVL14
+ 701 0272 4E010000 		.4byte	0x14e
+ 702 0276 80020000 		.4byte	0x280
+ 703 027a 15       		.uleb128 0x15
+ 704 027b 01       		.uleb128 0x1
+ 705 027c 50       		.byte	0x50
+ 706 027d 01       		.uleb128 0x1
+ 707 027e 37       		.byte	0x37
+ 708 027f 00       		.byte	0
+ 709 0280 13       		.uleb128 0x13
+ 710 0281 18000000 		.4byte	.LVL15
+ 711 0285 A0010000 		.4byte	0x1a0
+ 712 0289 00       		.byte	0
+ 713 028a 09       		.uleb128 0x9
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccilzRKI.s 			page 21
+
+
+ 714 028b FF010000 		.4byte	.LASF32
+ 715 028f 01       		.byte	0x1
+ 716 0290 89       		.byte	0x89
+ 717 0291 00000000 		.4byte	.LFB2
+ 718 0295 14000000 		.4byte	.LFE2-.LFB2
+ 719 0299 01       		.uleb128 0x1
+ 720 029a 9C       		.byte	0x9c
+ 721 029b B2020000 		.4byte	0x2b2
+ 722 029f 13       		.uleb128 0x13
+ 723 02a0 06000000 		.4byte	.LVL16
+ 724 02a4 C8010000 		.4byte	0x1c8
+ 725 02a8 13       		.uleb128 0x13
+ 726 02a9 0C000000 		.4byte	.LVL17
+ 727 02ad F1000000 		.4byte	0xf1
+ 728 02b1 00       		.byte	0
+ 729 02b2 11       		.uleb128 0x11
+ 730 02b3 78030000 		.4byte	.LASF33
+ 731 02b7 01       		.byte	0x1
+ 732 02b8 7F01     		.2byte	0x17f
+ 733 02ba 00000000 		.4byte	.LFB11
+ 734 02be 10000000 		.4byte	.LFE11-.LFB11
+ 735 02c2 01       		.uleb128 0x1
+ 736 02c3 9C       		.byte	0x9c
+ 737 02c4 11       		.uleb128 0x11
+ 738 02c5 47030000 		.4byte	.LASF34
+ 739 02c9 01       		.byte	0x1
+ 740 02ca 9801     		.2byte	0x198
+ 741 02cc 00000000 		.4byte	.LFB12
+ 742 02d0 10000000 		.4byte	.LFE12-.LFB12
+ 743 02d4 01       		.uleb128 0x1
+ 744 02d5 9C       		.byte	0x9c
+ 745 02d6 09       		.uleb128 0x9
+ 746 02d7 DA010000 		.4byte	.LASF35
+ 747 02db 01       		.byte	0x1
+ 748 02dc A3       		.byte	0xa3
+ 749 02dd 00000000 		.4byte	.LFB3
+ 750 02e1 24000000 		.4byte	.LFE3-.LFB3
+ 751 02e5 01       		.uleb128 0x1
+ 752 02e6 9C       		.byte	0x9c
+ 753 02e7 1B030000 		.4byte	0x31b
+ 754 02eb 17       		.uleb128 0x17
+ 755 02ec 12020000 		.4byte	.LASF36
+ 756 02f0 01       		.byte	0x1
+ 757 02f1 AA       		.byte	0xaa
+ 758 02f2 92000000 		.4byte	0x92
+ 759 02f6 13       		.uleb128 0x13
+ 760 02f7 06000000 		.4byte	.LVL18
+ 761 02fb 26030000 		.4byte	0x326
+ 762 02ff 13       		.uleb128 0x13
+ 763 0300 0E000000 		.4byte	.LVL19
+ 764 0304 C4020000 		.4byte	0x2c4
+ 765 0308 13       		.uleb128 0x13
+ 766 0309 12000000 		.4byte	.LVL20
+ 767 030d 31030000 		.4byte	0x331
+ 768 0311 13       		.uleb128 0x13
+ 769 0312 1C000000 		.4byte	.LVL21
+ 770 0316 3C030000 		.4byte	0x33c
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccilzRKI.s 			page 22
+
+
+ 771 031a 00       		.byte	0
+ 772 031b 17       		.uleb128 0x17
+ 773 031c 12020000 		.4byte	.LASF36
+ 774 0320 01       		.byte	0x1
+ 775 0321 AA       		.byte	0xaa
+ 776 0322 92000000 		.4byte	0x92
+ 777 0326 18       		.uleb128 0x18
+ 778 0327 83000000 		.4byte	.LASF37
+ 779 032b 83000000 		.4byte	.LASF37
+ 780 032f 05       		.byte	0x5
+ 781 0330 30       		.byte	0x30
+ 782 0331 18       		.uleb128 0x18
+ 783 0332 72020000 		.4byte	.LASF38
+ 784 0336 72020000 		.4byte	.LASF38
+ 785 033a 06       		.byte	0x6
+ 786 033b 29       		.byte	0x29
+ 787 033c 18       		.uleb128 0x18
+ 788 033d 37010000 		.4byte	.LASF39
+ 789 0341 37010000 		.4byte	.LASF39
+ 790 0345 06       		.byte	0x6
+ 791 0346 26       		.byte	0x26
+ 792 0347 00       		.byte	0
+ 793              		.section	.debug_abbrev,"",%progbits
+ 794              	.Ldebug_abbrev0:
+ 795 0000 01       		.uleb128 0x1
+ 796 0001 11       		.uleb128 0x11
+ 797 0002 01       		.byte	0x1
+ 798 0003 25       		.uleb128 0x25
+ 799 0004 0E       		.uleb128 0xe
+ 800 0005 13       		.uleb128 0x13
+ 801 0006 0B       		.uleb128 0xb
+ 802 0007 03       		.uleb128 0x3
+ 803 0008 0E       		.uleb128 0xe
+ 804 0009 1B       		.uleb128 0x1b
+ 805 000a 0E       		.uleb128 0xe
+ 806 000b 55       		.uleb128 0x55
+ 807 000c 17       		.uleb128 0x17
+ 808 000d 11       		.uleb128 0x11
+ 809 000e 01       		.uleb128 0x1
+ 810 000f 10       		.uleb128 0x10
+ 811 0010 17       		.uleb128 0x17
+ 812 0011 00       		.byte	0
+ 813 0012 00       		.byte	0
+ 814 0013 02       		.uleb128 0x2
+ 815 0014 24       		.uleb128 0x24
+ 816 0015 00       		.byte	0
+ 817 0016 0B       		.uleb128 0xb
+ 818 0017 0B       		.uleb128 0xb
+ 819 0018 3E       		.uleb128 0x3e
+ 820 0019 0B       		.uleb128 0xb
+ 821 001a 03       		.uleb128 0x3
+ 822 001b 08       		.uleb128 0x8
+ 823 001c 00       		.byte	0
+ 824 001d 00       		.byte	0
+ 825 001e 03       		.uleb128 0x3
+ 826 001f 24       		.uleb128 0x24
+ 827 0020 00       		.byte	0
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccilzRKI.s 			page 23
+
+
+ 828 0021 0B       		.uleb128 0xb
+ 829 0022 0B       		.uleb128 0xb
+ 830 0023 3E       		.uleb128 0x3e
+ 831 0024 0B       		.uleb128 0xb
+ 832 0025 03       		.uleb128 0x3
+ 833 0026 0E       		.uleb128 0xe
+ 834 0027 00       		.byte	0
+ 835 0028 00       		.byte	0
+ 836 0029 04       		.uleb128 0x4
+ 837 002a 16       		.uleb128 0x16
+ 838 002b 00       		.byte	0
+ 839 002c 03       		.uleb128 0x3
+ 840 002d 0E       		.uleb128 0xe
+ 841 002e 3A       		.uleb128 0x3a
+ 842 002f 0B       		.uleb128 0xb
+ 843 0030 3B       		.uleb128 0x3b
+ 844 0031 0B       		.uleb128 0xb
+ 845 0032 49       		.uleb128 0x49
+ 846 0033 13       		.uleb128 0x13
+ 847 0034 00       		.byte	0
+ 848 0035 00       		.byte	0
+ 849 0036 05       		.uleb128 0x5
+ 850 0037 0F       		.uleb128 0xf
+ 851 0038 00       		.byte	0
+ 852 0039 0B       		.uleb128 0xb
+ 853 003a 0B       		.uleb128 0xb
+ 854 003b 49       		.uleb128 0x49
+ 855 003c 13       		.uleb128 0x13
+ 856 003d 00       		.byte	0
+ 857 003e 00       		.byte	0
+ 858 003f 06       		.uleb128 0x6
+ 859 0040 15       		.uleb128 0x15
+ 860 0041 00       		.byte	0
+ 861 0042 27       		.uleb128 0x27
+ 862 0043 19       		.uleb128 0x19
+ 863 0044 00       		.byte	0
+ 864 0045 00       		.byte	0
+ 865 0046 07       		.uleb128 0x7
+ 866 0047 16       		.uleb128 0x16
+ 867 0048 00       		.byte	0
+ 868 0049 03       		.uleb128 0x3
+ 869 004a 0E       		.uleb128 0xe
+ 870 004b 3A       		.uleb128 0x3a
+ 871 004c 0B       		.uleb128 0xb
+ 872 004d 3B       		.uleb128 0x3b
+ 873 004e 05       		.uleb128 0x5
+ 874 004f 49       		.uleb128 0x49
+ 875 0050 13       		.uleb128 0x13
+ 876 0051 00       		.byte	0
+ 877 0052 00       		.byte	0
+ 878 0053 08       		.uleb128 0x8
+ 879 0054 35       		.uleb128 0x35
+ 880 0055 00       		.byte	0
+ 881 0056 49       		.uleb128 0x49
+ 882 0057 13       		.uleb128 0x13
+ 883 0058 00       		.byte	0
+ 884 0059 00       		.byte	0
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccilzRKI.s 			page 24
+
+
+ 885 005a 09       		.uleb128 0x9
+ 886 005b 2E       		.uleb128 0x2e
+ 887 005c 01       		.byte	0x1
+ 888 005d 3F       		.uleb128 0x3f
+ 889 005e 19       		.uleb128 0x19
+ 890 005f 03       		.uleb128 0x3
+ 891 0060 0E       		.uleb128 0xe
+ 892 0061 3A       		.uleb128 0x3a
+ 893 0062 0B       		.uleb128 0xb
+ 894 0063 3B       		.uleb128 0x3b
+ 895 0064 0B       		.uleb128 0xb
+ 896 0065 27       		.uleb128 0x27
+ 897 0066 19       		.uleb128 0x19
+ 898 0067 11       		.uleb128 0x11
+ 899 0068 01       		.uleb128 0x1
+ 900 0069 12       		.uleb128 0x12
+ 901 006a 06       		.uleb128 0x6
+ 902 006b 40       		.uleb128 0x40
+ 903 006c 18       		.uleb128 0x18
+ 904 006d 9742     		.uleb128 0x2117
+ 905 006f 19       		.uleb128 0x19
+ 906 0070 01       		.uleb128 0x1
+ 907 0071 13       		.uleb128 0x13
+ 908 0072 00       		.byte	0
+ 909 0073 00       		.byte	0
+ 910 0074 0A       		.uleb128 0xa
+ 911 0075 05       		.uleb128 0x5
+ 912 0076 00       		.byte	0
+ 913 0077 03       		.uleb128 0x3
+ 914 0078 0E       		.uleb128 0xe
+ 915 0079 3A       		.uleb128 0x3a
+ 916 007a 0B       		.uleb128 0xb
+ 917 007b 3B       		.uleb128 0x3b
+ 918 007c 0B       		.uleb128 0xb
+ 919 007d 49       		.uleb128 0x49
+ 920 007e 13       		.uleb128 0x13
+ 921 007f 02       		.uleb128 0x2
+ 922 0080 18       		.uleb128 0x18
+ 923 0081 00       		.byte	0
+ 924 0082 00       		.byte	0
+ 925 0083 0B       		.uleb128 0xb
+ 926 0084 34       		.uleb128 0x34
+ 927 0085 00       		.byte	0
+ 928 0086 03       		.uleb128 0x3
+ 929 0087 0E       		.uleb128 0xe
+ 930 0088 3A       		.uleb128 0x3a
+ 931 0089 0B       		.uleb128 0xb
+ 932 008a 3B       		.uleb128 0x3b
+ 933 008b 0B       		.uleb128 0xb
+ 934 008c 49       		.uleb128 0x49
+ 935 008d 13       		.uleb128 0x13
+ 936 008e 02       		.uleb128 0x2
+ 937 008f 18       		.uleb128 0x18
+ 938 0090 00       		.byte	0
+ 939 0091 00       		.byte	0
+ 940 0092 0C       		.uleb128 0xc
+ 941 0093 2E       		.uleb128 0x2e
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccilzRKI.s 			page 25
+
+
+ 942 0094 01       		.byte	0x1
+ 943 0095 3F       		.uleb128 0x3f
+ 944 0096 19       		.uleb128 0x19
+ 945 0097 03       		.uleb128 0x3
+ 946 0098 0E       		.uleb128 0xe
+ 947 0099 3A       		.uleb128 0x3a
+ 948 009a 0B       		.uleb128 0xb
+ 949 009b 3B       		.uleb128 0x3b
+ 950 009c 0B       		.uleb128 0xb
+ 951 009d 27       		.uleb128 0x27
+ 952 009e 19       		.uleb128 0x19
+ 953 009f 49       		.uleb128 0x49
+ 954 00a0 13       		.uleb128 0x13
+ 955 00a1 11       		.uleb128 0x11
+ 956 00a2 01       		.uleb128 0x1
+ 957 00a3 12       		.uleb128 0x12
+ 958 00a4 06       		.uleb128 0x6
+ 959 00a5 40       		.uleb128 0x40
+ 960 00a6 18       		.uleb128 0x18
+ 961 00a7 9742     		.uleb128 0x2117
+ 962 00a9 19       		.uleb128 0x19
+ 963 00aa 01       		.uleb128 0x1
+ 964 00ab 13       		.uleb128 0x13
+ 965 00ac 00       		.byte	0
+ 966 00ad 00       		.byte	0
+ 967 00ae 0D       		.uleb128 0xd
+ 968 00af 2E       		.uleb128 0x2e
+ 969 00b0 01       		.byte	0x1
+ 970 00b1 3F       		.uleb128 0x3f
+ 971 00b2 19       		.uleb128 0x19
+ 972 00b3 03       		.uleb128 0x3
+ 973 00b4 0E       		.uleb128 0xe
+ 974 00b5 3A       		.uleb128 0x3a
+ 975 00b6 0B       		.uleb128 0xb
+ 976 00b7 3B       		.uleb128 0x3b
+ 977 00b8 05       		.uleb128 0x5
+ 978 00b9 27       		.uleb128 0x27
+ 979 00ba 19       		.uleb128 0x19
+ 980 00bb 11       		.uleb128 0x11
+ 981 00bc 01       		.uleb128 0x1
+ 982 00bd 12       		.uleb128 0x12
+ 983 00be 06       		.uleb128 0x6
+ 984 00bf 40       		.uleb128 0x40
+ 985 00c0 18       		.uleb128 0x18
+ 986 00c1 9742     		.uleb128 0x2117
+ 987 00c3 19       		.uleb128 0x19
+ 988 00c4 01       		.uleb128 0x1
+ 989 00c5 13       		.uleb128 0x13
+ 990 00c6 00       		.byte	0
+ 991 00c7 00       		.byte	0
+ 992 00c8 0E       		.uleb128 0xe
+ 993 00c9 05       		.uleb128 0x5
+ 994 00ca 00       		.byte	0
+ 995 00cb 03       		.uleb128 0x3
+ 996 00cc 0E       		.uleb128 0xe
+ 997 00cd 3A       		.uleb128 0x3a
+ 998 00ce 0B       		.uleb128 0xb
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccilzRKI.s 			page 26
+
+
+ 999 00cf 3B       		.uleb128 0x3b
+ 1000 00d0 05       		.uleb128 0x5
+ 1001 00d1 49       		.uleb128 0x49
+ 1002 00d2 13       		.uleb128 0x13
+ 1003 00d3 02       		.uleb128 0x2
+ 1004 00d4 17       		.uleb128 0x17
+ 1005 00d5 00       		.byte	0
+ 1006 00d6 00       		.byte	0
+ 1007 00d7 0F       		.uleb128 0xf
+ 1008 00d8 2E       		.uleb128 0x2e
+ 1009 00d9 01       		.byte	0x1
+ 1010 00da 3F       		.uleb128 0x3f
+ 1011 00db 19       		.uleb128 0x19
+ 1012 00dc 03       		.uleb128 0x3
+ 1013 00dd 0E       		.uleb128 0xe
+ 1014 00de 3A       		.uleb128 0x3a
+ 1015 00df 0B       		.uleb128 0xb
+ 1016 00e0 3B       		.uleb128 0x3b
+ 1017 00e1 05       		.uleb128 0x5
+ 1018 00e2 27       		.uleb128 0x27
+ 1019 00e3 19       		.uleb128 0x19
+ 1020 00e4 49       		.uleb128 0x49
+ 1021 00e5 13       		.uleb128 0x13
+ 1022 00e6 11       		.uleb128 0x11
+ 1023 00e7 01       		.uleb128 0x1
+ 1024 00e8 12       		.uleb128 0x12
+ 1025 00e9 06       		.uleb128 0x6
+ 1026 00ea 40       		.uleb128 0x40
+ 1027 00eb 18       		.uleb128 0x18
+ 1028 00ec 9742     		.uleb128 0x2117
+ 1029 00ee 19       		.uleb128 0x19
+ 1030 00ef 01       		.uleb128 0x1
+ 1031 00f0 13       		.uleb128 0x13
+ 1032 00f1 00       		.byte	0
+ 1033 00f2 00       		.byte	0
+ 1034 00f3 10       		.uleb128 0x10
+ 1035 00f4 34       		.uleb128 0x34
+ 1036 00f5 00       		.byte	0
+ 1037 00f6 03       		.uleb128 0x3
+ 1038 00f7 0E       		.uleb128 0xe
+ 1039 00f8 3A       		.uleb128 0x3a
+ 1040 00f9 0B       		.uleb128 0xb
+ 1041 00fa 3B       		.uleb128 0x3b
+ 1042 00fb 05       		.uleb128 0x5
+ 1043 00fc 49       		.uleb128 0x49
+ 1044 00fd 13       		.uleb128 0x13
+ 1045 00fe 02       		.uleb128 0x2
+ 1046 00ff 17       		.uleb128 0x17
+ 1047 0100 00       		.byte	0
+ 1048 0101 00       		.byte	0
+ 1049 0102 11       		.uleb128 0x11
+ 1050 0103 2E       		.uleb128 0x2e
+ 1051 0104 00       		.byte	0
+ 1052 0105 3F       		.uleb128 0x3f
+ 1053 0106 19       		.uleb128 0x19
+ 1054 0107 03       		.uleb128 0x3
+ 1055 0108 0E       		.uleb128 0xe
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccilzRKI.s 			page 27
+
+
+ 1056 0109 3A       		.uleb128 0x3a
+ 1057 010a 0B       		.uleb128 0xb
+ 1058 010b 3B       		.uleb128 0x3b
+ 1059 010c 05       		.uleb128 0x5
+ 1060 010d 27       		.uleb128 0x27
+ 1061 010e 19       		.uleb128 0x19
+ 1062 010f 11       		.uleb128 0x11
+ 1063 0110 01       		.uleb128 0x1
+ 1064 0111 12       		.uleb128 0x12
+ 1065 0112 06       		.uleb128 0x6
+ 1066 0113 40       		.uleb128 0x40
+ 1067 0114 18       		.uleb128 0x18
+ 1068 0115 9742     		.uleb128 0x2117
+ 1069 0117 19       		.uleb128 0x19
+ 1070 0118 00       		.byte	0
+ 1071 0119 00       		.byte	0
+ 1072 011a 12       		.uleb128 0x12
+ 1073 011b 2E       		.uleb128 0x2e
+ 1074 011c 00       		.byte	0
+ 1075 011d 3F       		.uleb128 0x3f
+ 1076 011e 19       		.uleb128 0x19
+ 1077 011f 03       		.uleb128 0x3
+ 1078 0120 0E       		.uleb128 0xe
+ 1079 0121 3A       		.uleb128 0x3a
+ 1080 0122 0B       		.uleb128 0xb
+ 1081 0123 3B       		.uleb128 0x3b
+ 1082 0124 05       		.uleb128 0x5
+ 1083 0125 27       		.uleb128 0x27
+ 1084 0126 19       		.uleb128 0x19
+ 1085 0127 49       		.uleb128 0x49
+ 1086 0128 13       		.uleb128 0x13
+ 1087 0129 11       		.uleb128 0x11
+ 1088 012a 01       		.uleb128 0x1
+ 1089 012b 12       		.uleb128 0x12
+ 1090 012c 06       		.uleb128 0x6
+ 1091 012d 40       		.uleb128 0x40
+ 1092 012e 18       		.uleb128 0x18
+ 1093 012f 9742     		.uleb128 0x2117
+ 1094 0131 19       		.uleb128 0x19
+ 1095 0132 00       		.byte	0
+ 1096 0133 00       		.byte	0
+ 1097 0134 13       		.uleb128 0x13
+ 1098 0135 898201   		.uleb128 0x4109
+ 1099 0138 00       		.byte	0
+ 1100 0139 11       		.uleb128 0x11
+ 1101 013a 01       		.uleb128 0x1
+ 1102 013b 31       		.uleb128 0x31
+ 1103 013c 13       		.uleb128 0x13
+ 1104 013d 00       		.byte	0
+ 1105 013e 00       		.byte	0
+ 1106 013f 14       		.uleb128 0x14
+ 1107 0140 898201   		.uleb128 0x4109
+ 1108 0143 01       		.byte	0x1
+ 1109 0144 11       		.uleb128 0x11
+ 1110 0145 01       		.uleb128 0x1
+ 1111 0146 31       		.uleb128 0x31
+ 1112 0147 13       		.uleb128 0x13
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccilzRKI.s 			page 28
+
+
+ 1113 0148 01       		.uleb128 0x1
+ 1114 0149 13       		.uleb128 0x13
+ 1115 014a 00       		.byte	0
+ 1116 014b 00       		.byte	0
+ 1117 014c 15       		.uleb128 0x15
+ 1118 014d 8A8201   		.uleb128 0x410a
+ 1119 0150 00       		.byte	0
+ 1120 0151 02       		.uleb128 0x2
+ 1121 0152 18       		.uleb128 0x18
+ 1122 0153 9142     		.uleb128 0x2111
+ 1123 0155 18       		.uleb128 0x18
+ 1124 0156 00       		.byte	0
+ 1125 0157 00       		.byte	0
+ 1126 0158 16       		.uleb128 0x16
+ 1127 0159 05       		.uleb128 0x5
+ 1128 015a 00       		.byte	0
+ 1129 015b 03       		.uleb128 0x3
+ 1130 015c 0E       		.uleb128 0xe
+ 1131 015d 3A       		.uleb128 0x3a
+ 1132 015e 0B       		.uleb128 0xb
+ 1133 015f 3B       		.uleb128 0x3b
+ 1134 0160 0B       		.uleb128 0xb
+ 1135 0161 49       		.uleb128 0x49
+ 1136 0162 13       		.uleb128 0x13
+ 1137 0163 02       		.uleb128 0x2
+ 1138 0164 17       		.uleb128 0x17
+ 1139 0165 00       		.byte	0
+ 1140 0166 00       		.byte	0
+ 1141 0167 17       		.uleb128 0x17
+ 1142 0168 34       		.uleb128 0x34
+ 1143 0169 00       		.byte	0
+ 1144 016a 03       		.uleb128 0x3
+ 1145 016b 0E       		.uleb128 0xe
+ 1146 016c 3A       		.uleb128 0x3a
+ 1147 016d 0B       		.uleb128 0xb
+ 1148 016e 3B       		.uleb128 0x3b
+ 1149 016f 0B       		.uleb128 0xb
+ 1150 0170 49       		.uleb128 0x49
+ 1151 0171 13       		.uleb128 0x13
+ 1152 0172 3F       		.uleb128 0x3f
+ 1153 0173 19       		.uleb128 0x19
+ 1154 0174 3C       		.uleb128 0x3c
+ 1155 0175 19       		.uleb128 0x19
+ 1156 0176 00       		.byte	0
+ 1157 0177 00       		.byte	0
+ 1158 0178 18       		.uleb128 0x18
+ 1159 0179 2E       		.uleb128 0x2e
+ 1160 017a 00       		.byte	0
+ 1161 017b 3F       		.uleb128 0x3f
+ 1162 017c 19       		.uleb128 0x19
+ 1163 017d 3C       		.uleb128 0x3c
+ 1164 017e 19       		.uleb128 0x19
+ 1165 017f 6E       		.uleb128 0x6e
+ 1166 0180 0E       		.uleb128 0xe
+ 1167 0181 03       		.uleb128 0x3
+ 1168 0182 0E       		.uleb128 0xe
+ 1169 0183 3A       		.uleb128 0x3a
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccilzRKI.s 			page 29
+
+
+ 1170 0184 0B       		.uleb128 0xb
+ 1171 0185 3B       		.uleb128 0x3b
+ 1172 0186 0B       		.uleb128 0xb
+ 1173 0187 00       		.byte	0
+ 1174 0188 00       		.byte	0
+ 1175 0189 00       		.byte	0
+ 1176              		.section	.debug_loc,"",%progbits
+ 1177              	.Ldebug_loc0:
+ 1178              	.LLST0:
+ 1179 0000 00000000 		.4byte	.LVL3
+ 1180 0004 02000000 		.4byte	.LVL4
+ 1181 0008 0100     		.2byte	0x1
+ 1182 000a 50       		.byte	0x50
+ 1183 000b 02000000 		.4byte	.LVL4
+ 1184 000f 10000000 		.4byte	.LFE6
+ 1185 0013 0400     		.2byte	0x4
+ 1186 0015 F3       		.byte	0xf3
+ 1187 0016 01       		.uleb128 0x1
+ 1188 0017 50       		.byte	0x50
+ 1189 0018 9F       		.byte	0x9f
+ 1190 0019 00000000 		.4byte	0
+ 1191 001d 00000000 		.4byte	0
+ 1192              	.LLST1:
+ 1193 0021 04000000 		.4byte	.LVL5
+ 1194 0025 06000000 		.4byte	.LVL6
+ 1195 0029 0500     		.2byte	0x5
+ 1196 002b 70       		.byte	0x70
+ 1197 002c 00       		.sleb128 0
+ 1198 002d 35       		.byte	0x35
+ 1199 002e 25       		.byte	0x25
+ 1200 002f 9F       		.byte	0x9f
+ 1201 0030 00000000 		.4byte	0
+ 1202 0034 00000000 		.4byte	0
+ 1203              	.LLST2:
+ 1204 0038 00000000 		.4byte	.LVL11
+ 1205 003c 07000000 		.4byte	.LVL12-1
+ 1206 0040 0100     		.2byte	0x1
+ 1207 0042 50       		.byte	0x50
+ 1208 0043 07000000 		.4byte	.LVL12-1
+ 1209 0047 1A000000 		.4byte	.LFE1
+ 1210 004b 0100     		.2byte	0x1
+ 1211 004d 54       		.byte	0x54
+ 1212 004e 00000000 		.4byte	0
+ 1213 0052 00000000 		.4byte	0
+ 1214              		.section	.debug_aranges,"",%progbits
+ 1215 0000 7C000000 		.4byte	0x7c
+ 1216 0004 0200     		.2byte	0x2
+ 1217 0006 00000000 		.4byte	.Ldebug_info0
+ 1218 000a 04       		.byte	0x4
+ 1219 000b 00       		.byte	0
+ 1220 000c 0000     		.2byte	0
+ 1221 000e 0000     		.2byte	0
+ 1222 0010 00000000 		.4byte	.LFB4
+ 1223 0014 0C000000 		.4byte	.LFE4-.LFB4
+ 1224 0018 00000000 		.4byte	.LFB5
+ 1225 001c 0C000000 		.4byte	.LFE5-.LFB5
+ 1226 0020 00000000 		.4byte	.LFB6
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccilzRKI.s 			page 30
+
+
+ 1227 0024 10000000 		.4byte	.LFE6-.LFB6
+ 1228 0028 00000000 		.4byte	.LFB7
+ 1229 002c 0C000000 		.4byte	.LFE7-.LFB7
+ 1230 0030 00000000 		.4byte	.LFB8
+ 1231 0034 10000000 		.4byte	.LFE8-.LFB8
+ 1232 0038 00000000 		.4byte	.LFB9
+ 1233 003c 18000000 		.4byte	.LFE9-.LFB9
+ 1234 0040 00000000 		.4byte	.LFB10
+ 1235 0044 10000000 		.4byte	.LFE10-.LFB10
+ 1236 0048 00000000 		.4byte	.LFB0
+ 1237 004c 1C000000 		.4byte	.LFE0-.LFB0
+ 1238 0050 00000000 		.4byte	.LFB1
+ 1239 0054 1A000000 		.4byte	.LFE1-.LFB1
+ 1240 0058 00000000 		.4byte	.LFB2
+ 1241 005c 14000000 		.4byte	.LFE2-.LFB2
+ 1242 0060 00000000 		.4byte	.LFB11
+ 1243 0064 10000000 		.4byte	.LFE11-.LFB11
+ 1244 0068 00000000 		.4byte	.LFB12
+ 1245 006c 10000000 		.4byte	.LFE12-.LFB12
+ 1246 0070 00000000 		.4byte	.LFB3
+ 1247 0074 24000000 		.4byte	.LFE3-.LFB3
+ 1248 0078 00000000 		.4byte	0
+ 1249 007c 00000000 		.4byte	0
+ 1250              		.section	.debug_ranges,"",%progbits
+ 1251              	.Ldebug_ranges0:
+ 1252 0000 00000000 		.4byte	.LFB4
+ 1253 0004 0C000000 		.4byte	.LFE4
+ 1254 0008 00000000 		.4byte	.LFB5
+ 1255 000c 0C000000 		.4byte	.LFE5
+ 1256 0010 00000000 		.4byte	.LFB6
+ 1257 0014 10000000 		.4byte	.LFE6
+ 1258 0018 00000000 		.4byte	.LFB7
+ 1259 001c 0C000000 		.4byte	.LFE7
+ 1260 0020 00000000 		.4byte	.LFB8
+ 1261 0024 10000000 		.4byte	.LFE8
+ 1262 0028 00000000 		.4byte	.LFB9
+ 1263 002c 18000000 		.4byte	.LFE9
+ 1264 0030 00000000 		.4byte	.LFB10
+ 1265 0034 10000000 		.4byte	.LFE10
+ 1266 0038 00000000 		.4byte	.LFB0
+ 1267 003c 1C000000 		.4byte	.LFE0
+ 1268 0040 00000000 		.4byte	.LFB1
+ 1269 0044 1A000000 		.4byte	.LFE1
+ 1270 0048 00000000 		.4byte	.LFB2
+ 1271 004c 14000000 		.4byte	.LFE2
+ 1272 0050 00000000 		.4byte	.LFB11
+ 1273 0054 10000000 		.4byte	.LFE11
+ 1274 0058 00000000 		.4byte	.LFB12
+ 1275 005c 10000000 		.4byte	.LFE12
+ 1276 0060 00000000 		.4byte	.LFB3
+ 1277 0064 24000000 		.4byte	.LFE3
+ 1278 0068 00000000 		.4byte	0
+ 1279 006c 00000000 		.4byte	0
+ 1280              		.section	.debug_line,"",%progbits
+ 1281              	.Ldebug_line0:
+ 1282 0000 58020000 		.section	.debug_str,"MS",%progbits,1
+ 1282      02006801 
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccilzRKI.s 			page 31
+
+
+ 1282      00000201 
+ 1282      FB0E0D00 
+ 1282      01010101 
+ 1283              	.LASF19:
+ 1284 0000 72656733 		.ascii	"reg32\000"
+ 1284      3200
+ 1285              	.LASF12:
+ 1286 0006 5F5F7569 		.ascii	"__uint8_t\000"
+ 1286      6E74385F 
+ 1286      7400
+ 1287              	.LASF30:
+ 1288 0010 4953525F 		.ascii	"ISR_HC_SR04_1_Start\000"
+ 1288      48435F53 
+ 1288      5230345F 
+ 1288      315F5374 
+ 1288      61727400 
+ 1289              	.LASF6:
+ 1290 0024 73686F72 		.ascii	"short unsigned int\000"
+ 1290      7420756E 
+ 1290      7369676E 
+ 1290      65642069 
+ 1290      6E7400
+ 1291              	.LASF26:
+ 1292 0037 4953525F 		.ascii	"ISR_HC_SR04_1_GetVector\000"
+ 1292      48435F53 
+ 1292      5230345F 
+ 1292      315F4765 
+ 1292      74566563 
+ 1293              	.LASF22:
+ 1294 004f 4953525F 		.ascii	"ISR_HC_SR04_1_SetVector\000"
+ 1294      48435F53 
+ 1294      5230345F 
+ 1294      315F5365 
+ 1294      74566563 
+ 1295              	.LASF29:
+ 1296 0067 4953525F 		.ascii	"ISR_HC_SR04_1_Disable\000"
+ 1296      48435F53 
+ 1296      5230345F 
+ 1296      315F4469 
+ 1296      7361626C 
+ 1297              	.LASF16:
+ 1298 007d 666C6F61 		.ascii	"float\000"
+ 1298      7400
+ 1299              	.LASF37:
+ 1300 0083 48435F53 		.ascii	"HC_SR04_1_REG_Read\000"
+ 1300      5230345F 
+ 1300      315F5245 
+ 1300      475F5265 
+ 1300      616400
+ 1301              	.LASF4:
+ 1302 0096 756E7369 		.ascii	"unsigned char\000"
+ 1302      676E6564 
+ 1302      20636861 
+ 1302      7200
+ 1303              	.LASF40:
+ 1304 00a4 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1304      43313120 
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccilzRKI.s 			page 32
+
+
+ 1304      352E342E 
+ 1304      31203230 
+ 1304      31363036 
+ 1305 00d7 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 1305      20726576 
+ 1305      6973696F 
+ 1305      6E203233 
+ 1305      37373135 
+ 1306 010a 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 1306      66756E63 
+ 1306      74696F6E 
+ 1306      2D736563 
+ 1306      74696F6E 
+ 1307              	.LASF18:
+ 1308 0132 72656738 		.ascii	"reg8\000"
+ 1308      00
+ 1309              	.LASF39:
+ 1310 0137 55736572 		.ascii	"User_LED_Write\000"
+ 1310      5F4C4544 
+ 1310      5F577269 
+ 1310      746500
+ 1311              	.LASF8:
+ 1312 0146 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1312      20756E73 
+ 1312      69676E65 
+ 1312      6420696E 
+ 1312      7400
+ 1313              	.LASF14:
+ 1314 0158 75696E74 		.ascii	"uint8\000"
+ 1314      3800
+ 1315              	.LASF25:
+ 1316 015e 7072696F 		.ascii	"priority\000"
+ 1316      72697479 
+ 1316      00
+ 1317              	.LASF17:
+ 1318 0167 646F7562 		.ascii	"double\000"
+ 1318      6C6500
+ 1319              	.LASF27:
+ 1320 016e 4953525F 		.ascii	"ISR_HC_SR04_1_GetPriority\000"
+ 1320      48435F53 
+ 1320      5230345F 
+ 1320      315F4765 
+ 1320      74507269 
+ 1321              	.LASF15:
+ 1322 0188 75696E74 		.ascii	"uint32\000"
+ 1322      333200
+ 1323              	.LASF0:
+ 1324 018f 756E7369 		.ascii	"unsigned int\000"
+ 1324      676E6564 
+ 1324      20696E74 
+ 1324      00
+ 1325              	.LASF43:
+ 1326 019c 4953525F 		.ascii	"ISR_HC_SR04_1_GetState\000"
+ 1326      48435F53 
+ 1326      5230345F 
+ 1326      315F4765 
+ 1326      74537461 
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccilzRKI.s 			page 33
+
+
+ 1327              	.LASF24:
+ 1328 01b3 61646472 		.ascii	"address\000"
+ 1328      65737300 
+ 1329              	.LASF9:
+ 1330 01bb 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1330      206C6F6E 
+ 1330      6720756E 
+ 1330      7369676E 
+ 1330      65642069 
+ 1331              	.LASF13:
+ 1332 01d2 75696E74 		.ascii	"uint8_t\000"
+ 1332      385F7400 
+ 1333              	.LASF35:
+ 1334 01da 4953525F 		.ascii	"ISR_HC_SR04_1_Interrupt\000"
+ 1334      48435F53 
+ 1334      5230345F 
+ 1334      315F496E 
+ 1334      74657272 
+ 1335              	.LASF20:
+ 1336 01f2 63796973 		.ascii	"cyisraddress\000"
+ 1336      72616464 
+ 1336      72657373 
+ 1336      00
+ 1337              	.LASF32:
+ 1338 01ff 4953525F 		.ascii	"ISR_HC_SR04_1_Stop\000"
+ 1338      48435F53 
+ 1338      5230345F 
+ 1338      315F5374 
+ 1338      6F7000
+ 1339              	.LASF36:
+ 1340 0212 48435F53 		.ascii	"HC_SR01_Distance\000"
+ 1340      5230315F 
+ 1340      44697374 
+ 1340      616E6365 
+ 1340      00
+ 1341              	.LASF10:
+ 1342 0223 73697A65 		.ascii	"sizetype\000"
+ 1342      74797065 
+ 1342      00
+ 1343              	.LASF1:
+ 1344 022c 6C6F6E67 		.ascii	"long long int\000"
+ 1344      206C6F6E 
+ 1344      6720696E 
+ 1344      7400
+ 1345              	.LASF11:
+ 1346 023a 63686172 		.ascii	"char\000"
+ 1346      00
+ 1347              	.LASF21:
+ 1348 023f 72616D56 		.ascii	"ramVectorTable\000"
+ 1348      6563746F 
+ 1348      72546162 
+ 1348      6C6500
+ 1349              	.LASF23:
+ 1350 024e 4953525F 		.ascii	"ISR_HC_SR04_1_SetPriority\000"
+ 1350      48435F53 
+ 1350      5230345F 
+ 1350      315F5365 
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccilzRKI.s 			page 34
+
+
+ 1350      74507269 
+ 1351              	.LASF5:
+ 1352 0268 73686F72 		.ascii	"short int\000"
+ 1352      7420696E 
+ 1352      7400
+ 1353              	.LASF38:
+ 1354 0272 55736572 		.ascii	"User_LED_Read\000"
+ 1354      5F4C4544 
+ 1354      5F526561 
+ 1354      6400
+ 1355              	.LASF28:
+ 1356 0280 4953525F 		.ascii	"ISR_HC_SR04_1_Enable\000"
+ 1356      48435F53 
+ 1356      5230345F 
+ 1356      315F456E 
+ 1356      61626C65 
+ 1357              	.LASF41:
+ 1358 0295 47656E65 		.ascii	"Generated_Source\\PSoC5\\ISR_HC_SR04_1.c\000"
+ 1358      72617465 
+ 1358      645F536F 
+ 1358      75726365 
+ 1358      5C50536F 
+ 1359              	.LASF7:
+ 1360 02bc 6C6F6E67 		.ascii	"long int\000"
+ 1360      20696E74 
+ 1360      00
+ 1361              	.LASF2:
+ 1362 02c5 6C6F6E67 		.ascii	"long double\000"
+ 1362      20646F75 
+ 1362      626C6500 
+ 1363              	.LASF42:
+ 1364 02d1 433A5C64 		.ascii	"C:\\data\\GitHub\\rear-driving-camera\\Cypress\\rea"
+ 1364      6174615C 
+ 1364      47697448 
+ 1364      75625C72 
+ 1364      6561722D 
+ 1365 02ff 725F6472 		.ascii	"r_drive_camera\\rear_drive_camera\\rear_drive_camer"
+ 1365      6976655F 
+ 1365      63616D65 
+ 1365      72615C72 
+ 1365      6561725F 
+ 1366 0330 615F3031 		.ascii	"a_01.cydsn\000"
+ 1366      2E637964 
+ 1366      736E00
+ 1367              	.LASF3:
+ 1368 033b 7369676E 		.ascii	"signed char\000"
+ 1368      65642063 
+ 1368      68617200 
+ 1369              	.LASF34:
+ 1370 0347 4953525F 		.ascii	"ISR_HC_SR04_1_ClearPending\000"
+ 1370      48435F53 
+ 1370      5230345F 
+ 1370      315F436C 
+ 1370      65617250 
+ 1371              	.LASF31:
+ 1372 0362 4953525F 		.ascii	"ISR_HC_SR04_1_StartEx\000"
+ 1372      48435F53 
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccilzRKI.s 			page 35
+
+
+ 1372      5230345F 
+ 1372      315F5374 
+ 1372      61727445 
+ 1373              	.LASF33:
+ 1374 0378 4953525F 		.ascii	"ISR_HC_SR04_1_SetPending\000"
+ 1374      48435F53 
+ 1374      5230345F 
+ 1374      315F5365 
+ 1374      7450656E 
+ 1375              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

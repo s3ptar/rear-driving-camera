@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: WakeUpIST.c  
+* File Name: NewHCSR04DataRequest.c  
 * Version 1.70
 *
 *  Description:
@@ -18,15 +18,15 @@
 
 #include <cydevice_trm.h>
 #include <CyLib.h>
-#include <WakeUpIST.h>
+#include <NewHCSR04DataRequest.h>
 #include "cyapicallbacks.h"
 
-#if !defined(WakeUpIST__REMOVED) /* Check for removal by optimization */
+#if !defined(NewHCSR04DataRequest__REMOVED) /* Check for removal by optimization */
 
 /*******************************************************************************
 *  Place your includes, defines and code here 
 ********************************************************************************/
-/* `#START WakeUpIST_intc` */
+/* `#START NewHCSR04DataRequest_intc` */
 
 /* `#END` */
 
@@ -42,7 +42,7 @@ CY_ISR_PROTO(IntDefaultHandler);
 
 
 /*******************************************************************************
-* Function Name: WakeUpIST_Start
+* Function Name: NewHCSR04DataRequest_Start
 ********************************************************************************
 *
 * Summary:
@@ -58,24 +58,24 @@ CY_ISR_PROTO(IntDefaultHandler);
 *   None
 *
 *******************************************************************************/
-void WakeUpIST_Start(void)
+void NewHCSR04DataRequest_Start(void)
 {
     /* For all we know the interrupt is active. */
-    WakeUpIST_Disable();
+    NewHCSR04DataRequest_Disable();
 
-    /* Set the ISR to point to the WakeUpIST Interrupt. */
-    WakeUpIST_SetVector(&WakeUpIST_Interrupt);
+    /* Set the ISR to point to the NewHCSR04DataRequest Interrupt. */
+    NewHCSR04DataRequest_SetVector(&NewHCSR04DataRequest_Interrupt);
 
     /* Set the priority. */
-    WakeUpIST_SetPriority((uint8)WakeUpIST_INTC_PRIOR_NUMBER);
+    NewHCSR04DataRequest_SetPriority((uint8)NewHCSR04DataRequest_INTC_PRIOR_NUMBER);
 
     /* Enable it. */
-    WakeUpIST_Enable();
+    NewHCSR04DataRequest_Enable();
 }
 
 
 /*******************************************************************************
-* Function Name: WakeUpIST_StartEx
+* Function Name: NewHCSR04DataRequest_StartEx
 ********************************************************************************
 *
 * Summary:
@@ -101,24 +101,24 @@ void WakeUpIST_Start(void)
 *   None
 *
 *******************************************************************************/
-void WakeUpIST_StartEx(cyisraddress address)
+void NewHCSR04DataRequest_StartEx(cyisraddress address)
 {
     /* For all we know the interrupt is active. */
-    WakeUpIST_Disable();
+    NewHCSR04DataRequest_Disable();
 
-    /* Set the ISR to point to the WakeUpIST Interrupt. */
-    WakeUpIST_SetVector(address);
+    /* Set the ISR to point to the NewHCSR04DataRequest Interrupt. */
+    NewHCSR04DataRequest_SetVector(address);
 
     /* Set the priority. */
-    WakeUpIST_SetPriority((uint8)WakeUpIST_INTC_PRIOR_NUMBER);
+    NewHCSR04DataRequest_SetPriority((uint8)NewHCSR04DataRequest_INTC_PRIOR_NUMBER);
 
     /* Enable it. */
-    WakeUpIST_Enable();
+    NewHCSR04DataRequest_Enable();
 }
 
 
 /*******************************************************************************
-* Function Name: WakeUpIST_Stop
+* Function Name: NewHCSR04DataRequest_Stop
 ********************************************************************************
 *
 * Summary:
@@ -131,22 +131,22 @@ void WakeUpIST_StartEx(cyisraddress address)
 *   None
 *
 *******************************************************************************/
-void WakeUpIST_Stop(void)
+void NewHCSR04DataRequest_Stop(void)
 {
     /* Disable this interrupt. */
-    WakeUpIST_Disable();
+    NewHCSR04DataRequest_Disable();
 
     /* Set the ISR to point to the passive one. */
-    WakeUpIST_SetVector(&IntDefaultHandler);
+    NewHCSR04DataRequest_SetVector(&IntDefaultHandler);
 }
 
 
 /*******************************************************************************
-* Function Name: WakeUpIST_Interrupt
+* Function Name: NewHCSR04DataRequest_Interrupt
 ********************************************************************************
 *
 * Summary:
-*   The default Interrupt Service Routine for WakeUpIST.
+*   The default Interrupt Service Routine for NewHCSR04DataRequest.
 *
 *   Add custom code between the coments to keep the next version of this file
 *   from over writting your code.
@@ -157,27 +157,27 @@ void WakeUpIST_Stop(void)
 *   None
 *
 *******************************************************************************/
-CY_ISR(WakeUpIST_Interrupt)
+CY_ISR(NewHCSR04DataRequest_Interrupt)
 {
-    #ifdef WakeUpIST_INTERRUPT_INTERRUPT_CALLBACK
-        WakeUpIST_Interrupt_InterruptCallback();
-    #endif /* WakeUpIST_INTERRUPT_INTERRUPT_CALLBACK */ 
+    #ifdef NewHCSR04DataRequest_INTERRUPT_INTERRUPT_CALLBACK
+        NewHCSR04DataRequest_Interrupt_InterruptCallback();
+    #endif /* NewHCSR04DataRequest_INTERRUPT_INTERRUPT_CALLBACK */ 
 
     /*  Place your Interrupt code here. */
-    /* `#START WakeUpIST_Interrupt` */
+    /* `#START NewHCSR04DataRequest_Interrupt` */
 
     /* `#END` */
 }
 
 
 /*******************************************************************************
-* Function Name: WakeUpIST_SetVector
+* Function Name: NewHCSR04DataRequest_SetVector
 ********************************************************************************
 *
 * Summary:
-*   Change the ISR vector for the Interrupt. Note calling WakeUpIST_Start
+*   Change the ISR vector for the Interrupt. Note calling NewHCSR04DataRequest_Start
 *   will override any effect this method would have had. To set the vector 
-*   before the component has been started use WakeUpIST_StartEx instead.
+*   before the component has been started use NewHCSR04DataRequest_StartEx instead.
 * 
 *   When defining ISR functions, the CY_ISR and CY_ISR_PROTO macros should be 
 *   used to provide consistent definition across compilers:
@@ -197,18 +197,18 @@ CY_ISR(WakeUpIST_Interrupt)
 *   None
 *
 *******************************************************************************/
-void WakeUpIST_SetVector(cyisraddress address)
+void NewHCSR04DataRequest_SetVector(cyisraddress address)
 {
     cyisraddress * ramVectorTable;
 
     ramVectorTable = (cyisraddress *) *CYINT_VECT_TABLE;
 
-    ramVectorTable[CYINT_IRQ_BASE + (uint32)WakeUpIST__INTC_NUMBER] = address;
+    ramVectorTable[CYINT_IRQ_BASE + (uint32)NewHCSR04DataRequest__INTC_NUMBER] = address;
 }
 
 
 /*******************************************************************************
-* Function Name: WakeUpIST_GetVector
+* Function Name: NewHCSR04DataRequest_GetVector
 ********************************************************************************
 *
 * Summary:
@@ -221,26 +221,26 @@ void WakeUpIST_SetVector(cyisraddress address)
 *   Address of the ISR in the interrupt vector table.
 *
 *******************************************************************************/
-cyisraddress WakeUpIST_GetVector(void)
+cyisraddress NewHCSR04DataRequest_GetVector(void)
 {
     cyisraddress * ramVectorTable;
 
     ramVectorTable = (cyisraddress *) *CYINT_VECT_TABLE;
 
-    return ramVectorTable[CYINT_IRQ_BASE + (uint32)WakeUpIST__INTC_NUMBER];
+    return ramVectorTable[CYINT_IRQ_BASE + (uint32)NewHCSR04DataRequest__INTC_NUMBER];
 }
 
 
 /*******************************************************************************
-* Function Name: WakeUpIST_SetPriority
+* Function Name: NewHCSR04DataRequest_SetPriority
 ********************************************************************************
 *
 * Summary:
 *   Sets the Priority of the Interrupt. 
 *
-*   Note calling WakeUpIST_Start or WakeUpIST_StartEx will 
+*   Note calling NewHCSR04DataRequest_Start or NewHCSR04DataRequest_StartEx will 
 *   override any effect this API would have had. This API should only be called
-*   after WakeUpIST_Start or WakeUpIST_StartEx has been called. 
+*   after NewHCSR04DataRequest_Start or NewHCSR04DataRequest_StartEx has been called. 
 *   To set the initial priority for the component, use the Design-Wide Resources
 *   Interrupt Editor.
 *
@@ -255,14 +255,14 @@ cyisraddress WakeUpIST_GetVector(void)
 *   None
 *
 *******************************************************************************/
-void WakeUpIST_SetPriority(uint8 priority)
+void NewHCSR04DataRequest_SetPriority(uint8 priority)
 {
-    *WakeUpIST_INTC_PRIOR = priority << 5;
+    *NewHCSR04DataRequest_INTC_PRIOR = priority << 5;
 }
 
 
 /*******************************************************************************
-* Function Name: WakeUpIST_GetPriority
+* Function Name: NewHCSR04DataRequest_GetPriority
 ********************************************************************************
 *
 * Summary:
@@ -277,19 +277,19 @@ void WakeUpIST_SetPriority(uint8 priority)
 *    PSoC 4: Priority is from 0 to 3.
 *
 *******************************************************************************/
-uint8 WakeUpIST_GetPriority(void)
+uint8 NewHCSR04DataRequest_GetPriority(void)
 {
     uint8 priority;
 
 
-    priority = *WakeUpIST_INTC_PRIOR >> 5;
+    priority = *NewHCSR04DataRequest_INTC_PRIOR >> 5;
 
     return priority;
 }
 
 
 /*******************************************************************************
-* Function Name: WakeUpIST_Enable
+* Function Name: NewHCSR04DataRequest_Enable
 ********************************************************************************
 *
 * Summary:
@@ -304,15 +304,15 @@ uint8 WakeUpIST_GetPriority(void)
 *   None
 *
 *******************************************************************************/
-void WakeUpIST_Enable(void)
+void NewHCSR04DataRequest_Enable(void)
 {
     /* Enable the general interrupt. */
-    *WakeUpIST_INTC_SET_EN = WakeUpIST__INTC_MASK;
+    *NewHCSR04DataRequest_INTC_SET_EN = NewHCSR04DataRequest__INTC_MASK;
 }
 
 
 /*******************************************************************************
-* Function Name: WakeUpIST_GetState
+* Function Name: NewHCSR04DataRequest_GetState
 ********************************************************************************
 *
 * Summary:
@@ -325,15 +325,15 @@ void WakeUpIST_Enable(void)
 *   1 if enabled, 0 if disabled.
 *
 *******************************************************************************/
-uint8 WakeUpIST_GetState(void)
+uint8 NewHCSR04DataRequest_GetState(void)
 {
     /* Get the state of the general interrupt. */
-    return ((*WakeUpIST_INTC_SET_EN & (uint32)WakeUpIST__INTC_MASK) != 0u) ? 1u:0u;
+    return ((*NewHCSR04DataRequest_INTC_SET_EN & (uint32)NewHCSR04DataRequest__INTC_MASK) != 0u) ? 1u:0u;
 }
 
 
 /*******************************************************************************
-* Function Name: WakeUpIST_Disable
+* Function Name: NewHCSR04DataRequest_Disable
 ********************************************************************************
 *
 * Summary:
@@ -346,15 +346,15 @@ uint8 WakeUpIST_GetState(void)
 *   None
 *
 *******************************************************************************/
-void WakeUpIST_Disable(void)
+void NewHCSR04DataRequest_Disable(void)
 {
     /* Disable the general interrupt. */
-    *WakeUpIST_INTC_CLR_EN = WakeUpIST__INTC_MASK;
+    *NewHCSR04DataRequest_INTC_CLR_EN = NewHCSR04DataRequest__INTC_MASK;
 }
 
 
 /*******************************************************************************
-* Function Name: WakeUpIST_SetPending
+* Function Name: NewHCSR04DataRequest_SetPending
 ********************************************************************************
 *
 * Summary:
@@ -373,14 +373,14 @@ void WakeUpIST_Disable(void)
 *   interrupts).
 *
 *******************************************************************************/
-void WakeUpIST_SetPending(void)
+void NewHCSR04DataRequest_SetPending(void)
 {
-    *WakeUpIST_INTC_SET_PD = WakeUpIST__INTC_MASK;
+    *NewHCSR04DataRequest_INTC_SET_PD = NewHCSR04DataRequest__INTC_MASK;
 }
 
 
 /*******************************************************************************
-* Function Name: WakeUpIST_ClearPending
+* Function Name: NewHCSR04DataRequest_ClearPending
 ********************************************************************************
 *
 * Summary:
@@ -398,9 +398,9 @@ void WakeUpIST_SetPending(void)
 *   None
 *
 *******************************************************************************/
-void WakeUpIST_ClearPending(void)
+void NewHCSR04DataRequest_ClearPending(void)
 {
-    *WakeUpIST_INTC_CLR_PD = WakeUpIST__INTC_MASK;
+    *NewHCSR04DataRequest_INTC_CLR_PD = NewHCSR04DataRequest__INTC_MASK;
 }
 
 #endif /* End check for removal by optimization */
