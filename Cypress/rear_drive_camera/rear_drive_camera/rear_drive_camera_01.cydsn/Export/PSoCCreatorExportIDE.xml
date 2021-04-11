@@ -103,28 +103,30 @@
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\cycodeshareimport.scat</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\DieTemp_1.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\DieTemp_1.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\HC_SR04_1_Echo_aliases.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\HC_SR04_1_Echo.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\HC_SR04_1_Echo.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\SonicClock.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\SonicClock.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\PWM_1.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\PWM_1.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\PWM_1_PM.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\HC_SR04_1_Trigger_aliases.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\HC_SR04_1_Trigger.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\HC_SR04_1_Trigger.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\User_LED_aliases.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\User_LED.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\User_LED.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ISR_NewData.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ISR_NewData.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\HC_SR04_1_REG.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\HC_SR04_1_REG.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\PWM_CLOCK.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\PWM_CLOCK.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ISR_HC_SR04_1.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ISR_HC_SR04_1.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\SRHC04_1_Echo_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\SRHC04_1_Echo.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\SRHC04_1_Echo.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Range_1.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Range_1.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\CNT_RESET.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\CNT_RESET.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\CNT_RESET_PM.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Range_CLK.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Range_CLK.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\SRHC04_2_Echo_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\SRHC04_2_Echo.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\SRHC04_2_Echo.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Range_2.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Range_2.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\HC_SR04_2_Trigger_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\HC_SR04_2_Trigger.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\HC_SR04_2_Trigger.h</File>
         </Files>
       </Folder>
       <Folder BuildType="STRICT" Path="C:\data\GitHub\rear-driving-camera\Cypress\rear_drive_camera\rear_drive_camera\rear_drive_camera_01.cydsn\Export\ARM_GCC_Generic">

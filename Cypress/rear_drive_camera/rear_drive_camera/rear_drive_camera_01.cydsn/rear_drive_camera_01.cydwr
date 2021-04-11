@@ -252,6 +252,8 @@
   <Group key="DWRInstGuidMapping">
     <Group key="Pin">
       <Data key="8d318d8b-cf7b-4b6b-b02c-ab1c5c49d0ba" value="UART_Connect" />
+      <Data key="9a4e8d9e-b5a9-4659-a7b8-222444e1943a" value="SRHC04_1_Echo" />
+      <Data key="91caf1c3-7447-4441-ab16-7b8fcfa79637" value="HC_SR04_1_Trigger" />
       <Data key="819dff9d-a9f4-479b-af9a-14504f166b8c" value="HC_SR04_1_Echo" />
       <Data key="44757a5c-71b1-4cfe-895f-c2c906c12b2d" value="HC_SR04_1_Trigger" />
       <Data key="1425177d-0d0e-4468-8bcc-e638e5509a9b" value="Rx_1" />
@@ -3347,6 +3349,26 @@
     <Group key="8d318d8b-cf7b-4b6b-b02c-ab1c5c49d0ba">
       <Group key="0">
         <Data key="Port Format" value="3,1" />
+      </Group>
+    </Group>
+    <Group key="9a4e8d9e-b5a9-4659-a7b8-222444e1943a">
+      <Group key="0">
+        <Data key="Port Format" value="0,0" />
+      </Group>
+    </Group>
+    <Group key="91caf1c3-7447-4441-ab16-7b8fcfa79637">
+      <Group key="0">
+        <Data key="Port Format" value="0,1" />
+      </Group>
+    </Group>
+    <Group key="819dff9d-a9f4-479b-af9a-14504f166b8c">
+      <Group key="0">
+        <Data key="Port Format" value="0,0" />
+      </Group>
+    </Group>
+    <Group key="44757a5c-71b1-4cfe-895f-c2c906c12b2d">
+      <Group key="0">
+        <Data key="Port Format" value="0,1" />
       </Group>
     </Group>
     <Group key="1425177d-0d0e-4468-8bcc-e638e5509a9b">

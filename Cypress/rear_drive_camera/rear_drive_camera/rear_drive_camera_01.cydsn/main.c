@@ -9,40 +9,97 @@
  *
  * ========================================
 */
+
+/***********************************************************************
+* Includes
+***********************************************************************/
+
 #include "project.h"
 #include "stdio.h"
+#include "jsmn.h"
 
-uint8_t HC_SR01_Distance;
+/***********************************************************************
+* Informations
+***********************************************************************/
+//https://www.hackster.io/PSoC_Rocks/psoc-4-measuring-distance-with-hcsr-04-and-cy8ckit-049-4200-db84e8
+//https://github.com/zserge/jsmn
+/***********************************************************************
+* Declarations
+***********************************************************************/
+ 
+/***********************************************************************
+* Global Variable
+***********************************************************************/
+ 
+/***********************************************************************
+* Constant
+***********************************************************************/
+ 
+/***********************************************************************
+* Local Funtions
+***********************************************************************/
 
+
+    
+/***********************************************************************
+*! \fn          int16_t create_fb(char *dataPtr, byte *fb)
+*  \brief       reset the Framebuffer
+*  \param       dataPtr String to scroll across
+*  \param       fb Pointer to the frame buffer array
+*  \exception   none
+*  \return      length of frame buffer
+***********************************************************************/  
+CY_ISR(MyCustomISR){
+        
+}
+
+/***********************************************************************
+*! \fn          int main(void)
+*  \brief       start function
+*  \param       dataPtr String to scroll across
+*  \param       fb Pointer to the frame buffer array
+*  \exception   none
+*  \return      length of frame buffer
+***********************************************************************/ 
 int main(void)
 {
     
     char uart_buffer[256];
-    CyGlobalIntEnable; /* Enable global interrupts. */
-   
-
+    
     /* Place your initialization/startup code here (e.g. MyInst_Start()) */
     UART_1_Enable();
     UART_1_Start();
-    ISR_HC_SR04_1_Start();
     UART_1_ClearTxBuffer();
-    SonicClock_Enable();
-    PWM_CLOCK_Enable();
-    PWM_1_Start();
+    Range_CLK_Start();
+    CNT_RESET_Write(0);
+    CyGlobalIntEnable; /* Enable global interrupts. */
     
 
     for(;;)
     {
+        
+        CNT_RESET_Write(0);
+        CyDelay(1u);
+        CNT_RESET_Write(1);
+        CyDelay(1u);
+        CNT_RESET_Write(0);
+        HC_SR04_1_Trigger_Write(1);
+        CyDelay(1u);
+        HC_SR04_1_Trigger_Write(0);
+        CyDelay(10000u);
+        
         /* Place your application code here. */
         //wait for empty queue
         while(UART_1_ReadTxStatus()& UART_1_TX_STS_FIFO_FULL ){
         };
-        CyDelay(2000u);
+        
         //User_LED_Write(!User_LED_Read());
-        sprintf(uart_buffer,"Distance %u mm \r\n",HC_SR01_Distance);
+        sprintf(uart_buffer,"Distance %u cm \r\n",Range_1_Read());
         UART_1_PutString(uart_buffer);
         
-
+        
+        
+        
         //CyPmSleep(PM_SLEEP_TIME_NONE, PM_SLEEP_SRC_CTW);
         
         

@@ -26,8 +26,6 @@
 /*******************************************************************************
 *  Place your includes, defines and code here 
 ********************************************************************************/
-#include "HC_SR04_1_REG.h"
-#include "User_LED.h"
 /* `#START ISR_HC_SR04_1_intc` */
     
 
@@ -167,10 +165,6 @@ CY_ISR(ISR_HC_SR04_1_Interrupt)
     #endif /* ISR_HC_SR04_1_INTERRUPT_INTERRUPT_CALLBACK */ 
 
     /*  Place your Interrupt code here. */
-    extern uint8_t HC_SR01_Distance;
-    HC_SR01_Distance = HC_SR04_1_REG_Read();
-    ISR_HC_SR04_1_ClearPending();
-    User_LED_Write(!User_LED_Read());
     /* `#START ISR_HC_SR04_1_Interrupt` */
 
     /* `#END` */

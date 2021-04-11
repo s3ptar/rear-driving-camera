@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: SonicClock.c
+* File Name: Range_CNT_1.c
 * Version 2.20
 *
 *  Description:
@@ -15,7 +15,7 @@
 *******************************************************************************/
 
 #include <cydevice_trm.h>
-#include "SonicClock.h"
+#include "Range_CNT_1.h"
 
 /* Clock Distribution registers. */
 #define CLK_DIST_LD              (* (reg8 *) CYREG_CLKDIST_LD)
@@ -28,7 +28,7 @@
 
 
 /*******************************************************************************
-* Function Name: SonicClock_Start
+* Function Name: Range_CNT_1_Start
 ********************************************************************************
 *
 * Summary:
@@ -42,16 +42,16 @@
 *  None
 *
 *******************************************************************************/
-void SonicClock_Start(void) 
+void Range_CNT_1_Start(void) 
 {
     /* Set the bit to enable the clock. */
-    SonicClock_CLKEN |= SonicClock_CLKEN_MASK;
-	SonicClock_CLKSTBY |= SonicClock_CLKSTBY_MASK;
+    Range_CNT_1_CLKEN |= Range_CNT_1_CLKEN_MASK;
+	Range_CNT_1_CLKSTBY |= Range_CNT_1_CLKSTBY_MASK;
 }
 
 
 /*******************************************************************************
-* Function Name: SonicClock_Stop
+* Function Name: Range_CNT_1_Stop
 ********************************************************************************
 *
 * Summary:
@@ -68,11 +68,11 @@ void SonicClock_Start(void)
 *  None
 *
 *******************************************************************************/
-void SonicClock_Stop(void) 
+void Range_CNT_1_Stop(void) 
 {
     /* Clear the bit to disable the clock. */
-    SonicClock_CLKEN &= (uint8)(~SonicClock_CLKEN_MASK);
-	SonicClock_CLKSTBY &= (uint8)(~SonicClock_CLKSTBY_MASK);
+    Range_CNT_1_CLKEN &= (uint8)(~Range_CNT_1_CLKEN_MASK);
+	Range_CNT_1_CLKSTBY &= (uint8)(~Range_CNT_1_CLKSTBY_MASK);
 }
 
 
@@ -80,7 +80,7 @@ void SonicClock_Stop(void)
 
 
 /*******************************************************************************
-* Function Name: SonicClock_StopBlock
+* Function Name: Range_CNT_1_StopBlock
 ********************************************************************************
 *
 * Summary:
@@ -97,9 +97,9 @@ void SonicClock_Stop(void)
 *  None
 *
 *******************************************************************************/
-void SonicClock_StopBlock(void) 
+void Range_CNT_1_StopBlock(void) 
 {
-    if ((SonicClock_CLKEN & SonicClock_CLKEN_MASK) != 0u)
+    if ((Range_CNT_1_CLKEN & Range_CNT_1_CLKEN_MASK) != 0u)
     {
 #if HAS_CLKDIST_LD_DISABLE
         uint16 oldDivider;
@@ -107,18 +107,18 @@ void SonicClock_StopBlock(void)
         CLK_DIST_LD = 0u;
 
         /* Clear all the mask bits except ours. */
-#if defined(SonicClock__CFG3)
-        CLK_DIST_AMASK = SonicClock_CLKEN_MASK;
+#if defined(Range_CNT_1__CFG3)
+        CLK_DIST_AMASK = Range_CNT_1_CLKEN_MASK;
         CLK_DIST_DMASK = 0x00u;
 #else
-        CLK_DIST_DMASK = SonicClock_CLKEN_MASK;
+        CLK_DIST_DMASK = Range_CNT_1_CLKEN_MASK;
         CLK_DIST_AMASK = 0x00u;
-#endif /* SonicClock__CFG3 */
+#endif /* Range_CNT_1__CFG3 */
 
         /* Clear mask of bus clock. */
         CLK_DIST_BCFG2 &= (uint8)(~BCFG2_MASK);
 
-        oldDivider = CY_GET_REG16(SonicClock_DIV_PTR);
+        oldDivider = CY_GET_REG16(Range_CNT_1_DIV_PTR);
         CY_SET_REG16(CYREG_CLKDIST_WRK0, oldDivider);
         CLK_DIST_LD = CYCLK_LD_DISABLE | CYCLK_LD_SYNC_EN | CYCLK_LD_LOAD;
 
@@ -127,13 +127,13 @@ void SonicClock_StopBlock(void)
 #endif /* HAS_CLKDIST_LD_DISABLE */
 
         /* Clear the bit to disable the clock. */
-        SonicClock_CLKEN &= (uint8)(~SonicClock_CLKEN_MASK);
-        SonicClock_CLKSTBY &= (uint8)(~SonicClock_CLKSTBY_MASK);
+        Range_CNT_1_CLKEN &= (uint8)(~Range_CNT_1_CLKEN_MASK);
+        Range_CNT_1_CLKSTBY &= (uint8)(~Range_CNT_1_CLKSTBY_MASK);
 
 #if HAS_CLKDIST_LD_DISABLE
         /* Clear the disable bit */
         CLK_DIST_LD = 0x00u;
-        CY_SET_REG16(SonicClock_DIV_PTR, oldDivider);
+        CY_SET_REG16(Range_CNT_1_DIV_PTR, oldDivider);
 #endif /* HAS_CLKDIST_LD_DISABLE */
     }
 }
@@ -141,7 +141,7 @@ void SonicClock_StopBlock(void)
 
 
 /*******************************************************************************
-* Function Name: SonicClock_StandbyPower
+* Function Name: Range_CNT_1_StandbyPower
 ********************************************************************************
 *
 * Summary:
@@ -154,21 +154,21 @@ void SonicClock_StopBlock(void)
 *  None
 *
 *******************************************************************************/
-void SonicClock_StandbyPower(uint8 state) 
+void Range_CNT_1_StandbyPower(uint8 state) 
 {
     if(state == 0u)
     {
-        SonicClock_CLKSTBY &= (uint8)(~SonicClock_CLKSTBY_MASK);
+        Range_CNT_1_CLKSTBY &= (uint8)(~Range_CNT_1_CLKSTBY_MASK);
     }
     else
     {
-        SonicClock_CLKSTBY |= SonicClock_CLKSTBY_MASK;
+        Range_CNT_1_CLKSTBY |= Range_CNT_1_CLKSTBY_MASK;
     }
 }
 
 
 /*******************************************************************************
-* Function Name: SonicClock_SetDividerRegister
+* Function Name: Range_CNT_1_SetDividerRegister
 ********************************************************************************
 *
 * Summary:
@@ -190,17 +190,17 @@ void SonicClock_StandbyPower(uint8 state)
 *  None
 *
 *******************************************************************************/
-void SonicClock_SetDividerRegister(uint16 clkDivider, uint8 restart)
+void Range_CNT_1_SetDividerRegister(uint16 clkDivider, uint8 restart)
                                 
 {
     uint8 enabled;
 
-    uint8 currSrc = SonicClock_GetSourceRegister();
-    uint16 oldDivider = SonicClock_GetDividerRegister();
+    uint8 currSrc = Range_CNT_1_GetSourceRegister();
+    uint16 oldDivider = Range_CNT_1_GetDividerRegister();
 
     if (clkDivider != oldDivider)
     {
-        enabled = SonicClock_CLKEN & SonicClock_CLKEN_MASK;
+        enabled = Range_CNT_1_CLKEN & Range_CNT_1_CLKEN_MASK;
 
         if ((currSrc == (uint8)CYCLK_SRC_SEL_CLK_SYNC_D) && ((oldDivider == 0u) || (clkDivider == 0u)))
         {
@@ -210,15 +210,15 @@ void SonicClock_SetDividerRegister(uint16 clkDivider, uint8 restart)
                 /* Moving away from SSS, set the divider first so when SSS is cleared we    */
                 /* don't halt the clock.  Using the shadow load isn't required as the       */
                 /* divider is ignored while SSS is set.                                     */
-                CY_SET_REG16(SonicClock_DIV_PTR, clkDivider);
-                SonicClock_MOD_SRC &= (uint8)(~CYCLK_SSS);
+                CY_SET_REG16(Range_CNT_1_DIV_PTR, clkDivider);
+                Range_CNT_1_MOD_SRC &= (uint8)(~CYCLK_SSS);
             }
             else
             {
                 /* Moving to SSS, set SSS which then ignores the divider and we can set     */
                 /* it without bothering with the shadow load.                               */
-                SonicClock_MOD_SRC |= CYCLK_SSS;
-                CY_SET_REG16(SonicClock_DIV_PTR, clkDivider);
+                Range_CNT_1_MOD_SRC |= CYCLK_SSS;
+                CY_SET_REG16(Range_CNT_1_DIV_PTR, clkDivider);
             }
         }
         else
@@ -229,18 +229,18 @@ void SonicClock_SetDividerRegister(uint16 clkDivider, uint8 restart)
                 CLK_DIST_LD = 0x00u;
 
                 /* Clear all the mask bits except ours. */
-#if defined(SonicClock__CFG3)
-                CLK_DIST_AMASK = SonicClock_CLKEN_MASK;
+#if defined(Range_CNT_1__CFG3)
+                CLK_DIST_AMASK = Range_CNT_1_CLKEN_MASK;
                 CLK_DIST_DMASK = 0x00u;
 #else
-                CLK_DIST_DMASK = SonicClock_CLKEN_MASK;
+                CLK_DIST_DMASK = Range_CNT_1_CLKEN_MASK;
                 CLK_DIST_AMASK = 0x00u;
-#endif /* SonicClock__CFG3 */
+#endif /* Range_CNT_1__CFG3 */
                 /* Clear mask of bus clock. */
                 CLK_DIST_BCFG2 &= (uint8)(~BCFG2_MASK);
 
                 /* If clock is currently enabled, disable it if async or going from N-to-1*/
-                if (((SonicClock_MOD_SRC & CYCLK_SYNC) == 0u) || (clkDivider == 0u))
+                if (((Range_CNT_1_MOD_SRC & CYCLK_SYNC) == 0u) || (clkDivider == 0u))
                 {
 #if HAS_CLKDIST_LD_DISABLE
                     CY_SET_REG16(CYREG_CLKDIST_WRK0, oldDivider);
@@ -250,7 +250,7 @@ void SonicClock_SetDividerRegister(uint16 clkDivider, uint8 restart)
                     while ((CLK_DIST_LD & CYCLK_LD_LOAD) != 0u) { }
 #endif /* HAS_CLKDIST_LD_DISABLE */
 
-                    SonicClock_CLKEN &= (uint8)(~SonicClock_CLKEN_MASK);
+                    Range_CNT_1_CLKEN &= (uint8)(~Range_CNT_1_CLKEN_MASK);
 
 #if HAS_CLKDIST_LD_DISABLE
                     /* Clear the disable bit */
@@ -260,7 +260,7 @@ void SonicClock_SetDividerRegister(uint16 clkDivider, uint8 restart)
             }
 
             /* Load divide value. */
-            if ((SonicClock_CLKEN & SonicClock_CLKEN_MASK) != 0u)
+            if ((Range_CNT_1_CLKEN & Range_CNT_1_CLKEN_MASK) != 0u)
             {
                 /* If the clock is still enabled, use the shadow registers */
                 CY_SET_REG16(CYREG_CLKDIST_WRK0, clkDivider);
@@ -271,8 +271,8 @@ void SonicClock_SetDividerRegister(uint16 clkDivider, uint8 restart)
             else
             {
                 /* If the clock is disabled, set the divider directly */
-                CY_SET_REG16(SonicClock_DIV_PTR, clkDivider);
-				SonicClock_CLKEN |= enabled;
+                CY_SET_REG16(Range_CNT_1_DIV_PTR, clkDivider);
+				Range_CNT_1_CLKEN |= enabled;
             }
         }
     }
@@ -280,7 +280,7 @@ void SonicClock_SetDividerRegister(uint16 clkDivider, uint8 restart)
 
 
 /*******************************************************************************
-* Function Name: SonicClock_GetDividerRegister
+* Function Name: Range_CNT_1_GetDividerRegister
 ********************************************************************************
 *
 * Summary:
@@ -294,14 +294,14 @@ void SonicClock_SetDividerRegister(uint16 clkDivider, uint8 restart)
 *  divide by 2, the return value will be 1.
 *
 *******************************************************************************/
-uint16 SonicClock_GetDividerRegister(void) 
+uint16 Range_CNT_1_GetDividerRegister(void) 
 {
-    return CY_GET_REG16(SonicClock_DIV_PTR);
+    return CY_GET_REG16(Range_CNT_1_DIV_PTR);
 }
 
 
 /*******************************************************************************
-* Function Name: SonicClock_SetModeRegister
+* Function Name: Range_CNT_1_SetModeRegister
 ********************************************************************************
 *
 * Summary:
@@ -329,14 +329,14 @@ uint16 SonicClock_GetDividerRegister(void)
 *  None
 *
 *******************************************************************************/
-void SonicClock_SetModeRegister(uint8 modeBitMask) 
+void Range_CNT_1_SetModeRegister(uint8 modeBitMask) 
 {
-    SonicClock_MOD_SRC |= modeBitMask & (uint8)SonicClock_MODE_MASK;
+    Range_CNT_1_MOD_SRC |= modeBitMask & (uint8)Range_CNT_1_MODE_MASK;
 }
 
 
 /*******************************************************************************
-* Function Name: SonicClock_ClearModeRegister
+* Function Name: Range_CNT_1_ClearModeRegister
 ********************************************************************************
 *
 * Summary:
@@ -364,14 +364,14 @@ void SonicClock_SetModeRegister(uint8 modeBitMask)
 *  None
 *
 *******************************************************************************/
-void SonicClock_ClearModeRegister(uint8 modeBitMask) 
+void Range_CNT_1_ClearModeRegister(uint8 modeBitMask) 
 {
-    SonicClock_MOD_SRC &= (uint8)(~modeBitMask) | (uint8)(~(uint8)(SonicClock_MODE_MASK));
+    Range_CNT_1_MOD_SRC &= (uint8)(~modeBitMask) | (uint8)(~(uint8)(Range_CNT_1_MODE_MASK));
 }
 
 
 /*******************************************************************************
-* Function Name: SonicClock_GetModeRegister
+* Function Name: Range_CNT_1_GetModeRegister
 ********************************************************************************
 *
 * Summary:
@@ -385,14 +385,14 @@ void SonicClock_ClearModeRegister(uint8 modeBitMask)
 *  ClearModeRegister descriptions for details about the mode bits.
 *
 *******************************************************************************/
-uint8 SonicClock_GetModeRegister(void) 
+uint8 Range_CNT_1_GetModeRegister(void) 
 {
-    return SonicClock_MOD_SRC & (uint8)(SonicClock_MODE_MASK);
+    return Range_CNT_1_MOD_SRC & (uint8)(Range_CNT_1_MODE_MASK);
 }
 
 
 /*******************************************************************************
-* Function Name: SonicClock_SetSourceRegister
+* Function Name: Range_CNT_1_SetSourceRegister
 ********************************************************************************
 *
 * Summary:
@@ -416,39 +416,39 @@ uint8 SonicClock_GetModeRegister(void)
 *  None
 *
 *******************************************************************************/
-void SonicClock_SetSourceRegister(uint8 clkSource) 
+void Range_CNT_1_SetSourceRegister(uint8 clkSource) 
 {
-    uint16 currDiv = SonicClock_GetDividerRegister();
-    uint8 oldSrc = SonicClock_GetSourceRegister();
+    uint16 currDiv = Range_CNT_1_GetDividerRegister();
+    uint8 oldSrc = Range_CNT_1_GetSourceRegister();
 
     if (((oldSrc != ((uint8)CYCLK_SRC_SEL_CLK_SYNC_D)) && 
         (clkSource == ((uint8)CYCLK_SRC_SEL_CLK_SYNC_D))) && (currDiv == 0u))
     {
         /* Switching to Master and divider is 1, set SSS, which will output master, */
         /* then set the source so we are consistent.                                */
-        SonicClock_MOD_SRC |= CYCLK_SSS;
-        SonicClock_MOD_SRC =
-            (SonicClock_MOD_SRC & (uint8)(~SonicClock_SRC_SEL_MSK)) | clkSource;
+        Range_CNT_1_MOD_SRC |= CYCLK_SSS;
+        Range_CNT_1_MOD_SRC =
+            (Range_CNT_1_MOD_SRC & (uint8)(~Range_CNT_1_SRC_SEL_MSK)) | clkSource;
     }
     else if (((oldSrc == ((uint8)CYCLK_SRC_SEL_CLK_SYNC_D)) && 
             (clkSource != ((uint8)CYCLK_SRC_SEL_CLK_SYNC_D))) && (currDiv == 0u))
     {
         /* Switching from Master to not and divider is 1, set source, so we don't   */
         /* lock when we clear SSS.                                                  */
-        SonicClock_MOD_SRC =
-            (SonicClock_MOD_SRC & (uint8)(~SonicClock_SRC_SEL_MSK)) | clkSource;
-        SonicClock_MOD_SRC &= (uint8)(~CYCLK_SSS);
+        Range_CNT_1_MOD_SRC =
+            (Range_CNT_1_MOD_SRC & (uint8)(~Range_CNT_1_SRC_SEL_MSK)) | clkSource;
+        Range_CNT_1_MOD_SRC &= (uint8)(~CYCLK_SSS);
     }
     else
     {
-        SonicClock_MOD_SRC =
-            (SonicClock_MOD_SRC & (uint8)(~SonicClock_SRC_SEL_MSK)) | clkSource;
+        Range_CNT_1_MOD_SRC =
+            (Range_CNT_1_MOD_SRC & (uint8)(~Range_CNT_1_SRC_SEL_MSK)) | clkSource;
     }
 }
 
 
 /*******************************************************************************
-* Function Name: SonicClock_GetSourceRegister
+* Function Name: Range_CNT_1_GetSourceRegister
 ********************************************************************************
 *
 * Summary:
@@ -461,17 +461,17 @@ void SonicClock_SetSourceRegister(uint8 clkSource)
 *  The input source of the clock. See SetSourceRegister for details.
 *
 *******************************************************************************/
-uint8 SonicClock_GetSourceRegister(void) 
+uint8 Range_CNT_1_GetSourceRegister(void) 
 {
-    return SonicClock_MOD_SRC & SonicClock_SRC_SEL_MSK;
+    return Range_CNT_1_MOD_SRC & Range_CNT_1_SRC_SEL_MSK;
 }
 
 
-#if defined(SonicClock__CFG3)
+#if defined(Range_CNT_1__CFG3)
 
 
 /*******************************************************************************
-* Function Name: SonicClock_SetPhaseRegister
+* Function Name: Range_CNT_1_SetPhaseRegister
 ********************************************************************************
 *
 * Summary:
@@ -489,14 +489,14 @@ uint8 SonicClock_GetSourceRegister(void)
 *  None
 *
 *******************************************************************************/
-void SonicClock_SetPhaseRegister(uint8 clkPhase) 
+void Range_CNT_1_SetPhaseRegister(uint8 clkPhase) 
 {
-    SonicClock_PHASE = clkPhase & SonicClock_PHASE_MASK;
+    Range_CNT_1_PHASE = clkPhase & Range_CNT_1_PHASE_MASK;
 }
 
 
 /*******************************************************************************
-* Function Name: SonicClock_GetPhase
+* Function Name: Range_CNT_1_GetPhase
 ********************************************************************************
 *
 * Summary:
@@ -510,12 +510,12 @@ void SonicClock_SetPhaseRegister(uint8 clkPhase)
 *  Phase of the analog clock. See SetPhaseRegister for details.
 *
 *******************************************************************************/
-uint8 SonicClock_GetPhaseRegister(void) 
+uint8 Range_CNT_1_GetPhaseRegister(void) 
 {
-    return SonicClock_PHASE & SonicClock_PHASE_MASK;
+    return Range_CNT_1_PHASE & Range_CNT_1_PHASE_MASK;
 }
 
-#endif /* SonicClock__CFG3 */
+#endif /* Range_CNT_1__CFG3 */
 
 
 /* [] END OF FILE */

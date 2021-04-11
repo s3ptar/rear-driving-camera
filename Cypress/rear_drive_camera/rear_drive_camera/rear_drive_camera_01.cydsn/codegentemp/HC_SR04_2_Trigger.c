@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: HC_SR04_1_Echo.c  
+* File Name: HC_SR04_2_Trigger.c  
 * Version 2.20
 *
 * Description:
@@ -15,15 +15,15 @@
 *******************************************************************************/
 
 #include "cytypes.h"
-#include "HC_SR04_1_Echo.h"
+#include "HC_SR04_2_Trigger.h"
 
 /* APIs are not generated for P15[7:6] on PSoC 5 */
 #if !(CY_PSOC5A &&\
-	 HC_SR04_1_Echo__PORT == 15 && ((HC_SR04_1_Echo__MASK & 0xC0) != 0))
+	 HC_SR04_2_Trigger__PORT == 15 && ((HC_SR04_2_Trigger__MASK & 0xC0) != 0))
 
 
 /*******************************************************************************
-* Function Name: HC_SR04_1_Echo_Write
+* Function Name: HC_SR04_2_Trigger_Write
 ****************************************************************************//**
 *
 * \brief Writes the value to the physical port (data output register), masking
@@ -52,17 +52,17 @@
 *  this function.
 *
 * \funcusage
-*  \snippet HC_SR04_1_Echo_SUT.c usage_HC_SR04_1_Echo_Write
+*  \snippet HC_SR04_2_Trigger_SUT.c usage_HC_SR04_2_Trigger_Write
 *******************************************************************************/
-void HC_SR04_1_Echo_Write(uint8 value)
+void HC_SR04_2_Trigger_Write(uint8 value)
 {
-    uint8 staticBits = (HC_SR04_1_Echo_DR & (uint8)(~HC_SR04_1_Echo_MASK));
-    HC_SR04_1_Echo_DR = staticBits | ((uint8)(value << HC_SR04_1_Echo_SHIFT) & HC_SR04_1_Echo_MASK);
+    uint8 staticBits = (HC_SR04_2_Trigger_DR & (uint8)(~HC_SR04_2_Trigger_MASK));
+    HC_SR04_2_Trigger_DR = staticBits | ((uint8)(value << HC_SR04_2_Trigger_SHIFT) & HC_SR04_2_Trigger_MASK);
 }
 
 
 /*******************************************************************************
-* Function Name: HC_SR04_1_Echo_SetDriveMode
+* Function Name: HC_SR04_2_Trigger_SetDriveMode
 ****************************************************************************//**
 *
 * \brief Sets the drive mode for each of the Pins component's pins.
@@ -85,16 +85,16 @@ void HC_SR04_1_Echo_Write(uint8 value)
 *  APIs (primary method) or disable interrupts around this function.
 *
 * \funcusage
-*  \snippet HC_SR04_1_Echo_SUT.c usage_HC_SR04_1_Echo_SetDriveMode
+*  \snippet HC_SR04_2_Trigger_SUT.c usage_HC_SR04_2_Trigger_SetDriveMode
 *******************************************************************************/
-void HC_SR04_1_Echo_SetDriveMode(uint8 mode)
+void HC_SR04_2_Trigger_SetDriveMode(uint8 mode)
 {
-	CyPins_SetPinDriveMode(HC_SR04_1_Echo_0, mode);
+	CyPins_SetPinDriveMode(HC_SR04_2_Trigger_0, mode);
 }
 
 
 /*******************************************************************************
-* Function Name: HC_SR04_1_Echo_Read
+* Function Name: HC_SR04_2_Trigger_Read
 ****************************************************************************//**
 *
 * \brief Reads the associated physical port (pin status register) and masks 
@@ -108,16 +108,16 @@ void HC_SR04_1_Echo_SetDriveMode(uint8 mode)
 *  The current value for the pins in the component as a right justified number.
 *
 * \funcusage
-*  \snippet HC_SR04_1_Echo_SUT.c usage_HC_SR04_1_Echo_Read  
+*  \snippet HC_SR04_2_Trigger_SUT.c usage_HC_SR04_2_Trigger_Read  
 *******************************************************************************/
-uint8 HC_SR04_1_Echo_Read(void)
+uint8 HC_SR04_2_Trigger_Read(void)
 {
-    return (HC_SR04_1_Echo_PS & HC_SR04_1_Echo_MASK) >> HC_SR04_1_Echo_SHIFT;
+    return (HC_SR04_2_Trigger_PS & HC_SR04_2_Trigger_MASK) >> HC_SR04_2_Trigger_SHIFT;
 }
 
 
 /*******************************************************************************
-* Function Name: HC_SR04_1_Echo_ReadDataReg
+* Function Name: HC_SR04_2_Trigger_ReadDataReg
 ****************************************************************************//**
 *
 * \brief Reads the associated physical port's data output register and masks 
@@ -126,8 +126,8 @@ uint8 HC_SR04_1_Echo_Read(void)
 *
 * The data output register controls the signal applied to the physical pin in 
 * conjunction with the drive mode parameter. This is not the same as the 
-* preferred HC_SR04_1_Echo_Read() API because the 
-* HC_SR04_1_Echo_ReadDataReg() reads the data register instead of the status 
+* preferred HC_SR04_2_Trigger_Read() API because the 
+* HC_SR04_2_Trigger_ReadDataReg() reads the data register instead of the status 
 * register. For output pins this is a useful function to determine the value 
 * just written to the pin.
 *
@@ -136,19 +136,19 @@ uint8 HC_SR04_1_Echo_Read(void)
 *  justified number for the component instance.
 *
 * \funcusage
-*  \snippet HC_SR04_1_Echo_SUT.c usage_HC_SR04_1_Echo_ReadDataReg 
+*  \snippet HC_SR04_2_Trigger_SUT.c usage_HC_SR04_2_Trigger_ReadDataReg 
 *******************************************************************************/
-uint8 HC_SR04_1_Echo_ReadDataReg(void)
+uint8 HC_SR04_2_Trigger_ReadDataReg(void)
 {
-    return (HC_SR04_1_Echo_DR & HC_SR04_1_Echo_MASK) >> HC_SR04_1_Echo_SHIFT;
+    return (HC_SR04_2_Trigger_DR & HC_SR04_2_Trigger_MASK) >> HC_SR04_2_Trigger_SHIFT;
 }
 
 
 /* If interrupt is connected for this Pins component */ 
-#if defined(HC_SR04_1_Echo_INTSTAT) 
+#if defined(HC_SR04_2_Trigger_INTSTAT) 
 
     /*******************************************************************************
-    * Function Name: HC_SR04_1_Echo_SetInterruptMode
+    * Function Name: HC_SR04_2_Trigger_SetInterruptMode
     ****************************************************************************//**
     *
     * \brief Configures the interrupt mode for each of the Pins component's
@@ -161,12 +161,12 @@ uint8 HC_SR04_1_Echo_ReadDataReg(void)
     * \param position
     *  The pin position as listed in the Pins component. You may OR these to be 
     *  able to configure the interrupt mode of multiple pins within a Pins 
-    *  component. Or you may use HC_SR04_1_Echo_INTR_ALL to configure the
+    *  component. Or you may use HC_SR04_2_Trigger_INTR_ALL to configure the
     *  interrupt mode of all the pins in the Pins component.       
-    *  - HC_SR04_1_Echo_0_INTR       (First pin in the list)
-    *  - HC_SR04_1_Echo_1_INTR       (Second pin in the list)
+    *  - HC_SR04_2_Trigger_0_INTR       (First pin in the list)
+    *  - HC_SR04_2_Trigger_1_INTR       (Second pin in the list)
     *  - ...
-    *  - HC_SR04_1_Echo_INTR_ALL     (All pins in Pins component)
+    *  - HC_SR04_2_Trigger_INTR_ALL     (All pins in Pins component)
     *
     * \param mode
     *  Interrupt mode for the selected pins. Valid options are documented in
@@ -182,19 +182,19 @@ uint8 HC_SR04_1_Echo_ReadDataReg(void)
     *  port.
     *
     * \funcusage
-    *  \snippet HC_SR04_1_Echo_SUT.c usage_HC_SR04_1_Echo_SetInterruptMode
+    *  \snippet HC_SR04_2_Trigger_SUT.c usage_HC_SR04_2_Trigger_SetInterruptMode
     *******************************************************************************/
-    void HC_SR04_1_Echo_SetInterruptMode(uint16 position, uint16 mode)
+    void HC_SR04_2_Trigger_SetInterruptMode(uint16 position, uint16 mode)
     {
-		if((position & HC_SR04_1_Echo_0_INTR) != 0u) 
+		if((position & HC_SR04_2_Trigger_0_INTR) != 0u) 
 		{ 
-			 HC_SR04_1_Echo_0_INTTYPE_REG = (uint8)mode; 
+			 HC_SR04_2_Trigger_0_INTTYPE_REG = (uint8)mode; 
 		}
     }
     
     
     /*******************************************************************************
-    * Function Name: HC_SR04_1_Echo_ClearInterrupt
+    * Function Name: HC_SR04_2_Trigger_ClearInterrupt
     ****************************************************************************//**
     *
     * \brief Clears any active interrupts attached with the component and returns 
@@ -211,11 +211,11 @@ uint8 HC_SR04_1_Echo_ReadDataReg(void)
     *  those associated with the Pins component.
     *
     * \funcusage
-    *  \snippet HC_SR04_1_Echo_SUT.c usage_HC_SR04_1_Echo_ClearInterrupt
+    *  \snippet HC_SR04_2_Trigger_SUT.c usage_HC_SR04_2_Trigger_ClearInterrupt
     *******************************************************************************/
-    uint8 HC_SR04_1_Echo_ClearInterrupt(void)
+    uint8 HC_SR04_2_Trigger_ClearInterrupt(void)
     {
-        return (HC_SR04_1_Echo_INTSTAT & HC_SR04_1_Echo_MASK) >> HC_SR04_1_Echo_SHIFT;
+        return (HC_SR04_2_Trigger_INTSTAT & HC_SR04_2_Trigger_MASK) >> HC_SR04_2_Trigger_SHIFT;
     }
 
 #endif /* If Interrupts Are Enabled for this Pins component */ 

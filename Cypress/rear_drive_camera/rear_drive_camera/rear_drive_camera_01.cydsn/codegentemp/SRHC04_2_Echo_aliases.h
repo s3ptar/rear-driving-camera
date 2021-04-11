@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: HC_SR04_1_Echo.h  
+* File Name: SRHC04_2_Echo.h  
 * Version 2.20
 *
 * Description:
@@ -15,8 +15,8 @@
 * the software package with which this file was provided.
 *******************************************************************************/
 
-#if !defined(CY_PINS_HC_SR04_1_Echo_ALIASES_H) /* Pins HC_SR04_1_Echo_ALIASES_H */
-#define CY_PINS_HC_SR04_1_Echo_ALIASES_H
+#if !defined(CY_PINS_SRHC04_2_Echo_ALIASES_H) /* Pins SRHC04_2_Echo_ALIASES_H */
+#define CY_PINS_SRHC04_2_Echo_ALIASES_H
 
 #include "cytypes.h"
 #include "cyfitter.h"
@@ -25,12 +25,12 @@
 /***************************************
 *              Constants        
 ***************************************/
-#define HC_SR04_1_Echo_0			(HC_SR04_1_Echo__0__PC)
-#define HC_SR04_1_Echo_0_INTR	((uint16)((uint16)0x0001u << HC_SR04_1_Echo__0__SHIFT))
+#define SRHC04_2_Echo_0			(SRHC04_2_Echo__0__PC)
+#define SRHC04_2_Echo_0_INTR	((uint16)((uint16)0x0001u << SRHC04_2_Echo__0__SHIFT))
 
-#define HC_SR04_1_Echo_INTR_ALL	 ((uint16)(HC_SR04_1_Echo_0_INTR))
+#define SRHC04_2_Echo_INTR_ALL	 ((uint16)(SRHC04_2_Echo_0_INTR))
 
-#endif /* End Pins HC_SR04_1_Echo_ALIASES_H */
+#endif /* End Pins SRHC04_2_Echo_ALIASES_H */
 
 
 /* [] END OF FILE */
