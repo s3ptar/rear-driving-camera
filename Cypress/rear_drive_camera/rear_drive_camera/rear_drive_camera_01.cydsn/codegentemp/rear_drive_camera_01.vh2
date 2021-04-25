@@ -2,7 +2,7 @@
 --	Conversion of rear_drive_camera_01.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Sun Apr 11 14:32:58 2021
+--	Sat Apr 24 10:02:35 2021
 --
 
 USE cypress.cypress.all;
@@ -861,6 +861,7 @@ SIGNAL tmpFB_0__HC_SR04_2_Trigger_net_0 : bit;
 SIGNAL tmpIO_0__HC_SR04_2_Trigger_net_0 : bit;
 TERMINAL tmpSIOVREF__HC_SR04_2_Trigger_net_0 : bit;
 SIGNAL tmpINTERRUPT_0__HC_SR04_2_Trigger_net_0 : bit;
+SIGNAL Net_256 : bit;
 SIGNAL \UART_1:BUART:reset_reg\\D\ : bit;
 SIGNAL \UART_1:BUART:txn\\D\ : bit;
 SIGNAL \UART_1:BUART:tx_state_1\\D\ : bit;
@@ -2055,6 +2056,12 @@ HC_SR04_2_Trigger:cy_psoc3_pins_v1_10
 		out_clock_en=>one,
 		out_reset=>zero,
 		interrupt=>tmpINTERRUPT_0__HC_SR04_2_Trigger_net_0);
+DMA_MEM_TO_UART:cy_dma_v1_0
+	GENERIC MAP(drq_type=>"10",
+		num_tds=>0)
+	PORT MAP(drq=>zero,
+		trq=>zero,
+		nrq=>Net_256);
 \UART_1:BUART:reset_reg\:cy_dff
 	PORT MAP(d=>zero,
 		clk=>\UART_1:BUART:clock_op\,

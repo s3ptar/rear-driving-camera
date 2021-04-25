@@ -5,9 +5,6 @@
   <block name="Range_CNT_1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="GND_1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="D_1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="cy_boot" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="Em_EEPROM_Dynamic" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="HC_SR04_2_Trigger" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="Range_1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false">
     <register name="Range_1_STATUS_REG" address="0x40006463" bitWidth="8" desc="" hidden="false" />
     <register name="Range_1_MASK_REG" address="0x40006483" bitWidth="8" desc="" hidden="false" />
@@ -38,6 +35,9 @@
       </field>
     </register>
   </block>
+  <block name="cy_boot" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="Em_EEPROM_Dynamic" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="DMA_MEM_TO_UART" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="Range_2" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false">
     <register name="Range_2_STATUS_REG" address="0x40006462" bitWidth="8" desc="" hidden="false" />
     <register name="Range_2_MASK_REG" address="0x40006482" bitWidth="8" desc="" hidden="false" />
@@ -68,7 +68,7 @@
       </field>
     </register>
   </block>
-  <block name="User_LED" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="HC_SR04_2_Trigger" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="UART_Connect" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="HC_SR04_1_Trigger" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="Tx_1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
@@ -76,17 +76,7 @@
     <block name="IntClock" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
     <block name="VirtualMux_1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
     <block name="BUART" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-    <register name="TX_UART_1_TX_STATUS" address="0x40006466" bitWidth="8" desc="TX status register" hidden="false">
-      <field name="UART_1_TX_STS_COMPLETE" from="0" to="0" access="R" resetVal="" desc="" hidden="false" />
-      <field name="UART_1_TX_STS_FIFO_EMPTY" from="1" to="1" access="R" resetVal="" desc="" hidden="false" />
-      <field name="UART_1_TX_STS_FIFO_FULL" from="2" to="2" access="R" resetVal="" desc="" hidden="false" />
-      <field name="UART_1_TX_STS_FIFO_NOT_FULL" from="3" to="3" access="R" resetVal="" desc="" hidden="false" />
-    </register>
-    <register name="RX_UART_1_RX_ADDRESS1" address="0x40006527" bitWidth="8" desc="RX Address1 Register" hidden="false" />
-    <register name="RX_UART_1_RX_ADDRESS2" address="0x40006537" bitWidth="8" desc="RX Address2 Register" hidden="false" />
-    <register name="TX_UART_1_TX_DATA" address="0x40006546" bitWidth="8" desc="TX Data Register" hidden="false" />
-    <register name="RX_UART_1_RX_DATA" address="0x40006547" bitWidth="8" desc="RX Data Register" hidden="false" />
-    <register name="RX_UART_1_RX_STATUS" address="0x40006564" bitWidth="8" desc="RX status register" hidden="false">
+    <register name="RX_UART_1_RX_STATUS" address="0x40006466" bitWidth="8" desc="RX status register" hidden="false">
       <field name="UART_1_RX_STS_MRKSPC" from="0" to="0" access="R" resetVal="" desc="" hidden="false" />
       <field name="UART_1_RX_STS_BREAK" from="1" to="1" access="R" resetVal="" desc="" hidden="false" />
       <field name="UART_1_RX_STS_PAR_ERROR" from="2" to="2" access="R" resetVal="" desc="" hidden="false" />
@@ -95,13 +85,24 @@
       <field name="UART_1_RX_STS_FIFO_NOTEMPTY" from="5" to="5" access="R" resetVal="" desc="" hidden="false" />
       <field name="UART_1_RX_STS_ADDR_MATCH" from="6" to="6" access="R" resetVal="" desc="" hidden="false" />
     </register>
+    <register name="TX_UART_1_TX_STATUS" address="0x40006467" bitWidth="8" desc="TX status register" hidden="false">
+      <field name="UART_1_TX_STS_COMPLETE" from="0" to="0" access="R" resetVal="" desc="" hidden="false" />
+      <field name="UART_1_TX_STS_FIFO_EMPTY" from="1" to="1" access="R" resetVal="" desc="" hidden="false" />
+      <field name="UART_1_TX_STS_FIFO_FULL" from="2" to="2" access="R" resetVal="" desc="" hidden="false" />
+      <field name="UART_1_TX_STS_FIFO_NOT_FULL" from="3" to="3" access="R" resetVal="" desc="" hidden="false" />
+    </register>
+    <register name="RX_UART_1_RX_ADDRESS1" address="0x40006526" bitWidth="8" desc="RX Address1 Register" hidden="false" />
+    <register name="RX_UART_1_RX_ADDRESS2" address="0x40006536" bitWidth="8" desc="RX Address2 Register" hidden="false" />
+    <register name="TX_UART_1_TX_DATA" address="0x40006544" bitWidth="8" desc="TX Data Register" hidden="false" />
+    <register name="RX_UART_1_RX_DATA" address="0x40006546" bitWidth="8" desc="RX Data Register" hidden="false" />
   </block>
   <block name="Rx_1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="cy_constant_1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="DieTemp_1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="Range_CLK" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="User_LED" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="cy_constant_1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="SRHC04_2_Echo" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="CNT_RESET" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false">
     <register name="CNT_RESET_CONTROL_REG" address="0x40006473" bitWidth="8" desc="" hidden="false" />
   </block>
-  <block name="DieTemp_1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="SRHC04_2_Echo" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
 </blockRegMap>

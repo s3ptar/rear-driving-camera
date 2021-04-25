@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CyXmlSerializer>
+<!--This file is machine generated and read. It is not intended to be edited by hand.-->
+<!--Due to this, there is no schema for this file.-->
+<CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21 type_name="CyDesigner.Common.ProjMgmt.Model.CyPrjMgmtWrkspcCustomData" version="4">
+<CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997 type_name="CyDesigner.Common.Base.CyCustomData" version="2">
+<userData>
+<dataGuid v="1b906a0f-a7b6-4e4d-a428-82f98b53cb35">
+<CyGuid_1b906a0f-a7b6-4e4d-a428-82f98b53cb35 type_name="CyDesigner.Common.ProjMgmt.GUI.CyExplorerWindow+CyExplorerWindowState" version="3" SelectedTab="Source">
+<TreeKeys>
+<v>Source</v>
+<v>Components</v>
+<v>Output</v>
+</TreeKeys>
+<TreeStates>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="rear_drive_camera\rear_drive_camera_01\Generated_Source\PSoC5\UART_1\UART_1.h">
+<ExpandedNodeIds>
+<v>rear_drive_camera</v>
+<v>rear_drive_camera\rear_drive_camera_01</v>
+<v>rear_drive_camera\rear_drive_camera_01\TopDesign</v>
+<v>rear_drive_camera\rear_drive_camera_01\rear_drive_camera_01.cydwr</v>
+<v>rear_drive_camera\rear_drive_camera_01\rear_drive_camera_01.cydwr\Pins</v>
+<v>rear_drive_camera\rear_drive_camera_01\rear_drive_camera_01.cydwr\Analog</v>
+<v>rear_drive_camera\rear_drive_camera_01\rear_drive_camera_01.cydwr\Clocks</v>
+<v>rear_drive_camera\rear_drive_camera_01\rear_drive_camera_01.cydwr\Interrupts</v>
+<v>rear_drive_camera\rear_drive_camera_01\rear_drive_camera_01.cydwr\DMA</v>
+<v>rear_drive_camera\rear_drive_camera_01\rear_drive_camera_01.cydwr\System</v>
+<v>rear_drive_camera\rear_drive_camera_01\rear_drive_camera_01.cydwr\Directives</v>
+<v>rear_drive_camera\rear_drive_camera_01\rear_drive_camera_01.cydwr\Flash Security</v>
+<v>rear_drive_camera\rear_drive_camera_01\rear_drive_camera_01.cydwr\EEPROM</v>
+<v>rear_drive_camera\rear_drive_camera_01\Header Files</v>
+<v>rear_drive_camera\rear_drive_camera_01\Header Files\cyapicallbacks.h</v>
+<v>rear_drive_camera\rear_drive_camera_01\Header Files\jsmn.h</v>
+<v>rear_drive_camera\rear_drive_camera_01\Source Files</v>
+<v>rear_drive_camera\rear_drive_camera_01\Source Files\main.c</v>
+<v>rear_drive_camera\rear_drive_camera_01\Generated_Source</v>
+<v>rear_drive_camera\rear_drive_camera_01\Generated_Source\PSoC5</v>
+<v>rear_drive_camera\rear_drive_camera_01\Generated_Source\PSoC5\DMA_MEM_TO_UART</v>
+<v>rear_drive_camera\rear_drive_camera_01\Generated_Source\PSoC5\UART_1</v>
+</ExpandedNodeIds>
+<VisibleNodeIds />
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>rear_drive_camera</v>
+<v>rear_drive_camera\rear_drive_camera_01</v>
+<v>rear_drive_camera\rear_drive_camera_01\TopDesign</v>
+<v>rear_drive_camera\rear_drive_camera_01\TopDesign\TopDesign.cysch</v>
+</ExpandedNodeIds>
+<VisibleNodeIds />
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>rear_drive_camera</v>
+<v>rear_drive_camera\rear_drive_camera_01</v>
+<v>rear_drive_camera\rear_drive_camera_01\CortexM3</v>
+<v>rear_drive_camera\rear_drive_camera_01\CortexM3\ARM_GCC_541</v>
+<v>rear_drive_camera\rear_drive_camera_01\CortexM3\ARM_GCC_541\Debug</v>
+<v>rear_drive_camera\rear_drive_camera_01\CortexM3\ARM_GCC_541\Debug\Listing Files</v>
+<v>rear_drive_camera\rear_drive_camera_01\CortexM3\ARM_GCC_541\Debug\Listing Files\Cm3Start.lst</v>
+<v>rear_drive_camera\rear_drive_camera_01\CortexM3\ARM_GCC_541\Debug\Listing Files\CNT_RESET.lst</v>
+<v>rear_drive_camera\rear_drive_camera_01\CortexM3\ARM_GCC_541\Debug\Listing Files\CNT_RESET_PM.lst</v>
+<v>rear_drive_camera\rear_drive_camera_01\CortexM3\ARM_GCC_541\Debug\Listing Files\cy_em_eeprom.lst</v>
+<v>rear_drive_camera\rear_drive_camera_01\CortexM3\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
+<v>rear_drive_camera\rear_drive_camera_01\CortexM3\ARM_GCC_541\Debug\Listing Files\CyDmac.lst</v>
+<v>rear_drive_camera\rear_drive_camera_01\CortexM3\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
+<v>rear_drive_camera\rear_drive_camera_01\CortexM3\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
+<v>rear_drive_camera\rear_drive_camera_01\CortexM3\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
+<v>rear_drive_camera\rear_drive_camera_01\CortexM3\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
+<v>rear_drive_camera\rear_drive_camera_01\CortexM3\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
+<v>rear_drive_camera\rear_drive_camera_01\CortexM3\ARM_GCC_541\Debug\Listing Files\CySpc.lst</v>
+<v>rear_drive_camera\rear_drive_camera_01\CortexM3\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
+<v>rear_drive_camera\rear_drive_camera_01\CortexM3\ARM_GCC_541\Debug\Listing Files\DieTemp_1.lst</v>
+<v>rear_drive_camera\rear_drive_camera_01\CortexM3\ARM_GCC_541\Debug\Listing Files\DMA_MEM_TO_UART_dma.lst</v>
+<v>rear_drive_camera\rear_drive_camera_01\CortexM3\ARM_GCC_541\Debug\Listing Files\HC_SR04_1_Trigger.lst</v>
+<v>rear_drive_camera\rear_drive_camera_01\CortexM3\ARM_GCC_541\Debug\Listing Files\HC_SR04_2_Trigger.lst</v>
+<v>rear_drive_camera\rear_drive_camera_01\CortexM3\ARM_GCC_541\Debug\Listing Files\main.lst</v>
+<v>rear_drive_camera\rear_drive_camera_01\CortexM3\ARM_GCC_541\Debug\Listing Files\Range_1.lst</v>
+<v>rear_drive_camera\rear_drive_camera_01\CortexM3\ARM_GCC_541\Debug\Listing Files\Range_2.lst</v>
+<v>rear_drive_camera\rear_drive_camera_01\CortexM3\ARM_GCC_541\Debug\Listing Files\Range_CLK.lst</v>
+<v>rear_drive_camera\rear_drive_camera_01\CortexM3\ARM_GCC_541\Debug\Listing Files\SRHC04_1_Echo.lst</v>
+<v>rear_drive_camera\rear_drive_camera_01\CortexM3\ARM_GCC_541\Debug\Listing Files\SRHC04_2_Echo.lst</v>
+<v>rear_drive_camera\rear_drive_camera_01\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_1.lst</v>
+<v>rear_drive_camera\rear_drive_camera_01\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_1_BOOT.lst</v>
+<v>rear_drive_camera\rear_drive_camera_01\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_1_INT.lst</v>
+<v>rear_drive_camera\rear_drive_camera_01\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_1_IntClock.lst</v>
+<v>rear_drive_camera\rear_drive_camera_01\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_1_PM.lst</v>
+<v>rear_drive_camera\rear_drive_camera_01\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_Connect.lst</v>
+<v>rear_drive_camera\rear_drive_camera_01\CortexM3\ARM_GCC_541\Debug\Listing Files\User_LED.lst</v>
+<v>rear_drive_camera\rear_drive_camera_01\CortexM3\ARM_GCC_541\Debug\rear_drive_camera_01.elf</v>
+<v>rear_drive_camera\rear_drive_camera_01\CortexM3\ARM_GCC_541\Debug\rear_drive_camera_01.hex</v>
+<v>rear_drive_camera\rear_drive_camera_01\CortexM3\ARM_GCC_541\Debug\rear_drive_camera_01.map</v>
+<v>rear_drive_camera\rear_drive_camera_01\rear_drive_camera_01.gpdsc</v>
+<v>rear_drive_camera\rear_drive_camera_01\rear_drive_camera_01.rpt</v>
+<v>rear_drive_camera\rear_drive_camera_01\rear_drive_camera_01_timing.html</v>
+</ExpandedNodeIds>
+<VisibleNodeIds />
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+</TreeStates>
+<TreeKeysV2>
+<v>Datasheet</v>
+</TreeKeysV2>
+<TreeStatesV2>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>rear_drive_camera</v>
+<v>rear_drive_camera\rear_drive_camera_01</v>
+<v>rear_drive_camera\rear_drive_camera_01\PSoC 5LP Architecture TRM</v>
+<v>rear_drive_camera\rear_drive_camera_01\CY8C58LP Family Datasheet</v>
+<v>rear_drive_camera\rear_drive_camera_01\System Reference Guides</v>
+<v>rear_drive_camera\rear_drive_camera_01\System Reference Guides\cy_boot_v6_0</v>
+<v>rear_drive_camera\rear_drive_camera_01\BasicCounter_v1_0</v>
+<v>rear_drive_camera\rear_drive_camera_01\BasicCounter_v1_0\BasicCounter_v1_0.pdf</v>
+<v>rear_drive_camera\rear_drive_camera_01\cy_clock_v2_20.pdf</v>
+<v>rear_drive_camera\rear_drive_camera_01\cy_constant_v1_0.pdf</v>
+<v>rear_drive_camera\rear_drive_camera_01\cy_dma_v1_70.pdf</v>
+<v>rear_drive_camera\rear_drive_camera_01\cy_pins_v2_20</v>
+<v>rear_drive_camera\rear_drive_camera_01\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
+<v>rear_drive_camera\rear_drive_camera_01\CyControlReg_v1_80.pdf</v>
+<v>rear_drive_camera\rear_drive_camera_01\CyStatusReg_v1_90</v>
+<v>rear_drive_camera\rear_drive_camera_01\CyStatusReg_v1_90\CyStatusReg_v1_90.pdf</v>
+<v>rear_drive_camera\rear_drive_camera_01\DieTemp_v2_10.pdf</v>
+<v>rear_drive_camera\rear_drive_camera_01\Gnd_v1_0.pdf</v>
+<v>rear_drive_camera\rear_drive_camera_01\LED_v1_0.pdf</v>
+<v>rear_drive_camera\rear_drive_camera_01\UART_v2_50.pdf</v>
+</ExpandedNodeIds>
+<VisibleNodeIds />
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+</TreeStatesV2>
+</CyGuid_1b906a0f-a7b6-4e4d-a428-82f98b53cb35>
+</dataGuid>
+</userData>
+</CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
+<Unloaded />
+<OpenDocs>
+<name v=".\rear_drive_camera_01.cydsn\TopDesign\TopDesign.cysch" />
+<name v=".\rear_drive_camera_01.cydsn\main.c" />
+<name v=".\rear_drive_camera_01.cydsn\Generated_Source\PSoC5\DMA_MEM_TO_UART_dma.h" />
+<name v=".\rear_drive_camera_01.cydsn\Generated_Source\PSoC5\UART_1.h" />
+</OpenDocs>
+<OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
+
+  Actipro Docking/MDI for WinForms
+  Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
+  http://www.actiprosoftware.com
+
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="928, 632" SelectedTabbedMdiWindow="a0feac04-dec1-4d23-b778-9c85077bf1e3"><DocumentWindow Key="C:\data\GitHub\rear-driving-camera\Cypress\rear_drive_camera\rear_drive_camera\rear_drive_camera_01.cydsn\TopDesign\TopDesign.cysch" Guid="a0feac04-dec1-4d23-b778-9c85077bf1e3" /><DocumentWindow Key="C:\data\GitHub\rear-driving-camera\Cypress\rear_drive_camera\rear_drive_camera\rear_drive_camera_01.cydsn\main.c" Guid="3a667b45-222f-4757-a865-3091c282023b" /><DocumentWindow Key="C:\data\GitHub\rear-driving-camera\Cypress\rear_drive_camera\rear_drive_camera\rear_drive_camera_01.cydsn\Generated_Source\PSoC5\DMA_MEM_TO_UART_dma.h" Guid="90c62d1d-3a6e-4e68-a05d-123a067b56b4" /><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="1cc933ae-c34d-4235-a96a-3eca5c9969cc" /><DocumentWindow Key="C:\data\GitHub\rear-driving-camera\Cypress\rear_drive_camera\rear_drive_camera\rear_drive_camera_01.cydsn\Generated_Source\PSoC5\UART_1.h" Guid="8dd99ceb-a738-470a-ab87-32bbd230ee86" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+<config v="" />
+<AutoUpdate v="true" />
+</CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>
+</CyXmlSerializer>
