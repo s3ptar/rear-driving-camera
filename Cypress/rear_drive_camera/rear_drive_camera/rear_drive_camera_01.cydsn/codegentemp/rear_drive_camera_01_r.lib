@@ -3062,6 +3062,27 @@ library (timing) {
             direction : input;
         }
     }
+    cell (drqcell1) {
+        pin (clock) {
+            direction : input;
+            clock : true;
+        }
+        pin (dmareq) {
+            direction : input;
+        }
+        pin (termin) {
+            direction : input;
+        }
+        pin (termout) {
+            direction : output;
+            timing () {
+                timing_type : rising_edge;
+                related_pin : "clock";
+                intrinsic_rise : 9.000;
+                intrinsic_fall : 9.000;
+            }
+        }
+    }
     cell (macrocell9) {
         pin (cin) {
             direction : input;

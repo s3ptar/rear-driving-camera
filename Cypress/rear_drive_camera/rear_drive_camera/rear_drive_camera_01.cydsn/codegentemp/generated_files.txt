@@ -52,6 +52,8 @@
   <file name="C:\data\GitHub\rear-driving-camera\Cypress\rear_drive_camera\rear_drive_camera\rear_drive_camera_01.cydsn\codegentemp\HC_SR04_2_Trigger_aliases.h" value="HEADER;;;;;HC_SR04_2_Trigger" />
   <file name="C:\data\GitHub\rear-driving-camera\Cypress\rear_drive_camera\rear_drive_camera\rear_drive_camera_01.cydsn\codegentemp\HC_SR04_2_Trigger.c" value="SOURCE_C;CortexM3;;;;HC_SR04_2_Trigger" />
   <file name="C:\data\GitHub\rear-driving-camera\Cypress\rear_drive_camera\rear_drive_camera\rear_drive_camera_01.cydsn\codegentemp\HC_SR04_2_Trigger.h" value="HEADER;;;;;HC_SR04_2_Trigger" />
+  <file name="C:\data\GitHub\rear-driving-camera\Cypress\rear_drive_camera\rear_drive_camera\rear_drive_camera_01.cydsn\codegentemp\DMA_MEM_TO_UART_dma.c" value="SOURCE_C;CortexM3;;;;DMA_MEM_TO_UART" />
+  <file name="C:\data\GitHub\rear-driving-camera\Cypress\rear_drive_camera\rear_drive_camera\rear_drive_camera_01.cydsn\codegentemp\DMA_MEM_TO_UART_dma.h" value="HEADER;;;;;DMA_MEM_TO_UART" />
   <file name="C:\data\GitHub\rear-driving-camera\Cypress\rear_drive_camera\rear_drive_camera\rear_drive_camera_01.cydsn\codegentemp\UART_1_IntClock.c" value="SOURCE_C;CortexM3;;;;UART_1_IntClock" />
   <file name="C:\data\GitHub\rear-driving-camera\Cypress\rear_drive_camera\rear_drive_camera\rear_drive_camera_01.cydsn\codegentemp\UART_1_IntClock.h" value="HEADER;;;;;UART_1_IntClock" />
   <file name="C:\data\GitHub\rear-driving-camera\Cypress\rear_drive_camera\rear_drive_camera\rear_drive_camera_01.cydsn\codegentemp\cm3gcc.ld" value="LINKER_SCRIPT;;;b98f980c-3bd1-4fc7-a887-c56a20a46fdd;;cy_boot" />

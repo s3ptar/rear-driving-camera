@@ -37,6 +37,7 @@
 #include "Range_2.h"
 #include "HC_SR04_2_Trigger_aliases.h"
 #include "HC_SR04_2_Trigger.h"
+#include "DMA_MEM_TO_UART_dma.h"
 #include "UART_1_IntClock.h"
 #include "core_cm3_psoc5.h"
 #include "CyDmac.h"

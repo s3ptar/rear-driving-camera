@@ -1,6 +1,6 @@
 // ======================================================================
 // rear_drive_camera_01.v generated from TopDesign.cysch
-// 04/11/2021 at 14:32
+// 04/24/2021 at 10:02
 // This file is auto generated. ANY EDITS YOU MAKE MAY BE LOST WHEN THIS FILE IS REGENERATED!!!
 // ======================================================================
 
@@ -325,6 +325,9 @@ endmodule
 // top
 module top ;
 
+          wire  Net_255;
+          wire  Net_256;
+          wire  Net_254;
           wire  Net_252;
           wire  Net_251;
           wire  Net_250;
@@ -1121,6 +1124,15 @@ module top ;
 		  .out_reset({1'b0}));
 
 	assign tmpOE__HC_SR04_2_Trigger_net = (`CYDEV_CHIP_MEMBER_USED == `CYDEV_CHIP_MEMBER_3A && `CYDEV_CHIP_REVISION_USED < `CYDEV_CHIP_REVISION_3A_ES3) ? ~{1'b1} : {1'b1};
+
+
+	cy_dma_v1_0
+		#(.drq_type(2'b10))
+		DMA_MEM_TO_UART
+		 (.drq(1'b0),
+		  .nrq(Net_256),
+		  .trq(1'b0));
+
 
 
 
