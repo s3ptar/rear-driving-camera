@@ -201,6 +201,20 @@
 <v>rear_drive_camera\rear_drive_camera_01\PSoC 5LP Architecture TRM</v>
 <v>rear_drive_camera\rear_drive_camera_01\CY8C58LP Family Datasheet</v>
 <v>rear_drive_camera\rear_drive_camera_01\System Reference Guides</v>
+<v>rear_drive_camera\rear_drive_camera_01\System Reference Guides\cy_boot_v6_0</v>
+<v>rear_drive_camera\rear_drive_camera_01\BasicCounter_v1_0</v>
+<v>rear_drive_camera\rear_drive_camera_01\BasicCounter_v1_0\BasicCounter_v1_0.pdf</v>
+<v>rear_drive_camera\rear_drive_camera_01\cy_clock_v2_20.pdf</v>
+<v>rear_drive_camera\rear_drive_camera_01\cy_constant_v1_0.pdf</v>
+<v>rear_drive_camera\rear_drive_camera_01\cy_pins_v2_20</v>
+<v>rear_drive_camera\rear_drive_camera_01\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
+<v>rear_drive_camera\rear_drive_camera_01\CyControlReg_v1_80.pdf</v>
+<v>rear_drive_camera\rear_drive_camera_01\CyStatusReg_v1_90</v>
+<v>rear_drive_camera\rear_drive_camera_01\CyStatusReg_v1_90\CyStatusReg_v1_90.pdf</v>
+<v>rear_drive_camera\rear_drive_camera_01\DieTemp_v2_10.pdf</v>
+<v>rear_drive_camera\rear_drive_camera_01\Gnd_v1_0.pdf</v>
+<v>rear_drive_camera\rear_drive_camera_01\LED_v1_0.pdf</v>
+<v>rear_drive_camera\rear_drive_camera_01\UART_v2_50.pdf</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
 <v>rear_drive_camera</v>
@@ -208,6 +222,20 @@
 <v>rear_drive_camera\rear_drive_camera_01\PSoC 5LP Architecture TRM</v>
 <v>rear_drive_camera\rear_drive_camera_01\CY8C58LP Family Datasheet</v>
 <v>rear_drive_camera\rear_drive_camera_01\System Reference Guides</v>
+<v>rear_drive_camera\rear_drive_camera_01\System Reference Guides\cy_boot_v6_0</v>
+<v>rear_drive_camera\rear_drive_camera_01\BasicCounter_v1_0</v>
+<v>rear_drive_camera\rear_drive_camera_01\BasicCounter_v1_0\BasicCounter_v1_0.pdf</v>
+<v>rear_drive_camera\rear_drive_camera_01\cy_clock_v2_20.pdf</v>
+<v>rear_drive_camera\rear_drive_camera_01\cy_constant_v1_0.pdf</v>
+<v>rear_drive_camera\rear_drive_camera_01\cy_pins_v2_20</v>
+<v>rear_drive_camera\rear_drive_camera_01\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
+<v>rear_drive_camera\rear_drive_camera_01\CyControlReg_v1_80.pdf</v>
+<v>rear_drive_camera\rear_drive_camera_01\CyStatusReg_v1_90</v>
+<v>rear_drive_camera\rear_drive_camera_01\CyStatusReg_v1_90\CyStatusReg_v1_90.pdf</v>
+<v>rear_drive_camera\rear_drive_camera_01\DieTemp_v2_10.pdf</v>
+<v>rear_drive_camera\rear_drive_camera_01\Gnd_v1_0.pdf</v>
+<v>rear_drive_camera\rear_drive_camera_01\LED_v1_0.pdf</v>
+<v>rear_drive_camera\rear_drive_camera_01\UART_v2_50.pdf</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStatesV2>
@@ -228,7 +256,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1282, 711" SelectedTabbedMdiWindow="d7c7c50d-c21b-4a7f-bb54-e44d4ecf2c77"><DocumentWindow Key="C:\data\GitHub\rear-driving-camera\Cypress\rear_drive_camera\rear_drive_camera\rear_drive_camera_01.cydsn\TopDesign\TopDesign.cysch" Guid="8b9e5876-2705-4a51-b295-fa6a0588caa2" /><DocumentWindow Key="C:\data\GitHub\rear-driving-camera\Cypress\rear_drive_camera\rear_drive_camera\rear_drive_camera_01.cydsn\rear_drive_camera_01.cydwr" Guid="ce9544be-47e5-418e-8704-d978cec894f3" /><DocumentWindow Key="C:\data\GitHub\rear-driving-camera\Cypress\rear_drive_camera\rear_drive_camera\rear_drive_camera_01.cydsn\main.c" Guid="d7c7c50d-c21b-4a7f-bb54-e44d4ecf2c77" /><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="5166fe8e-68d8-463a-9777-8948a4e6ad44" /><DocumentWindow Key="C:\data\GitHub\rear-driving-camera\Cypress\rear_drive_camera\rear_drive_camera\rear_drive_camera_01.cydsn\jsmn.h" Guid="073e3a51-f5c8-43bb-8eed-4aa951e56910" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1564, 711" SelectedTabbedMdiWindow="d7c7c50d-c21b-4a7f-bb54-e44d4ecf2c77"><DocumentWindow Key="C:\data\GitHub\rear-driving-camera\Cypress\rear_drive_camera\rear_drive_camera\rear_drive_camera_01.cydsn\TopDesign\TopDesign.cysch" Guid="8b9e5876-2705-4a51-b295-fa6a0588caa2" /><DocumentWindow Key="C:\data\GitHub\rear-driving-camera\Cypress\rear_drive_camera\rear_drive_camera\rear_drive_camera_01.cydsn\rear_drive_camera_01.cydwr" Guid="ce9544be-47e5-418e-8704-d978cec894f3" /><DocumentWindow Key="C:\data\GitHub\rear-driving-camera\Cypress\rear_drive_camera\rear_drive_camera\rear_drive_camera_01.cydsn\main.c" Guid="d7c7c50d-c21b-4a7f-bb54-e44d4ecf2c77" /><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="5166fe8e-68d8-463a-9777-8948a4e6ad44" /><DocumentWindow Key="C:\data\GitHub\rear-driving-camera\Cypress\rear_drive_camera\rear_drive_camera\rear_drive_camera_01.cydsn\jsmn.h" Guid="073e3a51-f5c8-43bb-8eed-4aa951e56910" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>

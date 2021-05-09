@@ -26,7 +26,32 @@
 /***********************************************************************
 * Declarations
 ***********************************************************************/
- 
+/*
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+
+  "definitions": {
+    "sensor": {
+      "type": "object",
+      "title": "sensor schema",
+      "description": "sensor description",
+      "properties": {
+        "sensor_id":      { "type": "number" },
+        "sensor_value":   { "type": "number" },
+        "power_of_mm":    { "type": "string" }
+      },
+      "required": ["street_address", "city", "state"]
+    }
+  },
+
+  "type": "object",
+
+  "properties": {
+    "billing_address": { "$ref": "#/definitions/address" },
+    "shipping_address": { "$ref": "#/definitions/address" }
+  }
+}
+*/
 /***********************************************************************
 * Global Variable
 ***********************************************************************/
