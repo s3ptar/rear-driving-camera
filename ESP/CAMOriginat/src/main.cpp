@@ -1,7 +1,8 @@
 #include <Arduino.h>
 #include "esp_camera.h"
 #include <WiFi.h>
-#include <LITTLEFS.h>
+
+
 //
 // WARNING!!! PSRAM IC required for UXGA resolution and high JPEG quality
 //            Ensure ESP32 Wrover Module or other board with PSRAM is selected
@@ -17,42 +18,15 @@
 //#define CAMERA_MODEL_M5STACK_ESP32CAM // No PSRAM
 #define CAMERA_MODEL_AI_THINKER // Has PSRAM
 //#define CAMERA_MODEL_TTGO_T_JOURNAL // No PSRAM
+
 #include "camera_pins.h"
 
 
-/***********************************************************************
-* Informations
-***********************************************************************/
-//https://github.com/espressif/arduino-esp32/tree/master/libraries/ESP32/examples/Camera/CameraWebServer
-/***********************************************************************
-* Declarations
-***********************************************************************/
 char* ssid = "chilihotdog";
 char* password = "bxJHckMMkGqEPfY3Jf3nZnAn5FtGYwKZSkzVvbzFHNbpUZfv79GXm8afDuNu";
 
-
-/***********************************************************************
-* Global Variable
-***********************************************************************/
-
-/***********************************************************************
-* Constant
-***********************************************************************/
-
-
-/***********************************************************************
-* Local Funtions
-***********************************************************************/
 void startCameraServer();
 
-
-/***********************************************************************
-*! \fn          void setup()
-*  \brief       Arduino Setup - Routine
-*  \param       none
-*  \exception   none
-*  \return      none
-***********************************************************************/
 void setup() {
     // put your setup code here, to run once:
     Serial.begin(115200);
@@ -127,15 +101,6 @@ void setup() {
     }
     Serial.println("");
     Serial.println("WiFi connected");
-
-    if (!LITTLEFS.begin()) {
-        Serial.println("An Error has occurred while mounting SPIFFS");
-        ESP.restart();
-    }
-    else {
-        delay(500);
-        Serial.println("SPIFFS mounted successfully");
-   }
 
     startCameraServer();
 

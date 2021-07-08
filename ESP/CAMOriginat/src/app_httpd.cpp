@@ -16,9 +16,8 @@
 #include "esp_timer.h"
 #include "esp_camera.h"
 #include "img_converters.h"
+#include "camera_index.h"
 #include "Arduino.h"
-#include <ESPAsyncWebServer.h>
-#include <LITTLEFS.h>
 
 #include "fb_gfx.h"
 #include "fd_forward.h"
@@ -48,9 +47,6 @@ typedef struct {
         httpd_req_t *req;
         size_t len;
 } jpg_chunking_t;
-
-// Create AsyncWebServer object on port 80
-AsyncWebServer server(80);
 
 #define PART_BOUNDARY "123456789000000000000987654321"
 static const char* _STREAM_CONTENT_TYPE = "multipart/x-mixed-replace;boundary=" PART_BOUNDARY;
@@ -594,13 +590,8 @@ static esp_err_t index_handler(httpd_req_t *req){
 }
 
 void startCameraServer(){
-    //httpd_config_t config = HTTPD_DEFAULT_CONFIG();
+    httpd_config_t config = HTTPD_DEFAULT_CONFIG();
 
-
-    // Route for root / web page
-    server.on("/", HTTP_GET, [](AsyncWebServerRequest *request){
-        request->send(LITTLEFS, "/index.html", String(), false);
-    });
     httpd_uri_t index_uri = {
         .uri       = "/",
         .method    = HTTP_GET,
