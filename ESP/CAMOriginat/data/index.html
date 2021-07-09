@@ -34,6 +34,16 @@
                 margin-top: -10px;
                 margin-right: 10px;
             }
+			#stream_menu {
+                display: flex;
+                flex-wrap: nowrap;
+                min-width: 340px;
+                background: #363636;
+                padding: 8px;
+                border-radius: 4px;
+                margin-top: -10px;
+                margin-right: 10px;
+            }
 
             #content {
                 display: flex;
@@ -342,9 +352,9 @@
                 <label for="nav-toggle-cb" id="nav-toggle">&#9776;&nbsp;&nbsp;Toggle OV2640 settings</label>
             </div>
             <div id="content">
-                <div id="sidebar">
-                    <input type="checkbox" id="nav-toggle-cb" checked="checked">
-                    <nav id="menu">
+                <div id="sidebar" type="hidden">
+                    <input type="checkbox" id="nav-toggle-cb" >
+                    <nav id="menu" >
                         <div class="input-group" id="framesize-group">
                             <label for="framesize">Resolution</label>
                             <select id="framesize" class="default-action">
@@ -534,12 +544,15 @@
                                 <label class="slider" for="face_recognize"></label>
                             </div>
                         </div>
-                        <section id="buttons">
+
+                    </nav>
+					<nav id="stream_menu" >
+					    <section id="buttons">
                             <button id="get-still">Get Still</button>
                             <button id="toggle-stream">Start Stream</button>
-                            <button id="face_enroll" class="disabled" disabled="disabled">Enroll Face</button>
+							<button id="toggle-LED">Start LED</button>
                         </section>
-                    </nav>
+					</nav>
                 </div>
                 <figure>
                     <div id="stream-container" class="image-container hidden">
@@ -655,6 +668,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
   const viewContainer = document.getElementById('stream-container')
   const stillButton = document.getElementById('get-still')
   const streamButton = document.getElementById('toggle-stream')
+  const LEDButton = document.getElementById('toggle-LED')
   const enrollButton = document.getElementById('face_enroll')
   const closeButton = document.getElementById('close-stream')
 
@@ -667,6 +681,23 @@ document.addEventListener('DOMContentLoaded', function (event) {
     view.src = `${streamUrl}/stream`
     show(viewContainer)
     streamButton.innerHTML = 'Stop Stream'
+  }
+  
+    const stopLED = () => {
+    LEDButton.innerHTML = 'Start LED'
+  }
+
+  const startLED = () => {
+    LEDButton.innerHTML = 'Stop LED'
+  }
+  
+  LEDButton.onclick = () => {
+    const LEDEnabled = LEDButton.innerHTML === 'Stop LED'
+    if (LEDEnabled) {
+      stopLED()
+    } else {
+      startLED()
+    }
   }
 
   // Attach actions to buttons

@@ -35,6 +35,17 @@
                 margin-right: 10px;
             }
 
+            #stream_menu {
+                display: flex;
+                flex-wrap: nowrap;
+                min-width: 340px;
+                background: #363636;
+                padding: 8px;
+                border-radius: 4px;
+                margin-top: -10px;
+                margin-right: 10px;
+            }
+
             #content {
                 display: flex;
                 flex-wrap: wrap;
@@ -343,8 +354,8 @@
             </div>
             <div id="content">
                 <div id="sidebar">
-                    <input type="checkbox" id="nav-toggle-cb" checked="checked">
-                    <nav id="menu">
+                    <input type="checkbox" id="nav-toggle-cb">
+                    <nav id="menu" >
                         <div class="input-group" id="framesize-group">
                             <label for="framesize">Resolution</label>
                             <select id="framesize" class="default-action">
@@ -535,10 +546,13 @@
                             </div>
                         </div>
                         <section id="buttons">
-                            <button id="get-still">Get Still</button>
-                            <button id="toggle-stream">Start Stream</button>
                             <button id="face_enroll" class="disabled" disabled="disabled">Enroll Face</button>
                         </section>
+                    </nav>
+                    <nav id="stream_menu" >
+                        <button id="get-still">Get Still</button>
+                        <button id="toggle-stream">Start Stream</button>
+                        <button id="toggle-LED">Start LED</button>
                     </nav>
                 </div>
                 <figure>
@@ -657,6 +671,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
   const streamButton = document.getElementById('toggle-stream')
   const enrollButton = document.getElementById('face_enroll')
   const closeButton = document.getElementById('close-stream')
+  const LEDButton = document.getElementById('toggle-LED')
 
   const stopStream = () => {
     window.stop();
@@ -667,6 +682,23 @@ document.addEventListener('DOMContentLoaded', function (event) {
     view.src = `${streamUrl}/stream`
     show(viewContainer)
     streamButton.innerHTML = 'Stop Stream'
+  }
+
+  const stopLED = () => {
+    LEDButton.innerHTML = 'Start LED'
+  }
+
+  const startLED = () => {
+    LEDButton.innerHTML = 'Stop LED'
+  }
+  
+  LEDButton.onclick = () => {
+    const LEDEnabled = LEDButton.innerHTML === 'Stop LED'
+    if (LEDEnabled) {
+      stopLED()
+    } else {
+      startLED()
+    }
   }
 
   // Attach actions to buttons
