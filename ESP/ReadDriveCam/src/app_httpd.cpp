@@ -13,11 +13,12 @@
 // limitations under the License.
 #if 1
 
-#include <LITTLEFS.h>
 #include "Arduino.h"
 #include "esp_camera.h"
 #include "ESPAsyncWebServer.h"
 #include <SPIFFS.h>
+#include "settings.h"
+#include "camera_pins.h"
 
 AsyncWebServer server(80);
 
@@ -395,7 +396,9 @@ void setCameraVar(AsyncWebServerRequest *request){
     else if(!strcmp(variable, "special_effect")) res = s->set_special_effect(s, val);
     else if(!strcmp(variable, "wb_mode")) res = s->set_wb_mode(s, val);
     else if(!strcmp(variable, "ae_level")) res = s->set_ae_level(s, val);
-
+#if defined(LED_GPIO)
+    else if(!strcmp(variable, "led_switch")) digitalWrite(LED_GPIO, val);
+#endif
     else {
         log_e("unknown setting %s", var.c_str());
         request->send(404);

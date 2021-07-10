@@ -20,7 +20,7 @@
                 display: flex
             }
 
-            #menu,section.main {
+            #menu,#stream_menu,section.main {
                 flex-direction: column
             }
 
@@ -550,9 +550,17 @@
                         </section>
                     </nav>
                     <nav id="stream_menu" >
-                        <button id="get-still">Get Still</button>
-                        <button id="toggle-stream">Start Stream</button>
-                        <button id="toggle-LED">Start LED</button>
+                        <div class="input-group" id="led_switch-group">
+                            <label for="led_switch">LED On/Off</label>
+                            <div class="switch">
+                                <input id="led_switch" type="checkbox" class="default-action" checked="checked">
+                                <label class="slider" for="led_switch"></label>
+                            </div>
+                        </div>
+                        <section id="buttons">
+                            <button id="get-still">Get Still</button>
+                            <button id="toggle-stream">Start Stream</button>
+                        </section>
                     </nav>
                 </div>
                 <figure>
@@ -671,7 +679,6 @@ document.addEventListener('DOMContentLoaded', function (event) {
   const streamButton = document.getElementById('toggle-stream')
   const enrollButton = document.getElementById('face_enroll')
   const closeButton = document.getElementById('close-stream')
-  const LEDButton = document.getElementById('toggle-LED')
 
   const stopStream = () => {
     window.stop();
@@ -682,23 +689,6 @@ document.addEventListener('DOMContentLoaded', function (event) {
     view.src = `${streamUrl}/stream`
     show(viewContainer)
     streamButton.innerHTML = 'Stop Stream'
-  }
-
-  const stopLED = () => {
-    LEDButton.innerHTML = 'Start LED'
-  }
-
-  const startLED = () => {
-    LEDButton.innerHTML = 'Stop LED'
-  }
-  
-  LEDButton.onclick = () => {
-    const LEDEnabled = LEDButton.innerHTML === 'Stop LED'
-    if (LEDEnabled) {
-      stopLED()
-    } else {
-      startLED()
-    }
   }
 
   // Attach actions to buttons
@@ -763,6 +753,14 @@ document.addEventListener('DOMContentLoaded', function (event) {
   awb.onchange = () => {
     updateConfig(awb)
     awb.checked ? show(wb) : hide(wb)
+  }
+
+  // LED
+  const led = document.getElementById('led_switch')
+  const ledsw = document.getElementById('led_switch-group')
+  led.onchange = () => {
+    updateConfig(led)
+    //led.checked ? show(ledsw) : hide(ledsw)
   }
 
   // Detection and framesize

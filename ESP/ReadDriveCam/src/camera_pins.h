@@ -1,3 +1,6 @@
+
+
+
 #if defined(CAMERA_MODEL_WROVER_KIT)
 #define PWDN_GPIO_NUM    -1
 #define RESET_GPIO_NUM   -1
@@ -130,6 +133,7 @@
 #define VSYNC_GPIO_NUM    25
 #define HREF_GPIO_NUM     23
 #define PCLK_GPIO_NUM     22
+#define LED_GPIO          4
 
 #elif defined(CAMERA_MODEL_TTGO_T_JOURNAL)
 #define PWDN_GPIO_NUM      0
