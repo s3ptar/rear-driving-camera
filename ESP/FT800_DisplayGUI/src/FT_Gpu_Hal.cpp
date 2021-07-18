@@ -5,6 +5,7 @@
  
 #include "FT_Platform.h"
 #include "FT_LCD_Type.h"
+#include "FT_Gpu.h"
 #include <Arduino.h>
 #include <SPI.h>
  
@@ -108,7 +109,7 @@ ft_void_t FT800::BootupConfig(void){
     Ft_Gpu_Hal_Wr8(  REG_GPIO,0x080);     //| Ft_Gpu_Hal_Rd8( REG_GPIO));
     
     Ft_Gpu_Hal_Wr32(  RAM_DL, CLEAR(1,1,1));
-    Ft_Gpu_Hal_Wr32(  RAM_DL+4, DISPLAY);
+    Ft_Gpu_Hal_Wr32(  RAM_DL+4, DISPLAY());
     Ft_Gpu_Hal_Wr32(  REG_DLSWAP,1);
     
     Ft_Gpu_Hal_Wr16(  REG_PCLK, FT_DispPCLK);
@@ -339,6 +340,38 @@ ft_void_t FT800::Ft_Gpu_Hal_WrCmdBuf( ft_uint8_t *buffer,ft_uint16_t count)
                     SizeTransfered ++;
         }
                 length = SizeTransfered;
+ 
+        Ft_Gpu_Hal_EndTransfer( );
+        Ft_Gpu_Hal_Updatecmdfifo( length);
+ 
+        Ft_Gpu_Hal_WaitCmdfifo_empty( );
+ 
+        count -= length;
+    }while (count > 0);
+}
+
+ft_void_t FT800::Ft_Gpu_Hal_WrCmdBufSTR(String msg, ft_uint16_t count)
+{
+    ft_uint32_t length =0, SizeTransfered = 0;  
+    char data[32]; 
+ 
+#define MAX_CMD_FIFO_TRANSFER   Ft_Gpu_Cmdfifo_Freespace( )  
+    do {                
+        length = count;
+        if (length > MAX_CMD_FIFO_TRANSFER){
+            length = MAX_CMD_FIFO_TRANSFER;
+        }
+        Ft_Gpu_Hal_CheckCmdBuffer( length);
+        Ft_Gpu_Hal_StartCmdTransfer( FT_GPU_WRITE,length);
+ 
+        SizeTransfered = 0;
+        while (length--) {
+            sprintf(&data[0],"FR:0x%02x; NR:%04u\r\n", (char)msg[SizeTransfered],SizeTransfered);
+            Serial.print(data);
+            Ft_Gpu_Hal_Transfer8((char)msg[SizeTransfered]);
+            SizeTransfered +=1;
+        }
+        length = SizeTransfered;
  
         Ft_Gpu_Hal_EndTransfer( );
         Ft_Gpu_Hal_Updatecmdfifo( length);

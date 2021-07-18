@@ -19,6 +19,7 @@
 #define FT_GPU_HAL_H
  
 #include "FT_DataTypes.h"
+#include <Arduino.h>
 //#include "SPI.h"
  
 typedef enum {
@@ -133,6 +134,7 @@ public:
     ft_void_t Ft_Gpu_Hal_Updatecmdfifo(ft_uint16_t count);
     ft_void_t Ft_Gpu_Hal_WrCmd32(ft_uint32_t cmd);
     ft_void_t Ft_Gpu_Hal_WrCmdBuf(ft_uint8_t *buffer,ft_uint16_t count);
+    ft_void_t Ft_Gpu_Hal_WrCmdBufSTR(String msg, ft_uint16_t count);
     ft_void_t Ft_Gpu_Hal_WaitCmdfifo_empty();
     ft_void_t Ft_Gpu_Hal_ResetCmdFifo();
     ft_void_t Ft_Gpu_Hal_CheckCmdBuffer(ft_uint16_t count);
