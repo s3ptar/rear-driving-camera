@@ -348,40 +348,7 @@ ft_void_t FT800::Ft_Gpu_Hal_WrCmdBuf( ft_uint8_t *buffer,ft_uint16_t count)
  
         count -= length;
     }while (count > 0);
-}
-
-ft_void_t FT800::Ft_Gpu_Hal_WrCmdBufSTR(String msg, ft_uint16_t count)
-{
-    ft_uint32_t length =0, SizeTransfered = 0;  
-    char data[32]; 
- 
-#define MAX_CMD_FIFO_TRANSFER   Ft_Gpu_Cmdfifo_Freespace( )  
-    do {                
-        length = count;
-        if (length > MAX_CMD_FIFO_TRANSFER){
-            length = MAX_CMD_FIFO_TRANSFER;
-        }
-        Ft_Gpu_Hal_CheckCmdBuffer( length);
-        Ft_Gpu_Hal_StartCmdTransfer( FT_GPU_WRITE,length);
- 
-        SizeTransfered = 0;
-        while (length--) {
-            sprintf(&data[0],"FR:0x%02x; NR:%04u\r\n", (char)msg[SizeTransfered],SizeTransfered);
-            Serial.print(data);
-            Ft_Gpu_Hal_Transfer8((char)msg[SizeTransfered]);
-            SizeTransfered +=1;
-        }
-        length = SizeTransfered;
- 
-        Ft_Gpu_Hal_EndTransfer( );
-        Ft_Gpu_Hal_Updatecmdfifo( length);
- 
-        Ft_Gpu_Hal_WaitCmdfifo_empty( );
- 
-        count -= length;
-    }while (count > 0);
-}
- 
+} 
  
 ft_void_t FT800::Ft_Gpu_Hal_WrCmdBufFromFlash( FT_PROGMEM ft_prog_uchar8_t *buffer,ft_uint16_t count)
 {
