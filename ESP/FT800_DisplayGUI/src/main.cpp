@@ -17,6 +17,9 @@ char* ssid = "chilihotdog";
 char* password = "bxJHckMMkGqEPfY3Jf3nZnAn5FtGYwKZSkzVvbzFHNbpUZfv79GXm8afDuNu";
 FT800 eve(5,10,9);
 HTTPClient http;
+uint8_t jpg_buffer[8192];
+uint8_t *ptr_jpg_buffer;
+char data[32];
 /***********************************************************************
 * Global Variable
 ***********************************************************************/
@@ -90,32 +93,36 @@ delay(10000);
             unsigned int Fsize = payload.length();
             cur_string_pos = 0;
             Serial.print("File Size:");Serial.println(Fsize);
+
+            ptr_jpg_buffer = &jpg_buffer[0];
+            for(uint16_t loop_index=0; loop_index < Fsize; loop_index++ ){
+               *ptr_jpg_buffer = (uint8_t)payload.substring(loop_index+0,loop_index+1)[0];
+               ptr_jpg_buffer ++;
+            }
+            //clear String 
+            payload = "";
             
-            marker = (char)payload.substring(cur_string_pos+0,cur_string_pos+1)[0]*256; 
-            marker += (char)payload.substring(cur_string_pos+1,cur_string_pos+2)[0]; 
+            marker = jpg_buffer[0] + (jpg_buffer[1]<<8);
+            cur_string_pos = 0;
             //length = payload.substring(cur_string_pos+2,2).toInt();
             do {
                 if(marker == 0xFFC0) break;
                 if(marker & 0xFF00 != 0xFF00) break;
                 if(cur_string_pos > Fsize) break;
                 //if (fseek(fp, length - 2,SEEK_CUR) != 0) break;
-                marker = (char)payload.substring(cur_string_pos+0,cur_string_pos+1)[0]*256; 
-                marker += (char)payload.substring(cur_string_pos+1,cur_string_pos+2)[0]; 
-                //length = payload.substring(cur_string_pos+2,cur_string_pos+4).toInt();
-                //sprintf(&data[0],"0x%04x", marker);
+                marker = jpg_buffer[cur_string_pos+1] + (jpg_buffer[cur_string_pos+0]<<8);
+                sprintf(&data[0],"0x%04x", marker);
                 cur_string_pos += 2;
-                //Serial.print("Marker :");Serial.print(data);Serial.print(" Pos:");Serial.println(cur_string_pos); 
+                Serial.print("Marker :");Serial.print(data);Serial.print(" Pos:");Serial.println(cur_string_pos); 
             } while(1);
             if(marker != 0xFFC0){
                 Serial.println("no FFC0 Marker, wrong format no baseline DCT-based JPEG");  // no FFC0 Marker, wrong format no baseline DCT-based JPEG
             }else{
                 cur_string_pos += 3;
-                y_pic_size = (char)payload.substring(cur_string_pos+0,cur_string_pos+1)[0]*256; 
-                y_pic_size += (char)payload.substring(cur_string_pos+1,cur_string_pos+2)[0];
+                y_pic_size = jpg_buffer[cur_string_pos+1] + (jpg_buffer[cur_string_pos+0]<<8);
                 Serial.print("Y Pic Size:");Serial.println(y_pic_size);
                 cur_string_pos += 2; 
-                x_pic_size = (char)payload.substring(cur_string_pos+0,cur_string_pos+1)[0]*256; 
-                x_pic_size += (char)payload.substring(cur_string_pos+1,cur_string_pos+2)[0]; 
+                x_pic_size = jpg_buffer[cur_string_pos+1] + (jpg_buffer[cur_string_pos+0]<<8);
                 Serial.print("X Pic Size:");Serial.println(x_pic_size);
 
                 cur_string_pos = 0;
@@ -130,7 +137,7 @@ delay(10000);
                     Fsize -= blocklen;
                     Serial.print("File Size:");Serial.println(Fsize);
                     /* copy data continuously into command memory */
-                    eve.Ft_Gpu_Hal_WrCmdBufSTR(payload,blocklen); //alignment is already taken care by this api
+                    eve.Ft_Gpu_Hal_WrCmdBuf(&jpg_buffer[0],blocklen); //alignment is already taken care by this api
                 }
                 Serial.println("Display IT");
                 eve.Ft_App_WrCoCmd_Buffer(BEGIN(BITMAPS));
