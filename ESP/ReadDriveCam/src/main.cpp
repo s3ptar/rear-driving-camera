@@ -13,7 +13,7 @@
 
 
 #include "camera_pins.h"
-
+#include <Ultrasonic.h>
 
 /***********************************************************************
 * Informations
@@ -24,12 +24,13 @@
 ***********************************************************************/
 char* ssid = "chilihotdog";
 char* password = "bxJHckMMkGqEPfY3Jf3nZnAn5FtGYwKZSkzVvbzFHNbpUZfv79GXm8afDuNu";
-
+//Ultrasonic ultrasonic_left(12, 13);	// An ultrasonic sensor HC-04
+Ultrasonic ultrasonic_right(14, 15);	// An ultrasonic sensor HC-04
 
 /***********************************************************************
 * Global Variable
 ***********************************************************************/
-
+uint16_t range_left, range_right;
 /***********************************************************************
 * Constant
 ***********************************************************************/
@@ -146,5 +147,13 @@ void setup() {
 void loop() {
     // put your main code here, to run repeatedly:
     // put your main code here, to run repeatedly:
-    delay(10000);
+    Serial.print("Sensor left: ");
+    //range_left = ultrasonic_left.read(CM);
+    Serial.print(range_left); // Prints the distance making the unit explicit
+    Serial.println("cm");
+    Serial.print("Sensor right: ");
+    range_right = ultrasonic_right.read(CM);
+    Serial.print(range_right); // Prints the distance making the unit explicit
+    Serial.println("cm");
+    delay(5000);
 }
