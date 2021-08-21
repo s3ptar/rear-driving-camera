@@ -805,15 +805,22 @@ document.addEventListener('DOMContentLoaded', function (event) {
             updateValue(recognize, false)
             return;
         }
-        updateConfig(recognize)
-        if (recognize.checked) {
-            enable(enrollButton)
-            updateValue(detect, true)
-        } else {
-             disable(enrollButton)
-        }
+    updateConfig(recognize)
+    if (recognize.checked) {
+      enable(enrollButton)
+      updateValue(detect, true)
+    } else {
+      disable(enrollButton)
     }
-});
+  }
+})
+
+function RefreshValues() {
+	//alert("Hello");
+    xhr.open("GET", "/update?state=0", true); 
+	console.log("Check");
+}
+//setInterval(RefreshValues, 1000);
 
 setInterval(function ( ) {
     var xhttp = new XMLHttpRequest();
@@ -821,13 +828,7 @@ setInterval(function ( ) {
         if (this.readyState == 4 && this.status == 200) {
             //var x = (new Date()).getTime(),
             //y = parseFloat(this.responseText);
-            test = 0;
-            console.log(this.response);
-            this.response.json();
-            this.response.forEach(el => {
-                console.log(test);
-                test = test + 1; 
-            })
+            console.log(this.responseText);
         }
     };
     xhttp.open("GET", "/distance", true);

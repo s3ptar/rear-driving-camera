@@ -24,7 +24,7 @@
 ***********************************************************************/
 char* ssid = "chilihotdog";
 char* password = "bxJHckMMkGqEPfY3Jf3nZnAn5FtGYwKZSkzVvbzFHNbpUZfv79GXm8afDuNu";
-//Ultrasonic ultrasonic_left(12, 13);	// An ultrasonic sensor HC-04
+Ultrasonic ultrasonic_left(12, 13);	// An ultrasonic sensor HC-04
 Ultrasonic ultrasonic_right(14, 15);	// An ultrasonic sensor HC-04
 
 /***********************************************************************

@@ -21,6 +21,8 @@
 #include "camera_pins.h"
 
 AsyncWebServer server(80);
+extern Ultrasonic ultrasonic_right;
+extern Ultrasonic ultrasonic_left;
 
 typedef struct {
         camera_fb_t * fb;
@@ -345,6 +347,9 @@ void getCameraStatus(AsyncWebServerRequest *request){
     p+=sprintf(p, "\"vflip\":%u,", s->status.vflip);
     p+=sprintf(p, "\"dcw\":%u,", s->status.dcw);
     p+=sprintf(p, "\"colorbar\":%u", s->status.colorbar);
+#if defined(LED_GPIO)
+    p+=sprintf(p, "\"led_switch\":%u", digitalRead(LED_GPIO));
+#endif
     *p++ = '}';
     *p++ = 0;
 
@@ -411,6 +416,23 @@ void setCameraVar(AsyncWebServerRequest *request){
     request->send(response);
 }
 
+void getDistance(AsyncWebServerRequest *request){
+    static char json_response[1024];
+    char * p = json_response;
+    *p++ = '{';
+
+    p+=sprintf(p, "\"item_left_range\":%u,", ultrasonic_left.read(CM));
+    p+=sprintf(p, "\"item_right_range\":%u,", ultrasonic_right.read(CM));
+    
+    *p++ = '}';
+    *p++ = 0;
+
+    AsyncWebServerResponse * response = request->beginResponse(200, "application/json", json_response);
+    response->addHeader("Access-Control-Allow-Origin", "*");
+    request->send(response);
+
+}
+
 void startCameraServer(){
 
     server.on("/", HTTP_GET, [](AsyncWebServerRequest *request){
@@ -421,6 +443,7 @@ void startCameraServer(){
     server.on("/stream", HTTP_GET, streamJpg);
     server.on("/control", HTTP_GET, setCameraVar);
     server.on("/status", HTTP_GET, getCameraStatus);
+    server.on("/distance", HTTP_GET, getDistance);
     server.begin();
     
 }
