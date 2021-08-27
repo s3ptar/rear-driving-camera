@@ -419,12 +419,14 @@ void setCameraVar(AsyncWebServerRequest *request){
 void getDistance(AsyncWebServerRequest *request){
     static char json_response[1024];
     char * p = json_response;
-    *p++ = '{';
+    *p++ = '[';
 
-    p+=sprintf(p, "\"item_left_range\":%u,", ultrasonic_left.read(CM));
-    p+=sprintf(p, "\"item_right_range\":%u,", ultrasonic_right.read(CM));
+    p+=sprintf(p, "{\"id\":\"id_left_range\",");
+    p+=sprintf(p, "\"range\":%u},", ultrasonic_left.read(CM));
+    p+=sprintf(p, "{\"id\":\"id_right_range\",");
+    p+=sprintf(p, "\"range\":%u}", ultrasonic_right.read(CM));
     
-    *p++ = '}';
+    *p++ = ']';
     *p++ = 0;
 
     AsyncWebServerResponse * response = request->beginResponse(200, "application/json", json_response);
